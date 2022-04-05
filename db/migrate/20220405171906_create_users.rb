@@ -7,8 +7,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :avatar_url
       t.string :btc_address
       t.string :eth_address
-      t.string :favorites
-      t.integer :followers
 
       t.timestamps
     end

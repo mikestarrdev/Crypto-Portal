@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :reputations
+  resources :favorites
   resources :comments
-  resources :likes
-  resources :forums
+  resources :posts
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
