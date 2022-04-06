@@ -17,7 +17,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
     end
 
     def update
-        comment.update(comment_params)
+        comment.update!(comment_params)
         render json: comment, status: :accepted
     end
 
