@@ -7,8 +7,7 @@
 # A user can create an account and securely login
 # A user can create a profile (about me section, avatar URL, Ethereum address)
 # A user can view other User’s profiles
-# Users can follow other users, this will be displayed on a User’s feed when he logs in
-# Users can create posts to their profile and shill their favorite projects
+# Users can create posts to their profile (and shill their favorite projects)
 # Users can privately message other users on the site
 # A user can add tokens to his favotires
 
