@@ -2,7 +2,7 @@
 
 one:
   username: MyString
-  password: MyString
+  password_digest: MyString
   email: MyString
   avatar_url: MyString
   btc_address: MyString
@@ -10,7 +10,7 @@ one:
 
 two:
   username: MyString
-  password: MyString
+  password_digest: MyString
   email: MyString
   avatar_url: MyString
   btc_address: MyString

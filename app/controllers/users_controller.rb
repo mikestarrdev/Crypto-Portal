@@ -8,8 +8,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: user, status: :ok
+        render json: user
     end
+
 
     def create
         user = User.create!(user_params)
@@ -26,6 +27,15 @@ class UsersController < ApplicationController
         render :no_head
     end
 
+    def auth
+        user = User.find(session[:user_id])
+        if user
+          render json: user
+        else
+          render json: { error: "Not authorized" }, status: :unauthorized
+        end
+    end
+
     private
 
     def user
@@ -33,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:username, :password, :email, :avatar_url, :btc_address, :eth_address)
+        params.permit(:username, :password, :password_confirmation, :email, :avatar_url, :btc_address, :eth_address)
     end
 
     def render_not_found

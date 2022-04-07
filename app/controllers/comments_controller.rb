@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
-rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
+    # before_action :authorized
+    
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+    rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
 
     def index
         comments = Comment.all
