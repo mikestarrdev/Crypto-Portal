@@ -15,10 +15,7 @@ function Login({ setCurrentUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json()
-          .then((user) => {
-            setCurrentUser(user);
-          })
-          .then((user) => setCurrentUser(user));
+        .then((user) => setCurrentUser(user));
       }
     });
   }

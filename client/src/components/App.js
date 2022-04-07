@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../index.css";
+import { Routes, Route, Link } from "react-router-dom";
+import GlobalStyle from "../globalStyles";
+import Signup from "./Signup";
 import Login from "./Login";
+import Logout from "./Logout";
 import CoinTracker from "./CoinTracker";
 
 function App() {
@@ -9,20 +12,30 @@ function App() {
   useEffect(() => {
     fetch("/auth").then((res) => {
       if (res.ok) {
-        res.json().then((currentUser) => setCurrentUser(currentUser));
+        res.json().then((currentUser) => {
+          console.log(currentUser);
+          setCurrentUser(currentUser.username);
+        });
       }
     });
   }, []);
 
   return (
     <div>
-      {currentUser ? (
-        <h3>Welcome! You're logged in {currentUser} </h3>
-      ) : (
+      <GlobalStyle />
+      {!currentUser ? <Signup /> : null}
+      {!currentUser ? (
         <Login setCurrentUser={setCurrentUser} />
+      ) : (
+        <Logout setCurrentUser={setCurrentUser} />
       )}
       <h1>Crypto Portal</h1>
       <CoinTracker />
+
+      {/* <Routes>
+        <Route path="signup" element={<Signup />} />
+        {/* <Route path="login" element={<Login />} />
+      </Routes> */}
     </div>
   );
 }
