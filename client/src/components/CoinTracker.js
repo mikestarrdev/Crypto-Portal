@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
 import CoinChart from "./CoinChart";
 
-function CoinTracker() {
+function CoinTracker({ user }) {
   const [coinData, setCoinData] = useState([]);
   const [searched, setSearched] = useState("");
 
@@ -44,6 +44,7 @@ function CoinTracker() {
   const coinTable = coinData.map((coin) => {
     return (
       <CoinTrackerRow
+        user={user}
         key={uuidv4()}
         rank={coin.market_cap_rank}
         image={coin.image}
@@ -58,23 +59,25 @@ function CoinTracker() {
   });
 
   return (
-    <CoinTrackerTable>
+    <div>
       <h3>Cryptocurrency Prices By Marketcap</h3>
       <table>
         <thead>
-          <th></th>
-          <th>Rank</th>
-          <th>Coin</th>
-          <th>Price</th>
-          <th>High 24h</th>
-          <th>Low 24h</th>
-          <th>Price Change 24h</th>
-          <th>Market Cap</th>
+          <tr>
+            <th></th>
+            <th>Rank</th>
+            <th>Coin</th>
+            <th>Price</th>
+            <th>High 24h</th>
+            <th>Low 24h</th>
+            <th>Price Change 24h</th>
+            <th>Market Cap</th>
+          </tr>
         </thead>
         <tbody>{coinTable}</tbody>
       </table>
       {/* <CoinChart /> */}
-    </CoinTrackerTable>
+    </div>
   );
 }
 

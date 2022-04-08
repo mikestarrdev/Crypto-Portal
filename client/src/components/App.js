@@ -8,7 +8,7 @@ import Logout from "./Logout";
 import CoinTracker from "./CoinTracker";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState("");
+  const [user, setUser] = useState("");
 
   const AppContainer = styled.div`
     display: grid;
@@ -18,9 +18,9 @@ function App() {
   useEffect(() => {
     fetch("/auth").then((res) => {
       if (res.ok) {
-        res.json().then((currentUser) => {
-          console.log(currentUser);
-          setCurrentUser(currentUser.username);
+        res.json().then((user) => {
+          console.log(user);
+          setUser(user);
         });
       }
     });
@@ -29,15 +29,11 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      {!currentUser ? <Signup /> : null}
-      {!currentUser ? (
-        <Login setCurrentUser={setCurrentUser} />
-      ) : (
-        <Logout setCurrentUser={setCurrentUser} />
-      )}
+      {!user ? <Signup /> : null}
+      {!user ? <Login setUser={setUser} /> : <Logout setUser={setUser} />}
       <h1>Crypto Portal</h1>
       <AppContainer>
-        <CoinTracker />
+        <CoinTracker user={user} />
       </AppContainer>
 
       {/* <Routes>

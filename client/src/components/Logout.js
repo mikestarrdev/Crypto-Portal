@@ -1,6 +1,6 @@
 import React from "react";
 
-function Logout({ setCurrentUser }) {
+function Logout({ setUser }) {
   function handleLogout(e) {
     e.preventDefault();
     fetch("/logout", {
@@ -8,7 +8,7 @@ function Logout({ setCurrentUser }) {
     }).then((r) => {
       if (r.ok) {
         console.log("user logged out");
-        setCurrentUser(null);
+        setUser(null);
       }
     });
   }

@@ -2,8 +2,8 @@ import react, { useState } from "react";
 import styled from "styled-components";
 
 function CoinTrackerRow({
+  user,
   rank,
-
   image,
   symbol,
   currentPrice,
@@ -12,24 +12,47 @@ function CoinTrackerRow({
   priceChange24h,
   mktCap,
 }) {
+  console.log(symbol, image, rank);
   const [favorited, setFavorited] = useState(false);
 
   const TableRow = styled.tr`
     &:hover {
-      background: yellow;
+      background: lightyellow;
     }
   `;
   const StyledCells = styled.td`
     text-align: left;
   `;
 
-  function handleFavorite(e) {
-    e.preventDefault();
+  function handleCreateFavorite() {
+    fetch("/favorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: user.id, token: symbol }),
+    })
+      .then((r) => r.json())
+      .then((favorite) => {
+        console.log(favorite);
+        setFavorited(true);
+      });
+  }
+
+  function handleDeleteFavorite() {
+    fetch("/favorites", {
+      method: "DELETE",
+    }).then((r) => {
+      r.json();
+      setFavorited(false);
+    });
   }
 
   return (
     <TableRow>
-      <td onClick={handleFavorite}>{!favorited ? "☆" : "⭐️"}</td>
+      <td onClick={!favorited ? handleCreateFavorite : handleDeleteFavorite}>
+        {!favorited ? "☆" : "⭐️"}
+      </td>
       <td>{rank}</td>
       <StyledCells>
         <img src={image} width="20em" /> {symbol.toUpperCase()}

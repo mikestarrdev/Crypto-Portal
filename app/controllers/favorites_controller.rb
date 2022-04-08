@@ -10,8 +10,8 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        favorite = Favorite.create!(user_params)
-        render json: user, status: :created
+        favorite = Favorite.create!(favorite_params)
+        render json: favorite, status: :created
     end
 
     def update
