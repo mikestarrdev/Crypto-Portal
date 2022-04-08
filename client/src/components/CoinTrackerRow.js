@@ -1,5 +1,14 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import styled from "styled-components";
+
+const TableRow = styled.tr`
+  &:hover {
+    background: lightyellow;
+  }
+`;
+const StyledCells = styled.td`
+  text-align: left;
+`;
 
 function CoinTrackerRow({
   user,
@@ -12,17 +21,17 @@ function CoinTrackerRow({
   priceChange24h,
   mktCap,
 }) {
-  console.log(symbol, image, rank);
-  const [favorited, setFavorited] = useState(false);
+  const [tokenID, setTokenID] = useState(null);
 
-  const TableRow = styled.tr`
-    &:hover {
-      background: lightyellow;
-    }
-  `;
-  const StyledCells = styled.td`
-    text-align: left;
-  `;
+  // check if token is in User favorites
+  function searchFavorites() {
+    const findToken = user.favorites?.find(
+      (favorite) => favorite.token === symbol
+    );
+    setTokenID(findToken);
+  }
+
+  useEffect(searchFavorites, [user.favorites]);
 
   function handleCreateFavorite() {
     fetch("/favorites", {
@@ -35,23 +44,23 @@ function CoinTrackerRow({
       .then((r) => r.json())
       .then((favorite) => {
         console.log(favorite);
-        setFavorited(true);
+        setTokenID(favorite);
       });
   }
 
   function handleDeleteFavorite() {
-    fetch("/favorites", {
+    fetch(`/favorites/${tokenID.id}`, {
       method: "DELETE",
     }).then((r) => {
       r.json();
-      setFavorited(false);
+      setTokenID(false);
     });
   }
 
   return (
     <TableRow>
-      <td onClick={!favorited ? handleCreateFavorite : handleDeleteFavorite}>
-        {!favorited ? "☆" : "⭐️"}
+      <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
+        {!tokenID ? "☆" : "⭐️"}
       </td>
       <td>{rank}</td>
       <StyledCells>

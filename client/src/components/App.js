@@ -19,7 +19,7 @@ function App() {
     fetch("/auth").then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          console.log(user);
+          // console.log(user);
           setUser(user);
         });
       }

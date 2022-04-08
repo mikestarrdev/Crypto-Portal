@@ -4,29 +4,29 @@ import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
 import CoinChart from "./CoinChart";
 
+const CoinTrackerTable = styled.table`
+  grid-column-start: 1;
+  margin: auto;
+`;
+
+const TableHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const StyledCells = styled.td`
+  text-align: left;
+`;
+
+const TableRow = styled.tr`
+  &:hover {
+    background: yellow;
+  }
+`;
+
 function CoinTracker({ user }) {
   const [coinData, setCoinData] = useState([]);
   const [searched, setSearched] = useState("");
-
-  const CoinTrackerTable = styled.table`
-    grid-column-start: 1;
-    margin: auto;
-  `;
-
-  const TableHeader = styled.div`
-    display: flex;
-    flex-direction: row;
-  `;
-
-  const StyledCells = styled.td`
-    text-align: left;
-  `;
-
-  const TableRow = styled.tr`
-    &:hover {
-      background: yellow;
-    }
-  `;
 
   useEffect(() => {
     {
