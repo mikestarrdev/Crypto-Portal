@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import styled from "styled-components";
 import GlobalStyle from "../globalStyles";
 import Signup from "./Signup";
 import Login from "./Login";
@@ -8,6 +9,11 @@ import CoinTracker from "./CoinTracker";
 
 function App() {
   const [currentUser, setCurrentUser] = useState("");
+
+  const AppContainer = styled.div`
+    display: grid;
+    /* grid-template-columns: 60% 40%; */
+  `;
 
   useEffect(() => {
     fetch("/auth").then((res) => {
@@ -30,7 +36,9 @@ function App() {
         <Logout setCurrentUser={setCurrentUser} />
       )}
       <h1>Crypto Portal</h1>
-      <CoinTracker />
+      <AppContainer>
+        <CoinTracker />
+      </AppContainer>
 
       {/* <Routes>
         <Route path="signup" element={<Signup />} />

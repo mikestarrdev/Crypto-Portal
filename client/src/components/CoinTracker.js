@@ -1,14 +1,32 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import CoinTrackerRow from "./CoinTrackerRow";
 import CoinChart from "./CoinChart";
 
 function CoinTracker() {
+  const [coinData, setCoinData] = useState([]);
+  const [searched, setSearched] = useState("");
+
+  const CoinTrackerTable = styled.table`
+    grid-column-start: 1;
+    margin: auto;
+  `;
+
+  const TableHeader = styled.div`
+    display: flex;
+    flex-direction: row;
+  `;
+
   const StyledCells = styled.td`
     text-align: left;
   `;
 
-  const [coinData, setCoinData] = useState([]);
+  const TableRow = styled.tr`
+    &:hover {
+      background: yellow;
+    }
+  `;
 
   useEffect(() => {
     {
@@ -23,29 +41,28 @@ function CoinTracker() {
     }
   }, []);
 
-  const coinTable = coinData.map((coin, index) => {
+  const coinTable = coinData.map((coin) => {
     return (
-      <tr key={uuidv4()}>
-        <td>☆</td>
-        <td>{coin.market_cap_rank}</td>
-        <StyledCells>
-          <img src={coin.image} width="15px" height="15px" />{" "}
-          {coin.symbol.toUpperCase()}
-        </StyledCells>
-        <td>${coin.current_price.toLocaleString()}</td>
-        <td>${coin.high_24h.toLocaleString()}</td>
-        <td>${coin.low_24h.toLocaleString()}</td>
-        <td>{coin.price_change_percentage_24h.toLocaleString()} %</td>
-        <td>${coin.market_cap.toLocaleString()}</td>
-      </tr>
+      <CoinTrackerRow
+        key={uuidv4()}
+        rank={coin.market_cap_rank}
+        image={coin.image}
+        symbol={coin.symbol}
+        currentPrice={coin.current_price}
+        high24h={coin.high_24h}
+        low24h={coin.low_24h}
+        priceChange24h={coin.price_change_percentage_24h}
+        mktCap={coin.market_cap}
+      />
     );
   });
 
   return (
-    <div>
+    <CoinTrackerTable>
+      <h3>Cryptocurrency Prices By Marketcap</h3>
       <table>
         <thead>
-          <th>Watch</th>
+          <th></th>
           <th>Rank</th>
           <th>Coin</th>
           <th>Price</th>
@@ -57,7 +74,7 @@ function CoinTracker() {
         <tbody>{coinTable}</tbody>
       </table>
       {/* <CoinChart /> */}
-    </div>
+    </CoinTrackerTable>
   );
 }
 

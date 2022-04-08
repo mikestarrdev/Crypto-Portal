@@ -1,19 +1,49 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    body {
+    * {
         margin: 0px;
         padding: 0px;
-        font-family: Arial, Helvetica, sans-serif;
     }
-
+    body {
+        font-family: 'Ubuntu Mono', monospace;
+        font-size: large;
+        box-sizing: border-box;
+    }
     table {
-        border-top: 5px solid black;
         text-align: center;
+        margin-top: 1em;
+
+        border-collapse: collapse;
+    }
+    td, th {
+        display: table-cell;
+        vertical-align: inherit;
+        padding: 1rem;
+        border-top: 1px solid black;
+    }
+    h1 {
+        text-align: center;
+        margin: 0.5em;
     }
 
-    tr {
-        border: 1px solid blue;
+    button {
+        border: 0;
+        border-radius: 0.25rem;
+        background: orange;
+        color: white;
+        font-family: -system-ui, sans-serif;
+        font-size: 1rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+        margin: 0.25rem;
+        cursor: pointer;
+    }
+
+    button:active {
+        transform: translateY(2px);
     }
 `;
 
