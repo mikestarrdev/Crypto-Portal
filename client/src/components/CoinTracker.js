@@ -1,44 +1,21 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
-import CoinChart from "./CoinChart";
-
-const CoinTrackerTable = styled.table`
-  grid-column-start: 1;
-  margin: auto;
-`;
-
-const TableHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const StyledCells = styled.td`
-  text-align: left;
-`;
-
-const TableRow = styled.tr`
-  &:hover {
-    background: yellow;
-  }
-`;
+// import CoinChart from "./CoinChart";
 
 function CoinTracker({ user }) {
   const [coinData, setCoinData] = useState([]);
-  const [searched, setSearched] = useState("");
 
   useEffect(() => {
-    {
-      fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
-        .then((r) => r.json())
-        .then((coinData) => {
-          console.log(coinData);
-          setCoinData(coinData);
-        });
-    }
+    fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=5&page=1&sparkline=false"
+    )
+      .then((r) => r.json())
+      .then((coinData) => {
+        console.log(coinData);
+        setCoinData(coinData);
+      });
   }, []);
 
   const coinTable = coinData.map((coin) => {

@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const TableRow = styled.tr`
@@ -23,6 +23,8 @@ function CoinTrackerRow({
 }) {
   const [tokenID, setTokenID] = useState(null);
 
+  useEffect(searchFavorites, [user.favorites]);
+
   // check if token is in User favorites
   function searchFavorites() {
     const findToken = user.favorites?.find(
@@ -30,8 +32,6 @@ function CoinTrackerRow({
     );
     setTokenID(findToken);
   }
-
-  useEffect(searchFavorites, [user.favorites]);
 
   function handleCreateFavorite() {
     fetch("/favorites", {
@@ -59,12 +59,19 @@ function CoinTrackerRow({
 
   return (
     <TableRow>
-      <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
+      <td
+        onClick={
+          !tokenID || !tokenID.hasOwnProperty("error")
+            ? handleCreateFavorite
+            : handleDeleteFavorite
+        }
+      >
         {!tokenID ? "☆" : "⭐️"}
       </td>
       <td>{rank}</td>
       <StyledCells>
-        <img src={image} width="20em" /> {symbol.toUpperCase()}
+        <img src={image} alt={symbol + " logo"} width="20em" />{" "}
+        {symbol.toUpperCase()}
       </StyledCells>
       <td>${currentPrice.toLocaleString()}</td>
       <td>{high24h.toLocaleString()}</td>

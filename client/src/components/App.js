@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyle from "../globalStyles";
-import Signup from "./Signup";
-import Login from "./Login";
-import Logout from "./Logout";
+import Header from "./Header";
+
 import CoinTracker from "./CoinTracker";
 
 function App() {
   const [user, setUser] = useState("");
 
-  const AppContainer = styled.div`
+  const MainContainer = styled.div`
     display: grid;
     /* grid-template-columns: 60% 40%; */
   `;
@@ -29,17 +28,10 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      {!user ? <Signup /> : null}
-      {!user ? <Login setUser={setUser} /> : <Logout setUser={setUser} />}
-      <h1>Crypto Portal</h1>
-      <AppContainer>
+      <Header user={user} setUser={setUser} />
+      <MainContainer>
         <CoinTracker user={user} />
-      </AppContainer>
-
-      {/* <Routes>
-        <Route path="signup" element={<Signup />} />
-        {/* <Route path="login" element={<Login />} />
-      </Routes> */}
+      </MainContainer>
     </div>
   );
 }

@@ -1,11 +1,22 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+
+const LoginPage = styled.div`
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  border: solid 1px black;
+  margin: auto;
+  padding: 1em;
+  width: 80%;
+`;
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
   const [avatarURL, setAvatarURL] = useState("");
   const [btcAddress, setBtcAddress] = useState("");
   const [ethAddress, setEthAddress] = useState("");
@@ -34,7 +45,7 @@ function Signup() {
   }
 
   return (
-    <div>
+    <LoginPage>
       <form onSubmit={handleSignup}>
         <label>
           Choose username:
@@ -107,7 +118,7 @@ function Signup() {
         <br />
         <input type="submit" value="Signup" />
       </form>
-    </div>
+    </LoginPage>
   );
 }
 

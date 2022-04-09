@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
     table {
         text-align: center;
         margin-top: 1em;
-
         border-collapse: collapse;
     }
     td, th {
@@ -44,6 +43,14 @@ const GlobalStyle = createGlobalStyle`
 
     button:active {
         transform: translateY(2px);
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+        text-decoration: none;
     }
 `;
 
