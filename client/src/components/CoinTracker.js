@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
-// import CoinChart from "./CoinChart";
+import CoinData from "./CoinData";
 
 function CoinTracker({ user }) {
   const [coinData, setCoinData] = useState([]);
@@ -53,7 +53,7 @@ function CoinTracker({ user }) {
         </thead>
         <tbody>{coinTable}</tbody>
       </table>
-      {/* <CoinChart /> */}
+      <CoinData coin={coinData} />
     </div>
   );
 }

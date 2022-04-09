@@ -57,15 +57,11 @@ function CoinTrackerRow({
     });
   }
 
+  console.log(tokenID);
+
   return (
     <TableRow>
-      <td
-        onClick={
-          !tokenID || !tokenID.hasOwnProperty("error")
-            ? handleCreateFavorite
-            : handleDeleteFavorite
-        }
-      >
+      <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
         {!tokenID ? "☆" : "⭐️"}
       </td>
       <td>{rank}</td>

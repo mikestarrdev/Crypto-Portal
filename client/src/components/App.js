@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../globalStyles";
 import Header from "./Header";
-
 import CoinTracker from "./CoinTracker";
 
 function App() {

@@ -3,13 +3,21 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = styled.div`
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
+  display: grid;
+  grid-template-columns: 5;
   border: solid 1px black;
   margin: auto;
   padding: 1em;
-  width: 80%;
+  width: 60%;
+  background-color: lightgray;
+  border-radius: 5px;
+  text-align: center;
+`;
+
+const SignupForm = styled.form`
+  grid-column-start: 2;
+  grid-column-end: 4;
+  margin: auto;
 `;
 
 function Signup() {
@@ -25,7 +33,7 @@ function Signup() {
 
   function handleSignup(e) {
     e.preventDefault();
-    fetch("/users", {
+    fetch("/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +62,7 @@ function Signup() {
             type="text"
             htmlFor="text"
             value={username}
-            required={true}
+            //
             placeholder="username..."
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -66,7 +74,6 @@ function Signup() {
           <input
             type="password"
             value={password}
-            required={true}
             placeholder="password..."
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -78,7 +85,6 @@ function Signup() {
           <input
             type="text"
             value={email}
-            required={true}
             placeholder="email..."
             onChange={(e) => setEmail(e.target.value)}
           />

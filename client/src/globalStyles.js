@@ -52,6 +52,17 @@ const GlobalStyle = createGlobalStyle`
     a:visited {
         text-decoration: none;
     }
+
+    input {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5em;
+        border-radius: 5px;
+        margin: auto;
+        align-items: center;
+        margin-top: 0.5rem;
+        width: auto;
+    }
 `;
 
 export default GlobalStyle;
