@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import CoinData from "./CoinData";
 
 const TableRow = styled.tr`
   &:hover {
@@ -8,19 +10,13 @@ const TableRow = styled.tr`
 `;
 const StyledCells = styled.td`
   text-align: left;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-function CoinTrackerRow({
-  user,
-  rank,
-  image,
-  symbol,
-  currentPrice,
-  high24h,
-  low24h,
-  priceChange24h,
-  mktCap,
-}) {
+function CoinTrackerRow({ coin, user }) {
   const [tokenID, setTokenID] = useState(null);
 
   useEffect(searchFavorites, [user.favorites]);
@@ -28,7 +24,7 @@ function CoinTrackerRow({
   // check if token is in User favorites
   function searchFavorites() {
     const findToken = user.favorites?.find(
-      (favorite) => favorite.token === symbol
+      (favorite) => favorite.token === coin.symbol
     );
     setTokenID(findToken);
   }
@@ -39,7 +35,7 @@ function CoinTrackerRow({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: user.id, token: symbol }),
+      body: JSON.stringify({ user_id: user.id, token: coin.symbol }),
     })
       .then((r) => r.json())
       .then((favorite) => {
@@ -57,23 +53,31 @@ function CoinTrackerRow({
     });
   }
 
-  console.log(tokenID);
+  // console.log(tokenID);
+
+  function renderCoinDataPage(e) {
+    e.preventDefault();
+    console.log(e.target);
+    <Link>
+      <CoinData coin={coin} />
+    </Link>;
+  }
 
   return (
-    <TableRow>
+    <TableRow coin={coin}>
       <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
         {!tokenID ? "☆" : "⭐️"}
       </td>
-      <td>{rank}</td>
-      <StyledCells>
-        <img src={image} alt={symbol + " logo"} width="20em" />{" "}
-        {symbol.toUpperCase()}
+      <td>{coin.market_cap_rank}</td>
+      <StyledCells onClick={renderCoinDataPage}>
+        <img src={coin.image} alt={coin.symbol + " logo"} width="20em" />{" "}
+        {coin.symbol.toUpperCase()}
       </StyledCells>
-      <td>${currentPrice.toLocaleString()}</td>
-      <td>{high24h.toLocaleString()}</td>
-      <td>{low24h.toLocaleString()}</td>
-      <td>{priceChange24h.toLocaleString()}%</td>
-      <td>${mktCap.toLocaleString()}</td>
+      <td>${coin.current_price.toLocaleString()}</td>
+      <td>{coin.high_24h.toLocaleString()}</td>
+      <td>{coin.low_24h.toLocaleString()}</td>
+      <td>{coin.price_change_percentage_24h.toLocaleString()}%</td>
+      <td>${coin.market_cap.toLocaleString()}</td>
     </TableRow>
   );
 }

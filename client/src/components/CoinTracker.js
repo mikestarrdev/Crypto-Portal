@@ -19,20 +19,7 @@ function CoinTracker({ user }) {
   }, []);
 
   const coinTable = coinData.map((coin) => {
-    return (
-      <CoinTrackerRow
-        user={user}
-        key={uuidv4()}
-        rank={coin.market_cap_rank}
-        image={coin.image}
-        symbol={coin.symbol}
-        currentPrice={coin.current_price}
-        high24h={coin.high_24h}
-        low24h={coin.low_24h}
-        priceChange24h={coin.price_change_percentage_24h}
-        mktCap={coin.market_cap}
-      />
-    );
+    return <CoinTrackerRow coin={coin} user={user} key={uuidv4()} />;
   });
 
   return (
