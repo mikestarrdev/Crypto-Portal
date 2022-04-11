@@ -9,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Ubuntu Mono', monospace;
         font-size: large;
         box-sizing: border-box;
+        /* filter: blur(8px); */
+        
     }
     table {
         text-align: center;
@@ -21,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 1rem;
         border-top: 1px solid black;
     }
-    h1 {
+    h1, h2 {
         text-align: center;
         margin: 0.5em;
     }
@@ -56,7 +58,8 @@ const GlobalStyle = createGlobalStyle`
     input {
         display: flex;
         flex-direction: column;
-        padding: 0.5em;
+        border: 1px solid darkgray;
+        padding: 0.75em;
         border-radius: 5px;
         margin: auto;
         align-items: center;

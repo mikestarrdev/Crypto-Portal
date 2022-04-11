@@ -48,7 +48,7 @@ function Navbar({ onLogout }) {
         <NavLink to="/forum">Forum</NavLink>
       </NavBox> */}
       <NavBox>
-        <NavLink to="/login" element={<Login />}>
+        <NavLink to exact="/login" element={<Login />}>
           Login
         </NavLink>
       </NavBox>

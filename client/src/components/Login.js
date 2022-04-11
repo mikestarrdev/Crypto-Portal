@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
@@ -20,23 +27,32 @@ function Login({ setUser }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={username}
-        required={true}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+    <Form onSubmit={handleSubmit}>
+      <h2>Welcome! Sign in here:</h2>
       <br />
-      <input
-        type="password"
-        value={password}
-        required={true}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <label>
+        Username:
+        <input
+          type="text"
+          value={username}
+          // required={true}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username..."
+        />
+      </label>
       <br />
-      <button type="submit">Login</button>
-    </form>
+      <label>
+        Password:
+        <input
+          type="password"
+          value={password}
+          // required={true}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password..."
+        />
+      </label>
+      <input type="submit" value="Login" />
+    </Form>
   );
 }
 

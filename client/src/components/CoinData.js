@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const CoinStyles = styled.div`
@@ -41,6 +42,8 @@ const Table = styled.table`
 
 function CoinData({ coin }) {
   const [fullCoinData, setFullCoinData] = useState({});
+
+  coin = useParams();
 
   useEffect(() => {
     fetch(

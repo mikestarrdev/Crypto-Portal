@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CoinData from "./CoinData";
 
@@ -18,6 +18,8 @@ const StyledCells = styled.td`
 
 function CoinTrackerRow({ coin, user }) {
   const [tokenID, setTokenID] = useState(null);
+
+  let navigate = useNavigate();
 
   useEffect(searchFavorites, [user?.favorites]);
 
@@ -57,10 +59,7 @@ function CoinTrackerRow({ coin, user }) {
 
   function renderCoinDataPage(e) {
     e.preventDefault();
-    console.log(e.target);
-    <Link>
-      <CoinData coin={coin} />
-    </Link>;
+    navigate(`/${coin.id}`);
   }
 
   return (
@@ -80,7 +79,6 @@ function CoinTrackerRow({ coin, user }) {
         <td>{coin.price_change_percentage_24h.toLocaleString()}%</td>
         <td>${coin.market_cap.toLocaleString()}</td>
       </TableRow>
-      <CoinData coin={coin} />
     </>
   );
 }

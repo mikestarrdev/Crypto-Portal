@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyle from "../globalStyles";
 import Header from "./Header";
 import CoinTracker from "./CoinTracker";
+import CoinData from "./CoinData";
 
 function App() {
   const [user, setUser] = useState("");
@@ -27,9 +28,12 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      <Header user={user} setUser={setUser} />
+      <Header user={user} />
       <MainContainer>
-        <CoinTracker user={user} />
+        <Routes>
+          <Route path="/" element={<CoinTracker user={user} />} />
+          <Route path="/:id" element={<CoinData />} />
+        </Routes>
       </MainContainer>
     </div>
   );
