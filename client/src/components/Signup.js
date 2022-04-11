@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = styled.div`
   display: grid;
   grid-template-columns: 5;
-  border: solid 1px black;
+  border: solid 1px gray;
   margin: auto;
+  margin-top: 1rem;
   padding: 1em;
   width: 60%;
-  background-color: lightgray;
+  background: rgb(240 240 240);
   border-radius: 5px;
   text-align: center;
 `;
@@ -18,6 +19,12 @@ const SignupForm = styled.form`
   grid-column-start: 2;
   grid-column-end: 4;
   margin: auto;
+`;
+
+const Button = styled.input`
+  background: green;
+  color: white;
+  cursor: pointer;
 `;
 
 function Signup() {
@@ -54,7 +61,7 @@ function Signup() {
 
   return (
     <LoginPage>
-      <form onSubmit={handleSignup}>
+      <SignupForm onSubmit={handleSignup}>
         <label>
           Choose username:
           <br />
@@ -97,6 +104,7 @@ function Signup() {
             type="text"
             value={avatarURL}
             onChange={(e) => setAvatarURL(e.target.value)}
+            placeholder="enter URL here..."
           />
         </label>
         <br />
@@ -122,8 +130,12 @@ function Signup() {
           />
         </label>
         <br />
-        <input type="submit" value="Signup" />
-      </form>
+        <Button type="submit" value="Signup" />
+      </SignupForm>
+      <br />
+      <p>
+        {`Have an account already?`} {<Link to="/login">Login!</Link>}{" "}
+      </p>
     </LoginPage>
   );
 }

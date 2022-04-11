@@ -23,9 +23,15 @@ const GlobalStyle = createGlobalStyle`
         padding: 1rem;
         border-top: 1px solid black;
     }
-    h1, h2 {
+    h1 {
         text-align: center;
-        margin: 0.5em;
+        margin: 1rem;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 1.5rem;
+        font-weight: bold;
     }
 
     button {
@@ -57,7 +63,6 @@ const GlobalStyle = createGlobalStyle`
 
     input {
         display: flex;
-        flex-direction: column;
         border: 1px solid darkgray;
         padding: 0.75em;
         border-radius: 5px;

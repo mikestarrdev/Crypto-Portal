@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import styled from "styled-components";
+import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
-import CoinData from "./CoinData";
+
+const Container = styled.div`
+  margin: auto;
+`;
 
 function CoinTracker({ user }) {
   const [coinData, setCoinData] = useState([]);
@@ -23,8 +26,8 @@ function CoinTracker({ user }) {
   });
 
   return (
-    <div>
-      <h3>Cryptocurrency Prices By Marketcap</h3>
+    <Container>
+      <h2>Cryptocurrency Prices Data</h2>
       <table>
         <thead>
           <tr>
@@ -40,7 +43,7 @@ function CoinTracker({ user }) {
         </thead>
         <tbody>{coinTable}</tbody>
       </table>
-    </div>
+    </Container>
   );
 }
 

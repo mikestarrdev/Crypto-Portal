@@ -30,16 +30,6 @@ const Website = styled.a`
   text-decoration: none;
 `;
 
-const Table = styled.table`
-  &:tr {
-    text-align: left;
-  }
-
-  &:tr {
-    border: none;
-  }
-`;
-
 function CoinData({ coin }) {
   const [fullCoinData, setFullCoinData] = useState({});
 
@@ -56,20 +46,6 @@ function CoinData({ coin }) {
       });
   }, [coin]);
 
-  // console.log(fullCoinData);
-
-  const upperCase = function (str) {
-    let name = "";
-    for (let i = 0; i <= str.length; i++) {
-      if (i == 0) {
-        str[i].toUpperCase();
-      } else {
-        name += str[i];
-      }
-      return name;
-    }
-  };
-
   function displayDate(oldDate) {
     const date = new Date(oldDate);
     const year = date.getFullYear();
@@ -78,28 +54,40 @@ function CoinData({ coin }) {
     switch (month) {
       case 1:
         month = "Jan";
+        break;
       case 2:
         month = "Feb";
+        break;
       case 3:
         month = "Mar";
+        break;
       case 4:
         month = "Apr";
+        break;
       case 5:
         month = "May";
+        break;
       case 6:
         month = "Jun";
+        break;
       case 7:
         month = "Jul";
+        break;
       case 8:
         month = "Aug";
+        break;
       case 9:
         month = "Sept";
+        break;
       case 10:
         month = "Oct";
+        break;
       case 11:
         month = "Nov";
+        break;
       case 12:
         month = "Dec";
+        break;
     }
     return `${month} ${day}, ${year}`;
   }
@@ -125,7 +113,11 @@ function CoinData({ coin }) {
       <p>
         Website:{" "}
         <Website>
-          <a href={fullCoinData.links?.homepage[0]}>
+          <a
+            href={fullCoinData.links?.homepage[0]}
+            target="_blank"
+            rel="noreferrer"
+          >
             {fullCoinData.links?.homepage[0]}
           </a>
         </Website>

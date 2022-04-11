@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Login from "./Login";
-import Signup from "./Signup";
+import Logout from "./Logout";
 import Search from "./Search";
 
 const Nav = styled.nav`
@@ -13,7 +13,6 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   background-color: whitesmoke;
-  /* padding: 1em; */
 
   & a:active {
     text-decoration: underline;
@@ -22,42 +21,40 @@ const Nav = styled.nav`
 `;
 
 const NavBox = styled.div`
-  border: solid black 1px;
+  /* border: solid black 1px; */
   width: auto;
   padding: 1em;
+
+  &:hover {
+    background: lightyellow;
+  }
 `;
 
-function Navbar({ onLogout }) {
-  function openModal() {}
-
-  function handleLogout() {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then(() => onLogout());
-  }
-
+function Navbar({ user, setUser, onLogout }) {
   return (
     <Nav>
       <NavBox>
         <NavLink to="/">Home</NavLink>
       </NavBox>
-      <NavBox>
+      {/* <NavBox>
         <NavLink to="/favorites">Watch List</NavLink>
-      </NavBox>
+      </NavBox> */}
       {/* <NavBox>
         <NavLink to="/forum">Forum</NavLink>
       </NavBox> */}
       <NavBox>
-        <NavLink to exact="/login" element={<Login />}>
-          Login
-        </NavLink>
+        {user ? (
+          <Logout setUser={setUser} />
+        ) : (
+          <NavLink to="/login" element={<Login setUser={setUser} />}>
+            Login
+          </NavLink>
+        )}
       </NavBox>
+      <NavBox>{!user ? <NavLink to="/signup">Signup</NavLink> : null}</NavBox>
       <NavBox>
-        <NavLink to="/signup" element={<Signup />}>
-          Signup
-        </NavLink>
+        <Search />
       </NavBox>
-      <Search />
     </Nav>
   );
 }

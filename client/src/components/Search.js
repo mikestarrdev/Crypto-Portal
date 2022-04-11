@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const SearchBar = styled.input`
-  padding: 0.5em;
+  padding: 0.75rem;
   border-radius: 5px;
-  border: solid black 1px;
   margin-left: 1em;
 `;
 
@@ -34,7 +33,7 @@ function Search() {
           value={search}
           placeholder="🔎  Search..."
         />
-        <input type="submit" value="search" />
+        {/* <input type="submit" value="search" /> */}
       </form>
     </div>
   );
