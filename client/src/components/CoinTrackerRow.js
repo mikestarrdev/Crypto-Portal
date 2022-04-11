@@ -64,21 +64,24 @@ function CoinTrackerRow({ coin, user }) {
   }
 
   return (
-    <TableRow coin={coin}>
-      <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
-        {!tokenID ? "☆" : "⭐️"}
-      </td>
-      <td>{coin.market_cap_rank}</td>
-      <StyledCells onClick={renderCoinDataPage}>
-        <img src={coin.image} alt={coin.symbol + " logo"} width="20em" />{" "}
-        {coin.symbol.toUpperCase()}
-      </StyledCells>
-      <td>${coin.current_price.toLocaleString()}</td>
-      <td>{coin.high_24h.toLocaleString()}</td>
-      <td>{coin.low_24h.toLocaleString()}</td>
-      <td>{coin.price_change_percentage_24h.toLocaleString()}%</td>
-      <td>${coin.market_cap.toLocaleString()}</td>
-    </TableRow>
+    <>
+      <TableRow coin={coin}>
+        <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
+          {!tokenID ? "☆" : "⭐️"}
+        </td>
+        <td>{coin.market_cap_rank}</td>
+        <StyledCells onClick={renderCoinDataPage}>
+          <img src={coin.image} alt={coin.symbol + " logo"} width="20em" />{" "}
+          {coin.symbol.toUpperCase()}
+        </StyledCells>
+        <td>${coin.current_price.toLocaleString()}</td>
+        <td>{coin.high_24h.toLocaleString()}</td>
+        <td>{coin.low_24h.toLocaleString()}</td>
+        <td>{coin.price_change_percentage_24h.toLocaleString()}%</td>
+        <td>${coin.market_cap.toLocaleString()}</td>
+      </TableRow>
+      <CoinData coin={coin} />
+    </>
   );
 }
 

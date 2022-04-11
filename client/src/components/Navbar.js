@@ -39,16 +39,14 @@ function Navbar({ onLogout }) {
   return (
     <Nav>
       <NavBox>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
       </NavBox>
       <NavBox>
         <NavLink to="/favorites">Watch List</NavLink>
       </NavBox>
-      <NavBox>
+      {/* <NavBox>
         <NavLink to="/forum">Forum</NavLink>
-      </NavBox>
+      </NavBox> */}
       <NavBox>
         <NavLink to="/login" element={<Login />}>
           Login
