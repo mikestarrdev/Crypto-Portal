@@ -48,12 +48,12 @@ function CoinData({ coin }) {
     )
       .then((r) => r.json())
       .then((fullCoinData) => {
-        console.log(fullCoinData);
+        // console.log(fullCoinData);
         setFullCoinData(fullCoinData);
       });
   }, [coin]);
 
-  console.log("fullCoinData:", fullCoinData);
+  // console.log(fullCoinData);
 
   const upperCase = function (str) {
     let name = "";
@@ -122,8 +122,8 @@ function CoinData({ coin }) {
       <p>
         Website:{" "}
         <Website>
-          <a href={fullCoinData?.links?.homepage[0]}>
-            {fullCoinData?.links?.homepage[0]}
+          <a href={fullCoinData.links?.homepage[0]}>
+            {fullCoinData.links?.homepage[0]}
           </a>
         </Website>
       </p>

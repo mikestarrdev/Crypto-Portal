@@ -19,11 +19,11 @@ const StyledCells = styled.td`
 function CoinTrackerRow({ coin, user }) {
   const [tokenID, setTokenID] = useState(null);
 
-  useEffect(searchFavorites, [user.favorites]);
+  useEffect(searchFavorites, [user?.favorites]);
 
   // check if token is in User favorites
   function searchFavorites() {
-    const findToken = user.favorites?.find(
+    const findToken = user?.favorites?.find(
       (favorite) => favorite.token === coin.symbol
     );
     setTokenID(findToken);
