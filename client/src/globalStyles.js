@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-family: 'Ubuntu Mono', monospace;
+        /* font-family: Arial, Helvetica, sans-serif; */
         font-size: large;
         box-sizing: border-box;
         /* filter: blur(8px); */
@@ -85,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
         margin: auto;
         align-items: center;
         margin-top: 0.5rem;
-        width: auto;
+        width: 60%;
     }
 `;
 

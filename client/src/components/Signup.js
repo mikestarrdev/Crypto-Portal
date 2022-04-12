@@ -36,8 +36,24 @@ const Button = styled.input`
   margin: 0.25rem;
   cursor: pointer;
 `;
+const UL = styled.ul`
+  width: 80%;
+  list-style-type: none;
+  margin: auto;
+`;
+
+const ListItem = styled.li`
+  align-items: center;
+  background: white;
+  text-align: center;
+  margin: 1em;
+  padding: 0.5em;
+  border: solid 1px red;
+  border-radius: 5px;
+`;
 
 function Signup() {
+  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,9 +64,9 @@ function Signup() {
 
   const navigate = useNavigate();
 
-  function handleSignup(e) {
+  async function handleSignup(e) {
     e.preventDefault();
-    fetch("/users", {
+    const response = await fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,10 +79,14 @@ function Signup() {
         btc_address: btcAddress,
         eth_address: ethAddress,
       }),
-    })
-      .then((resp) => resp.json())
-      .then((newUser) => console.log(newUser));
-    navigate("/login");
+    });
+    const user = await response.json();
+    if (response.ok) {
+      console.log("User created:", user);
+      navigate("/login");
+    } else {
+      setErrors(user.errors);
+    }
   }
 
   return (
@@ -142,6 +162,13 @@ function Signup() {
         <br />
         <Button type="submit" value="Signup" />
       </SignupForm>
+      {errors.length > 0 && (
+        <UL style={{ color: "red" }}>
+          {errors.map((error) => (
+            <ListItem key={error}>{error}</ListItem>
+          ))}
+        </UL>
+      )}
       <br />
       <p>
         {`Have an account already?`} {<Link to="/login">Login!</Link>}{" "}

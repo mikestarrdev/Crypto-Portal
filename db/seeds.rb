@@ -14,8 +14,6 @@ Forum.create(title: "Dogecoin")
 Forum.create(title: "Solana")
 Forum.create(title: "Terra-Luna")
 
-
-
 puts "seeding User... 🕺🏻"
 20.times do
     User.create(
@@ -46,8 +44,6 @@ puts "seeding comments... 💬"
         post: Post.all.sample
     )
 end
-
-
 
 puts "seeding reputation... 👍🏻"
 20.times do

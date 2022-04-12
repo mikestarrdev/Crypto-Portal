@@ -20,6 +20,8 @@ const Form = styled.form`
 `;
 
 const Button = styled.input`
+  display: flex;
+  width: auto;
   border: 0;
   border-radius: 0.25rem;
   background: orange;
@@ -34,9 +36,22 @@ const Button = styled.input`
   cursor: pointer;
 `;
 
+const ErrorMessage = styled.p`
+  display: flex;
+  width: 60%;
+  background: white;
+  color: red;
+  justify-content: center;
+  margin: 0 auto 1em auto;
+  padding: 0.5em;
+  border: solid 1px red;
+  border-radius: 5px;
+`;
+
 function Login({ setUser, user }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   let navigate = useNavigate();
 
@@ -44,27 +59,29 @@ function Login({ setUser, user }) {
     if (user) navigate("/");
   }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    const response = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
     });
+    const user = await response.json();
+    if (response.ok) {
+      console.log("Logged in:", user);
+      navigate("/");
+    } else {
+      setErrors(user.error);
+    }
   }
-
+  // console.log(errors.login);
   return (
     <LoginStyles>
       {user ? navigate("/") : null}
       <Form onSubmit={handleSubmit}>
         <h2>Welcome! Log In</h2>
-
         <label>
           Username:
           <input
@@ -90,6 +107,9 @@ function Login({ setUser, user }) {
         <Button type="submit" value="Login" />
       </Form>
       <br />
+      {Object.values(errors).length > 0 ? (
+        <ErrorMessage>{Object.values(errors)}</ErrorMessage>
+      ) : null}
       <p>
         {`Don't have an account?`} {<Link to="/signup">Signup!</Link>}{" "}
       </p>

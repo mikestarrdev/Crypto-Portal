@@ -50,7 +50,7 @@ class UsersController < ApplicationController
         render json: { error: "User not found" }, status: :not_found
     end
 
-    def render_record_invalid(invalid)
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    def render_record_invalid(e)
+        render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
     end
 end
