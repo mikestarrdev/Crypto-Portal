@@ -1,8 +1,20 @@
+Forum.destroy_all
 Post.destroy_all
 User.destroy_all
 Comment.destroy_all
 Reputation.destroy_all
 Favorite.destroy_all
+
+puts "seeding Forum..."
+
+Forum.create(title: "Bitcoin")
+Forum.create(title: "Ethereum")
+Forum.create(title: "Avalanche")
+Forum.create(title: "Dogecoin")
+Forum.create(title: "Solana")
+Forum.create(title: "Terra-Luna")
+
+
 
 puts "seeding User... 🕺🏻"
 20.times do
@@ -21,7 +33,8 @@ puts "seeding posts... ✍🏻"
     Post.create(
         title: Faker::Quote.robin,
         body: Faker::Quote.matz,
-        user: User.all.sample
+        user: User.all.sample,
+        forum: Forum.all.sample
     )
 end
 
@@ -35,13 +48,6 @@ puts "seeding comments... 💬"
 end
 
 
-puts "seeding favorites... ⭐️"
-20.times do
-    Favorite.create(
-        token: "BTC",
-        user: User.all.sample
-    )
-end
 
 puts "seeding reputation... 👍🏻"
 20.times do

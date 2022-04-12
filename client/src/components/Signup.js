@@ -50,7 +50,7 @@ function Signup() {
 
   function handleSignup(e) {
     e.preventDefault();
-    fetch("/auth", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
