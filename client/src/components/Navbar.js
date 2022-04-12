@@ -7,11 +7,11 @@ import Search from "./Search";
 
 const Nav = styled.nav`
   display: flex;
-  /* display: grid; */
-  /* grid-template-columns: 20% 40% 60% 80% 100% */
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: auto;
   background-color: whitesmoke;
 
   & a:active {
@@ -21,18 +21,26 @@ const Nav = styled.nav`
 `;
 
 const NavBox = styled.div`
-  /* border: solid black 1px; */
   width: auto;
   padding: 1em;
+  justify-content: center;
 
   &:hover {
     background: lightyellow;
   }
 `;
 
+const NavBoxSearch = styled.div`
+  /* flex-grow: 4; */
+  justify-content: end;
+`;
+
 function Navbar({ user, setUser, onLogout }) {
   return (
     <Nav>
+      {/* <NavLink to="/">
+        <h1>Crypto Portal</h1>
+      </NavLink> */}
       <NavBox>
         <NavLink to="/">Home</NavLink>
       </NavBox>
@@ -52,9 +60,9 @@ function Navbar({ user, setUser, onLogout }) {
         )}
       </NavBox>
       <NavBox>{!user ? <NavLink to="/signup">Signup</NavLink> : null}</NavBox>
-      <NavBox>
+      <NavBoxSearch>
         <Search />
-      </NavBox>
+      </NavBoxSearch>
     </Nav>
   );
 }

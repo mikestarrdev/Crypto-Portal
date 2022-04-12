@@ -99,12 +99,13 @@ function CoinData({ coin }) {
         {fullCoinData?.name} ({fullCoinData?.symbol?.toUpperCase()})
       </Headline>
       <h3>
-        ${fullCoinData?.market_data?.current_price.usd.toLocaleString()}{" "}
+        ${fullCoinData?.market_data?.current_price.usd?.toLocaleString()}{" "}
         <span>
-          {fullCoinData?.market_data?.price_change_percentage_24h.toFixed(1) > 0
+          {fullCoinData?.market_data?.price_change_percentage_24h?.toFixed(1) >
+          0
             ? "📈"
             : "📉"}
-          {fullCoinData?.market_data?.price_change_percentage_24h.toFixed(1)}%
+          {fullCoinData?.market_data?.price_change_percentage_24h?.toFixed(1)}%
         </span>
       </h3>
       <br />
@@ -128,11 +129,11 @@ function CoinData({ coin }) {
           <tr>
             <td>
               24h High: $
-              {fullCoinData?.market_data?.high_24h.usd.toLocaleString()}
+              {fullCoinData?.market_data?.high_24h.usd?.toLocaleString()}
             </td>
             <td>
               24h Low: $
-              {fullCoinData?.market_data?.low_24h.usd.toLocaleString()}
+              {fullCoinData?.market_data?.low_24h.usd?.toLocaleString()}
             </td>
           </tr>
           <tr>

@@ -11,9 +11,11 @@ function Search() {
   const [search, setSearch] = useState("");
   const [fullCoinData, setFullCoinData] = useState({});
 
+  console.log(search, fullCoinData);
+
   function handleSearch(e) {
     e.preventDefault();
-
+    setSearch(e.target.value);
     fetch(
       `https://api.coingecko.com/api/v3/coins/${search}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`
     )
@@ -28,12 +30,12 @@ function Search() {
     <div>
       <form onSubmit={handleSearch}>
         <SearchBar
-          onChange={(e) => setSearch(e.target.value)}
+          // onChange={(e) => setSearch(e.target.value)}
+          onChange={handleSearch}
           type="text"
           value={search}
           placeholder="🔎  Search..."
         />
-        {/* <input type="submit" value="search" /> */}
       </form>
     </div>
   );

@@ -23,6 +23,11 @@ const GlobalStyle = createGlobalStyle`
         padding: 1rem;
         border-top: 1px solid black;
     }
+
+    thead:first {
+        border-top: none;
+    }
+
     h1 {
         text-align: center;
         margin: 1rem;
@@ -55,10 +60,12 @@ const GlobalStyle = createGlobalStyle`
 
     a:link {
         text-decoration: none;
+        color: inherit;
     }
 
     a:visited {
         text-decoration: none;
+        color: inherit;
     }
 
     input {

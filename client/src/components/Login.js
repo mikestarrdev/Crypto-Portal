@@ -7,7 +7,7 @@ const LoginStyles = styled.div`
   grid-template-columns: 5;
   border: solid 1px gray;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 3rem;
   padding: 1em;
   width: 60%;
   background: rgb(240 240 240);

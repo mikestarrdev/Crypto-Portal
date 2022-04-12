@@ -2,28 +2,38 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 
-const LoginPage = styled.div`
-  display: grid;
-  grid-template-columns: 5;
+const SignupPage = styled.div`
+  /* display: grid; */
+  /* grid-template-columns: 5; */
   border: solid 1px gray;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 3rem;
   padding: 1em;
   width: 60%;
   background: rgb(240 240 240);
   border-radius: 5px;
   text-align: center;
+  margin-bottom: 3rem;
 `;
 
 const SignupForm = styled.form`
-  grid-column-start: 2;
-  grid-column-end: 4;
+  /* grid-column-start: 2;
+  grid-column-end: 5; */
   margin: auto;
 `;
 
 const Button = styled.input`
-  background: green;
+  border: 0;
+  border-radius: 0.25rem;
+  background: orange;
   color: white;
+  font-family: -system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
   cursor: pointer;
 `;
 
@@ -60,7 +70,7 @@ function Signup() {
   }
 
   return (
-    <LoginPage>
+    <SignupPage>
       <SignupForm onSubmit={handleSignup}>
         <label>
           Choose username:
@@ -136,7 +146,7 @@ function Signup() {
       <p>
         {`Have an account already?`} {<Link to="/login">Login!</Link>}{" "}
       </p>
-    </LoginPage>
+    </SignupPage>
   );
 }
 

@@ -16,7 +16,7 @@ function CoinTracker({ user }) {
     )
       .then((r) => r.json())
       .then((coinData) => {
-        console.log(coinData);
+        // console.log(coinData);
         setCoinData(coinData);
       });
   }, []);
@@ -27,7 +27,7 @@ function CoinTracker({ user }) {
 
   return (
     <Container>
-      <h2>Cryptocurrency Prices Data</h2>
+      {/* <h4>Market Data</h4> */}
       <table>
         <thead>
           <tr>

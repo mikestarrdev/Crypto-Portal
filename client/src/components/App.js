@@ -7,6 +7,7 @@ import CoinTracker from "./CoinTracker";
 import CoinData from "./CoinData";
 import Signup from "./Signup";
 import Login from "./Login";
+import Footer from "./Footer";
 
 function App() {
   const [user, setUser] = useState("");
@@ -42,6 +43,7 @@ function App() {
           <Route path="/:id" element={<CoinData />} />
         </Routes>
       </MainContainer>
+      <Footer />
     </div>
   );
 }
