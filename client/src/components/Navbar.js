@@ -60,6 +60,7 @@ function Navbar({ user, setUser, onLogout }) {
       {/* <NavBoxSearch>
         <Search />
       </NavBoxSearch> */}
+      <NavBox>{user ? `Welcome, ${user.username}!` : null}</NavBox>
     </Nav>
   );
 }
