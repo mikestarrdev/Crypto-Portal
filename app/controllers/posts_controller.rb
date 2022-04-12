@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    # before_action :authorized
+    before_action :authorized
     
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
         render json: { error: "Post not found" }, status: :not_found
     end
 
-    def render_record_invalid(invalid)
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    def render_record_invalid(error)
+        render json: { errors: error.record.errors.full_messages }, status: :unprocessable_entity
     end
 end

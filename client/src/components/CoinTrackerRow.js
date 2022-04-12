@@ -49,7 +49,6 @@ function CoinTrackerRow({ coin, user }) {
     fetch(`/favorites/${tokenID.id}`, {
       method: "DELETE",
     }).then((r) => {
-      r.json();
       setTokenID(false);
     });
   }
