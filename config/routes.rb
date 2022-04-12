@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :forums
   resources :users
   resources :reputations, only: [:show, :create, :update, :destroy]
   resources :favorites, only: [:show, :create, :update, :destroy]

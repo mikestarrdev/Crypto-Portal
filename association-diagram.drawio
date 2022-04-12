@@ -1,14 +1,14 @@
 <mxfile host="65bd71144e">
     <diagram id="BhuOXUAelwWcWwYgVLHv" name="Backend - associations">
-        <mxGraphModel dx="709" dy="2778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="825" dy="3318" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="L-pfhSX-X1KtQgtuYa56-4" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;User&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-username :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-password_digest :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-email :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-avatar_url :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-btc_address :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-eth_address :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-has_many&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;:posts&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-has_many&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;:comments&lt;/b&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;, -through&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;:posts&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;has_many :&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;favorites&lt;br&gt;&lt;/b&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;has_many :&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;reputations&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;rails g resource User username password_digest email avatar_url btc_address eth_address&lt;/i&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="70" y="-1190" width="490" height="440" as="geometry"/>
                 </mxCell>
-                <mxCell id="L-pfhSX-X1KtQgtuYa56-7" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;Posts&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;(JOIN TABLE)&lt;/i&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-title :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-body :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-belongs_to&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;:user&lt;/b&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-has_many&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;:comments&lt;/b&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;, through :&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;users&lt;/b&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;rails g resource Post title body user:belongs_to&lt;/i&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="770" y="-600" width="350" height="350" as="geometry"/>
+                <mxCell id="L-pfhSX-X1KtQgtuYa56-7" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;Posts&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;(JOIN TABLE)&lt;/i&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-title :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-body :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-belongs_to&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;b&gt;:user&lt;/b&gt;&lt;br&gt;-belongs_to&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt; :forum&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;-has_many&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;:comments&lt;/b&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;, through :&lt;/span&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;users&lt;/b&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;rails g resource Post title body user:belongs_to forum:belongs_to&lt;/i&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="-660" width="350" height="350" as="geometry"/>
                 </mxCell>
                 <mxCell id="L-pfhSX-X1KtQgtuYa56-8" value="&lt;font&gt;&lt;font style=&quot;color: rgb(0 , 0 , 0) ; font-size: 18px ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;b&gt;Comments&lt;/b&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;br&gt;(JOIN TABLE)&lt;br&gt;&lt;br&gt;-content :string&lt;br&gt;&lt;br&gt;&lt;b&gt;-&lt;/b&gt;belongs_to&amp;nbsp;&lt;b&gt;:user&lt;/b&gt;&lt;br&gt;&lt;b&gt;&amp;nbsp;&lt;/b&gt;-belongs_to&amp;nbsp;&lt;b&gt;:posts&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; font-size: 18px ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; font-size: 18px ; background-color: rgb(248 , 249 , 250)&quot;&gt;rails g resource Comment content user:belongs_to post:belongs_to&lt;/i&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="140" y="-490" width="430" height="300" as="geometry"/>
@@ -32,135 +32,144 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="L-pfhSX-X1KtQgtuYa56-20" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;Favorites&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;token :string&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;belongs_to :user&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;i style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;rails g resource favorite token user:belongs_to&lt;/i&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="810" y="-1230" width="270" height="240" as="geometry"/>
+                    <mxGeometry x="680" y="-1550" width="270" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="L-pfhSX-X1KtQgtuYa56-21" value="" style="endArrow=classic;html=1;rounded=0;fontSize=18;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="L-pfhSX-X1KtQgtuYa56-4" target="L-pfhSX-X1KtQgtuYa56-20" edge="1">
+                <mxCell id="L-pfhSX-X1KtQgtuYa56-21" value="" style="endArrow=classic;html=1;rounded=0;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="L-pfhSX-X1KtQgtuYa56-4" target="L-pfhSX-X1KtQgtuYa56-20" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="570" y="-620" as="sourcePoint"/>
                         <mxPoint x="620" y="-670" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;Reputation&lt;br&gt;&lt;/b&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;belongs_to :user&lt;/span&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;br style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; background-color: rgb(248 , 249 , 250)&quot;&gt;rails g resource reputation user:belongs_to&lt;/span&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="780" y="-920" width="270" height="200" as="geometry"/>
+                    <mxGeometry x="740" y="-1260" width="270" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="" style="endArrow=classic;html=1;rounded=0;fontSize=18;entryX=-0.015;entryY=0.475;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.633;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="L-pfhSX-X1KtQgtuYa56-4" target="2" edge="1">
+                <mxCell id="3" value="" style="endArrow=classic;html=1;rounded=0;fontSize=18;entryX=-0.015;entryY=0.475;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="L-pfhSX-X1KtQgtuYa56-4" target="2" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="710" y="-567" as="sourcePoint"/>
                         <mxPoint x="900" y="-640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Y3NMh3i0As6VkzUz7zrH-3" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;background-color: rgb(248 , 249 , 250)&quot;&gt;&lt;b&gt;Forum&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;-title: string&lt;br&gt;&lt;br&gt;has_many &lt;b&gt;:posts&lt;br&gt;&lt;/b&gt;has_many &lt;b&gt;:users &lt;/b&gt;through:&lt;b&gt; :posts&lt;br&gt;&lt;/b&gt;has_many &lt;b&gt;:comments&lt;/b&gt;&amp;nbsp;through:&amp;nbsp;&lt;b&gt;:posts&lt;br&gt;&lt;/b&gt;&lt;br&gt;rails g resource forum title&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1120" y="-1060" width="350" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="Y3NMh3i0As6VkzUz7zrH-4" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=18;entryX=1.005;entryY=0.325;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="Y3NMh3i0As6VkzUz7zrH-3" target="L-pfhSX-X1KtQgtuYa56-7">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1564.15" y="-312.06" as="sourcePoint"/>
+                        <mxPoint x="1190" y="-550" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="ez5c0DbY5nH06TuEs3sg" name="React components">
-        <mxGraphModel dx="867" dy="490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1096" dy="671" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="DhWRB-Tjp9a_aNM2N5pL-0"/>
                 <mxCell id="DhWRB-Tjp9a_aNM2N5pL-1" parent="DhWRB-Tjp9a_aNM2N5pL-0"/>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-0" value="" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-11">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-0" value="" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-2" value="" style="edgeStyle=none;html=1;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="itFLBw-nDamxUFIc1NyA-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-2" value="" style="edgeStyle=none;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="itFLBw-nDamxUFIc1NyA-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-1" value="" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="-OnZP4oI0nfWMqAh5Tr5-0">
+                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-1" value="" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="-OnZP4oI0nfWMqAh5Tr5-0" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="180" y="250" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-3" value="" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="-OnZP4oI0nfWMqAh5Tr5-2">
+                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-3" value="" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="-OnZP4oI0nfWMqAh5Tr5-2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="340" y="100" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-2" value="App.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-2" value="App.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="360" y="40" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-3" value="Navbar.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-3" value="Navbar.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="550" y="220" width="80" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-4" value="Signup.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-4" value="Signup.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="560" y="120" width="80" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-5" value="Login.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-5" value="Login.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="560" y="170" width="80" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-6" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-4">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-6" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-4" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="400" y="710" as="sourcePoint"/>
                         <mxPoint x="450" y="660" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-7" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-5">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-7" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-5" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="400" y="710" as="sourcePoint"/>
                         <mxPoint x="450" y="660" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-8" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-3">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-8" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-3" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="390" y="620" as="sourcePoint"/>
                         <mxPoint x="440" y="570" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="MY04xTBXaxAXS60cooeo-1" value="" style="edgeStyle=none;html=1;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-9" target="MY04xTBXaxAXS60cooeo-0">
+                <mxCell id="MY04xTBXaxAXS60cooeo-1" value="" style="edgeStyle=none;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-9" target="MY04xTBXaxAXS60cooeo-0" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-9" value="CoinTracker.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-9" value="CoinTracker.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="190" y="290" width="130" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-10" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-9">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-10" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="DhWRB-Tjp9a_aNM2N5pL-9" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="410" y="630" as="sourcePoint"/>
                         <mxPoint x="460" y="580" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-11" value="Search.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="DhWRB-Tjp9a_aNM2N5pL-11" value="Search.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="530" y="270" width="70" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-4" value="" style="edgeStyle=none;html=1;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-1" target="itFLBw-nDamxUFIc1NyA-3">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-4" value="" style="edgeStyle=none;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-1" target="itFLBw-nDamxUFIc1NyA-3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-8" value="" style="edgeStyle=none;html=1;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-1" target="itFLBw-nDamxUFIc1NyA-7">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-8" value="" style="edgeStyle=none;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-1" target="itFLBw-nDamxUFIc1NyA-7" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-1" value="Forum.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-1" value="Forum.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="360" y="230" width="105" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-3" value="CreatePost.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-3" value="CreatePost.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="320" y="400" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-5" value="Favorites.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-5" value="Favorites.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="190" y="220" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-6" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="itFLBw-nDamxUFIc1NyA-5">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-6" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="DhWRB-Tjp9a_aNM2N5pL-2" target="itFLBw-nDamxUFIc1NyA-5" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="310" y="330" as="sourcePoint"/>
                         <mxPoint x="70" y="420" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-10" value="" style="edgeStyle=none;html=1;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-7" target="itFLBw-nDamxUFIc1NyA-9">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-10" value="" style="edgeStyle=none;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-7" target="itFLBw-nDamxUFIc1NyA-9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-12" value="" style="edgeStyle=none;html=1;" edge="1" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-7" target="itFLBw-nDamxUFIc1NyA-11">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-12" value="" style="edgeStyle=none;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" source="itFLBw-nDamxUFIc1NyA-7" target="itFLBw-nDamxUFIc1NyA-11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-7" value="Post.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-7" value="Post.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="460" y="400" width="80" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-9" value="Comment.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-9" value="Comment.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="367.5" y="480" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="itFLBw-nDamxUFIc1NyA-11" value="CreateComment.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="itFLBw-nDamxUFIc1NyA-11" value="CreateComment.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="520" y="480" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-0" value="LiveChat.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-0" value="LiveChat.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="150" y="170" width="80" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-2" value="UserProfile.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="-OnZP4oI0nfWMqAh5Tr5-2" value="UserProfile.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="130" y="120" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="MY04xTBXaxAXS60cooeo-0" value="CoinChart.js" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DhWRB-Tjp9a_aNM2N5pL-1">
+                <mxCell id="MY04xTBXaxAXS60cooeo-0" value="CoinChart.js" style="rounded=0;whiteSpace=wrap;html=1;" parent="DhWRB-Tjp9a_aNM2N5pL-1" vertex="1">
                     <mxGeometry x="170" y="400" width="100" height="40" as="geometry"/>
                 </mxCell>
             </root>
