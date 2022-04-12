@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
         /* filter: blur(8px); */
         
     }
+    header {
+        background: whitesmoke;
+        padding-top: 0.5rem;
+    }
+
     table {
         text-align: center;
         margin-top: 1em;
@@ -37,6 +42,10 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
         margin: 1.5rem;
         font-weight: bold;
+    }
+
+    h4 {
+        margin: 2rem;
     }
 
     button {

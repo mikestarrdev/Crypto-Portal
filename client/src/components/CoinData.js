@@ -19,6 +19,11 @@ const Headline = styled.h1`
   margin-bottom: 0.5em;
 `;
 
+const Table = styled.table`
+  text-align: left;
+  border-top: none;
+`;
+
 const Image = styled.img`
   align-items: center;
   margin-right: 0.25em;
@@ -124,7 +129,7 @@ function CoinData({ coin }) {
         </Website>
       </p>
 
-      <table>
+      <Table>
         <tbody>
           <tr>
             <td>
@@ -192,7 +197,7 @@ function CoinData({ coin }) {
             </td>
           </tr>
         </tbody>
-      </table>
+      </Table>
     </CoinStyles>
   );
 }

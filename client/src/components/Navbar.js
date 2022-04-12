@@ -30,10 +30,10 @@ const NavBox = styled.div`
   }
 `;
 
-const NavBoxSearch = styled.div`
-  /* flex-grow: 4; */
-  justify-content: end;
-`;
+// const NavBoxSearch = styled.div`
+//   /* flex-grow: 4; */
+//   justify-content: end;
+// `;
 
 function Navbar({ user, setUser, onLogout }) {
   return (
@@ -44,12 +44,9 @@ function Navbar({ user, setUser, onLogout }) {
       <NavBox>
         <NavLink to="/">Home</NavLink>
       </NavBox>
-      {/* <NavBox>
-        <NavLink to="/favorites">Watch List</NavLink>
-      </NavBox> */}
-      {/* <NavBox>
+      <NavBox>
         <NavLink to="/forum">Forum</NavLink>
-      </NavBox> */}
+      </NavBox>
       <NavBox>
         {user ? (
           <Logout setUser={setUser} />
@@ -60,9 +57,9 @@ function Navbar({ user, setUser, onLogout }) {
         )}
       </NavBox>
       <NavBox>{!user ? <NavLink to="/signup">Signup</NavLink> : null}</NavBox>
-      <NavBoxSearch>
+      {/* <NavBoxSearch>
         <Search />
-      </NavBoxSearch>
+      </NavBoxSearch> */}
     </Nav>
   );
 }

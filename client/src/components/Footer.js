@@ -5,7 +5,7 @@ const FooterStyle = styled.footer`
   display: flex;
   flex-direction: column;
   text-align: center;
-  /* background: lightyellow; */
+  background: whitesmoke;
   margin: auto;
   margin-top: 5rem;
   padding: 5rem;

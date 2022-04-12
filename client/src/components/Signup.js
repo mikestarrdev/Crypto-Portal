@@ -10,7 +10,7 @@ const SignupPage = styled.div`
   margin-top: 3rem;
   padding: 1em;
   width: 60%;
-  background: rgb(240 240 240);
+  background: whitesmoke;
   border-radius: 5px;
   text-align: center;
   margin-bottom: 3rem;

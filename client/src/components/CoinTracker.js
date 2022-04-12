@@ -27,7 +27,7 @@ function CoinTracker({ user }) {
 
   return (
     <Container>
-      {/* <h4>Market Data</h4> */}
+      <h4>Marketcap and Price Data</h4>
       <table>
         <thead>
           <tr>
