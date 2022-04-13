@@ -43,7 +43,7 @@ function Navbar({ user, setUser, onLogout }) {
       </NavBox>
       <NavBox>
         <NavLink to="/forum" element={<Forum user={user} />}>
-          Forum
+          Forums
         </NavLink>
       </NavBox>
       <NavBox>

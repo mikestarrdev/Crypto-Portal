@@ -10,6 +10,7 @@ import Login from "./Login";
 import Footer from "./Footer";
 import Forum from "./Forum";
 import Subforum from "./Subforum";
+import CreatePost from "./CreatePost";
 
 function App() {
   const [user, setUser] = useState("");
@@ -46,6 +47,7 @@ function App() {
           />
           <Route path="/:id" element={<CoinData />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
+          <Route path="/create-post" element={<CreatePost user={user} />} />
         </Routes>
       </MainContainer>
       <Footer />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CreatePost from "./CreatePost";
 
@@ -7,25 +7,11 @@ const SubforumContainer = styled.div`
   background: white;
 `;
 
-const Post = styled.div`
-  border: solid gray 1px;
-  border-radius: 3px;
+const Table = styled.table`
+  text-align: left;
+  width: 95%;
   margin: 1rem;
-  padding: 1rem;
-`;
-
-const Image = styled.img`
-  position: inherit;
-  float: left;
-  border: solid lightgray 1px;
-  border-radius: 5px;
-  margin: 0.2em;
-  margin-bottom: 1em;
-`;
-
-const Linebreak = styled.hr`
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  border: solid 1px lightgray;
 `;
 
 const StartForum = styled.div`
@@ -44,6 +30,8 @@ const CreatePostLink = styled.span`
 
 function Subforum({ coin, user }) {
   const [subforum, setSubforum] = useState([]);
+
+  //   console.log(subforum);
 
   let params = useParams();
 
@@ -100,31 +88,19 @@ function Subforum({ coin, user }) {
         month = "Dec";
         break;
     }
-    return `${month} ${day}, ${year}, ${hours}:${minutes} ${
+    return `${month}-${day}-${year}, ${hours}:${minutes} ${
       hours < 12 ? "AM" : "PM"
     }`;
   }
 
-  const renderPosts = subforum?.posts?.map((post) => {
+  const renderPostsTable = subforum?.posts?.map((post) => {
     return (
-      <Post key={post.id}>
-        <h3>{post.title}</h3>
-        <br />
-        <p>
-          {post.body.slice(0, 150)}
-          {post.body.slice(0, 150).length === 150 ? "..." : null}
-        </p>
-        <br />
-        <Linebreak />
-        {post.user.avatar_url ? (
-          <Image src={post.user.avatar_url} alt={post.user.username} />
-        ) : null}
-        <p>{post.comments.length} comments</p>
-        <p>
-          Latest post by: {post.user.username} |{" "}
-          {parsedDate(post.user.updated_at)}
-        </p>
-      </Post>
+      <tr key={post.id}>
+        <td>{post.title}</td>
+        <td>{post.comments.length}</td>
+        <td>{post.user.username}</td>
+        <td>{parsedDate(post.user.updated_at)}</td>
+      </tr>
     );
   });
 
@@ -155,11 +131,33 @@ function Subforum({ coin, user }) {
     }
   }
 
+  let navigate = useNavigate();
+
+  //   function handleCreatePost(e) {
+  //     e.preventDefault();
+  //     navigate(<CreatePost />);
+  //   }
+
   return (
     <SubforumContainer>
       <h1>{params.coin} Forum</h1>
-      {renderPosts}
-      {!renderPosts ? (
+      {renderPostsTable?.length > 0 ? (
+        <>
+          <Link to="/create-post" element={<CreatePost subforum={subforum} />}>
+            <button>Create Post</button>
+          </Link>
+          <Table>
+            <thead>
+              <th>Topic</th>
+              <th>Comments</th>
+              <th>Posted by</th>
+              <th>Latest Post Date</th>
+            </thead>
+            {renderPostsTable}
+          </Table>
+        </>
+      ) : null}
+      {!renderPostsTable ? (
         <StartForum>
           This forum has no posts yet!{" "}
           <CreatePostLink onClick={createFirstPost}>
@@ -167,7 +165,12 @@ function Subforum({ coin, user }) {
           </CreatePostLink>
         </StartForum>
       ) : (
-        <CreatePost subforum={subforum} user={user} />
+        <Link
+          to="/create-post"
+          element={<CreatePost subforum={subforum} user={user} />}
+        >
+          <button>Create Post</button>
+        </Link>
       )}
     </SubforumContainer>
   );

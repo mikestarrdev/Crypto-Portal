@@ -30,8 +30,9 @@ const GlobalStyle = createGlobalStyle`
         border-top: 1px solid black;
     }
 
-    thead:first {
-        border-top: none;
+    thead {
+        background: whitesmoke;
+        color: black
     }
 
     h1 {
@@ -60,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
         white-space: nowrap;
         text-decoration: none;
         padding: 0.25rem 0.5rem;
-        margin: 0.25rem;
+        margin: 0.25rem 1rem;
         cursor: pointer;
     }
 

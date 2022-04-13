@@ -23,6 +23,10 @@ const SignupForm = styled.form`
 `;
 
 const Button = styled.input`
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin: auto;
   border: 0;
   border-radius: 0.25rem;
   background: orange;
@@ -33,7 +37,8 @@ const Button = styled.input`
   white-space: nowrap;
   text-decoration: none;
   padding: 0.25rem 0.5rem;
-  margin: 0.25rem;
+  width: auto;
+
   cursor: pointer;
 `;
 const UL = styled.ul`
@@ -48,8 +53,8 @@ const ListItem = styled.li`
   text-align: center;
   margin: 1em;
   padding: 0.5em;
-  border: solid 1px red;
-  border-radius: 5px;
+  border: solid red 1px;
+  /* border-radius: 5px; */
 `;
 
 function Signup() {
@@ -98,7 +103,7 @@ function Signup() {
           <input
             type="text"
             htmlFor="text"
-            value={username}
+            defaultValue={username}
             //
             placeholder="username..."
             onChange={(e) => setUsername(e.target.value)}
@@ -110,7 +115,7 @@ function Signup() {
           <br />
           <input
             type="password"
-            value={password}
+            defaultValue={password}
             placeholder="password..."
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -121,7 +126,7 @@ function Signup() {
           <br />
           <input
             type="text"
-            value={email}
+            defaultValue={email}
             placeholder="email..."
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -132,7 +137,7 @@ function Signup() {
           <br />
           <input
             type="text"
-            value={avatarURL}
+            defaultValue={avatarURL}
             onChange={(e) => setAvatarURL(e.target.value)}
             placeholder="enter URL here..."
           />
@@ -143,7 +148,7 @@ function Signup() {
           <br />
           <input
             type="text"
-            value={btcAddress}
+            defaultValue={btcAddress}
             placeholder="BTC address..."
             onChange={(e) => setBtcAddress(e.target.value)}
           />
@@ -154,7 +159,7 @@ function Signup() {
           <br />
           <input
             type="text"
-            value={ethAddress}
+            defaultValue={ethAddress}
             placeholder="ETH address..."
             onChange={(e) => setEthAddress(e.target.value)}
           />

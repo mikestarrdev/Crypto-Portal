@@ -6,32 +6,11 @@ const ForumContainer = styled.div`
   background: white;
 `;
 
-const SubforumDiv = styled.div`
-  display: flex;
-  text-align: left;
-  border: solid gray 1px;
+const Table = styled.table`
+  text-align: justify;
+  width: 95%;
   margin: 1rem;
-  width: auto;
-  padding: 1rem;
-  border-radius: 3px;
-`;
-
-const DivBox = styled.div`
-  /* display: flex; */
-  /* border: solid gray 1px; */
-  /* float: right; */
-`;
-
-const SubforumBtn = styled.button`
-  background: white;
-  color: black;
-  padding: 0;
-  margin: 0 0 1rem 0;
-  font-size: x-large;
-  font-family: Arial, Helvetica, sans-serif;
-  &:active {
-    transform: translateY(2px);
-  }
+  border: solid lightgray 1px;
 `;
 
 function Forum({ user }) {
@@ -48,35 +27,83 @@ function Forum({ user }) {
 
   let navigate = useNavigate();
 
+  function parsedDate(date) {
+    let pdate = new Date(date);
+    let month = pdate.getMonth();
+    let day = pdate.getDay();
+    let year = pdate.getFullYear();
+    let hours = pdate.getHours();
+    let minutes = pdate.getMinutes();
+    switch (month) {
+      case 1:
+        month = "Jan";
+        break;
+      case 2:
+        month = "Feb";
+        break;
+      case 3:
+        month = "Mar";
+        break;
+      case 4:
+        month = "Apr";
+        break;
+      case 5:
+        month = "May";
+        break;
+      case 6:
+        month = "Jun";
+        break;
+      case 7:
+        month = "Jul";
+        break;
+      case 8:
+        month = "Aug";
+        break;
+      case 9:
+        month = "Sept";
+        break;
+      case 10:
+        month = "Oct";
+        break;
+      case 11:
+        month = "Nov";
+        break;
+      case 12:
+        month = "Dec";
+        break;
+    }
+    return `${month}-${day}-${year}, ${hours}:${minutes} ${
+      hours < 12 ? "AM" : "PM"
+    }`;
+  }
+
   const renderSubforums = subforums.map((subforum) => {
     return (
-      <SubforumDiv key={subforum.title}>
-        <DivBox>
-          <SubforumBtn
-            coin={subforum.title}
-            onClick={(e) => {
-              e.preventDefault();
-              console.log(subforum.title);
-              navigate(`/forum/${subforum.title}`);
-            }}
-          >
-            {subforum.title}
-          </SubforumBtn>
-          <br />
-          <p>Posts: {subforum.posts.length}</p>
-          <p>
-            Latest post:{" "}
-            <strong>{subforum.posts[subforum.posts.length - 1]?.title}</strong>
-          </p>
-        </DivBox>
-      </SubforumDiv>
+      <tr key={subforum.title}>
+        <td
+          onClick={(e) => {
+            e.preventDefault();
+            console.log(subforum.title);
+            navigate(`/forum/${subforum.title}`);
+          }}
+        >
+          {subforum.title}
+        </td>
+        <td>{subforum.posts.length}</td>
+      </tr>
     );
   });
 
   return (
     <ForumContainer>
       <h1>Forums:</h1>
-      {renderSubforums}
+      <Table>
+        <thead>
+          <th>Forum Title</th>
+          <th>Posts</th>
+        </thead>
+        <tbody>{renderSubforums}</tbody>
+      </Table>
     </ForumContainer>
   );
 }

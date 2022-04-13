@@ -21,7 +21,9 @@ const Form = styled.form`
 
 const Button = styled.input`
   display: flex;
-  width: auto;
+  flex-direction: column;
+  justify-self: center;
+  margin: auto;
   border: 0;
   border-radius: 0.25rem;
   background: orange;
@@ -32,8 +34,7 @@ const Button = styled.input`
   white-space: nowrap;
   text-decoration: none;
   padding: 0.25rem 0.5rem;
-  margin: 0.25rem;
-  cursor: pointer;
+  width: auto;
 `;
 
 const ErrorMessage = styled.p`
@@ -45,7 +46,7 @@ const ErrorMessage = styled.p`
   margin: 0 auto 1em auto;
   padding: 0.5em;
   border: solid 1px red;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 `;
 
 function Login({ setUser, user }) {
@@ -87,8 +88,7 @@ function Login({ setUser, user }) {
           Username:
           <input
             type="text"
-            value={username}
-            // required={true}
+            defaultValue={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username..."
           />
@@ -98,8 +98,7 @@ function Login({ setUser, user }) {
           Password:
           <input
             type="password"
-            value={password}
-            // required={true}
+            defaultValue={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password..."
           />
