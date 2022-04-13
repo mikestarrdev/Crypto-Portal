@@ -57,7 +57,7 @@ function Login({ setUser, user }) {
 
   useEffect(() => {
     if (user) navigate("/");
-  }, []);
+  });
 
   async function handleSubmit(e) {
     e.preventDefault();

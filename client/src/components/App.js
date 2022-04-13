@@ -8,6 +8,8 @@ import CoinData from "./CoinData";
 import Signup from "./Signup";
 import Login from "./Login";
 import Footer from "./Footer";
+import Forum from "./Forum";
+import Subforum from "./Subforum";
 
 function App() {
   const [user, setUser] = useState("");
@@ -35,12 +37,14 @@ function App() {
       <MainContainer>
         <Routes>
           <Route path="/" element={<CoinTracker user={user} />} />
+          <Route path="/forum" element={<Forum user={user} />} />
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/login"
             element={<Login user={user} setUser={setUser} />}
           />
           <Route path="/:id" element={<CoinData />} />
+          <Route path="forum/:title" element={<Subforum user={user} />} />
         </Routes>
       </MainContainer>
       <Footer />

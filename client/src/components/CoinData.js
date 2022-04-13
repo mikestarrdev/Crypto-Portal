@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import Subforum from "./Subforum";
 
-const CoinStyles = styled.div`
+const CoinDataStyles = styled.div`
   margin: auto;
   padding: 1rem;
   margin-top: 3rem;
@@ -98,7 +99,7 @@ function CoinData({ coin }) {
   }
 
   return (
-    <CoinStyles>
+    <CoinDataStyles>
       <Headline>
         <Image src={fullCoinData.image?.small} width="40px" />
         {fullCoinData?.name} ({fullCoinData?.symbol?.toUpperCase()})
@@ -198,7 +199,10 @@ function CoinData({ coin }) {
           </tr>
         </tbody>
       </Table>
-    </CoinStyles>
+      <br />
+      <hr />
+      <Subforum coin={fullCoinData?.name} />
+    </CoinDataStyles>
   );
 }
 

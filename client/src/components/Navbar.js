@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
 import Search from "./Search";
+import Forum from "./Forum";
 
 const Nav = styled.nav`
   display: flex;
@@ -41,7 +42,9 @@ function Navbar({ user, setUser, onLogout }) {
         <NavLink to="/">Home</NavLink>
       </NavBox>
       <NavBox>
-        <NavLink to="/forum">Forum</NavLink>
+        <NavLink to="/forum" element={<Forum user={user} />}>
+          Forum
+        </NavLink>
       </NavBox>
       <NavBox>
         {user ? (
@@ -56,7 +59,7 @@ function Navbar({ user, setUser, onLogout }) {
       {/* <NavBoxSearch>
         <Search />
       </NavBoxSearch> */}
-      <NavBox>{user ? `You're logged in, ${user.username}!` : null}</NavBox>
+      {user ? <NavBox>You're logged in, {user.username}!</NavBox> : null}
     </Nav>
   );
 }
