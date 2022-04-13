@@ -10,9 +10,8 @@ const SubforumDiv = styled.div`
   display: flex;
   text-align: left;
   border: solid gray 1px;
-  margin: auto;
-  margin-top: 1rem;
-  width: 80%;
+  margin: 1rem;
+  width: auto;
   padding: 1rem;
   border-radius: 3px;
 `;

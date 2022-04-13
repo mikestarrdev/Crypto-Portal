@@ -14,13 +14,13 @@ class ForumsController < ApplicationController
         render json: forum
     end
 
-    def create
-        forum = Forum.create!(forum_params)
+    def create 
+        forum = Forum.create!(title: forum_params)
         render json: forum, status: :created
     end
 
     def forum_title
-        forum = Forum.find_by(title: params[:title])
+        forum = Forum.find_by!(title: params[:title])
         render json: forum
     end
 

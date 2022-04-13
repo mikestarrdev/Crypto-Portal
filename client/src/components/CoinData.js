@@ -38,10 +38,10 @@ const Website = styled.a`
 
 const ForumNavigation = styled.h2`
   border: solid black 1px;
-  width: 60%;
+  width: 50%;
   margin: 1em auto 1em auto;
   background: lightyellow;
-  padding: 1em;
+  padding: 1rem;
   text-decoration: underline;
   /* text-align: left; */
   cursor: pointer;

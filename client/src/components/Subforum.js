@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import CreatePost from "./CreatePost";
 
 const SubforumContainer = styled.div`
   background: white;
@@ -25,6 +26,20 @@ const Image = styled.img`
 const Linebreak = styled.hr`
   margin-top: 0.5em;
   margin-bottom: 1em;
+`;
+
+const StartForum = styled.div`
+  border: solid black 1px;
+  margin: 1rem;
+  padding: 2rem;
+  text-align: center;
+`;
+
+const CreatePostLink = styled.span`
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+  font-weight: bolder;
 `;
 
 function Subforum({ coin, user }) {
@@ -113,10 +128,47 @@ function Subforum({ coin, user }) {
     );
   });
 
+  async function createForumAndPost() {
+    const response = await fetch("/forums", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: params.coin,
+      }),
+    });
+    const forum = await response.json();
+    if (response.ok) {
+      console.log(forum);
+      setSubforum(forum);
+    }
+  }
+
+  async function createFirstPost(e) {
+    e.preventDefault();
+    const response = await fetch(`/forum/${params.coin}`);
+    const forum = await response.json();
+    if (!response.ok) {
+      console.log("forum desn't exist");
+      createForumAndPost();
+    }
+  }
+
   return (
     <SubforumContainer>
-      <h1>{subforum?.title} Forum</h1>
+      <h1>{params.coin} Forum</h1>
       {renderPosts}
+      {!renderPosts ? (
+        <StartForum>
+          This forum has no posts yet!{" "}
+          <CreatePostLink onClick={createFirstPost}>
+            Create the first post!
+          </CreatePostLink>
+        </StartForum>
+      ) : (
+        <CreatePost subforum={subforum} user={user} />
+      )}
     </SubforumContainer>
   );
 }
