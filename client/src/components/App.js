@@ -14,6 +14,8 @@ import Subforum from "./Subforum";
 function App() {
   const [user, setUser] = useState("");
 
+  <GlobalStyle />;
+
   const MainContainer = styled.div`
     display: grid;
     /* grid-template-columns: 60% 40%; */
@@ -23,7 +25,6 @@ function App() {
     fetch("/auth").then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          // console.log(user);
           setUser(user);
         });
       }
@@ -44,7 +45,7 @@ function App() {
             element={<Login user={user} setUser={setUser} />}
           />
           <Route path="/:id" element={<CoinData />} />
-          <Route path="forum/:title" element={<Subforum user={user} />} />
+          <Route path="/forum/:coin" element={<Subforum user={user} />} />
         </Routes>
       </MainContainer>
       <Footer />

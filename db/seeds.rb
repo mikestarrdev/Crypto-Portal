@@ -20,7 +20,7 @@ puts "seeding User... 🕺🏻"
         username: Faker::Twitter.screen_name,
         password: "password",
         email: Faker::Internet.email,
-        avatar_url: Faker::Avatar.image(slug: "my-own-slug", size: "50x50", format: "jpg"),
+        avatar_url: Faker::Avatar.image(size: "50x50", format: "jpg"),
         btc_address: Faker::Blockchain::Bitcoin.address,
         eth_address: Faker::Blockchain::Ethereum.address
     )

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Subforum from "./Subforum";
 
@@ -36,10 +36,21 @@ const Website = styled.a`
   text-decoration: none;
 `;
 
-function CoinData({ coin }) {
+const ForumNavigation = styled.h2`
+  border: solid black 1px;
+  width: 60%;
+  margin: 1em auto 1em auto;
+  background: lightyellow;
+  padding: 1em;
+  text-decoration: underline;
+  /* text-align: left; */
+  cursor: pointer;
+`;
+
+function CoinData() {
   const [fullCoinData, setFullCoinData] = useState({});
 
-  coin = useParams();
+  let coin = useParams();
 
   useEffect(() => {
     fetch(
@@ -96,6 +107,13 @@ function CoinData({ coin }) {
         break;
     }
     return `${month} ${day}, ${year}`;
+  }
+
+  let navigate = useNavigate();
+
+  function handleNavToSubforum(e) {
+    e.preventDefault();
+    navigate(`/forum/${fullCoinData.name}`);
   }
 
   return (
@@ -201,7 +219,10 @@ function CoinData({ coin }) {
       </Table>
       <br />
       <hr />
-      <Subforum coin={fullCoinData?.name} />
+      <ForumNavigation onClick={handleNavToSubforum}>
+        Visit {fullCoinData?.name} Forum
+      </ForumNavigation>
+      {/* <Subforum coin={fullCoinData?.name} /> */}
     </CoinDataStyles>
   );
 }

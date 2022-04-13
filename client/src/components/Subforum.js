@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const SubforumContainer = styled.div`
@@ -12,6 +13,15 @@ const Post = styled.div`
   padding: 1rem;
 `;
 
+const Image = styled.img`
+  position: inherit;
+  float: left;
+  border: solid lightgray 1px;
+  border-radius: 5px;
+  margin: 0.2em;
+  margin-bottom: 1em;
+`;
+
 const Linebreak = styled.hr`
   margin-top: 0.5em;
   margin-bottom: 1em;
@@ -20,8 +30,10 @@ const Linebreak = styled.hr`
 function Subforum({ coin, user }) {
   const [subforum, setSubforum] = useState([]);
 
+  let params = useParams();
+
   useEffect(() => {
-    fetch(`/forum/${coin}`)
+    fetch(`/forum/${params.coin}`)
       .then((r) => r.json())
       .then((data) => {
         setSubforum(data);
@@ -89,6 +101,9 @@ function Subforum({ coin, user }) {
         </p>
         <br />
         <Linebreak />
+        {post.user.avatar_url ? (
+          <Image src={post.user.avatar_url} alt={post.user.username} />
+        ) : null}
         <p>{post.comments.length} comments</p>
         <p>
           Latest post by: {post.user.username} |{" "}
@@ -100,7 +115,7 @@ function Subforum({ coin, user }) {
 
   return (
     <SubforumContainer>
-      <h1>{coin} Forum</h1>
+      <h1>{subforum?.title} Forum</h1>
       {renderPosts}
     </SubforumContainer>
   );

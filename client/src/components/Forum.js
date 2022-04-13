@@ -49,17 +49,18 @@ function Forum({ user }) {
 
   let navigate = useNavigate();
 
-  function navigateToSubforum(e) {
-    e.preventDefault();
-    console.log(e.target);
-    //   navigate(`/forum/${subforum.title}`);
-  }
-
   const renderSubforums = subforums.map((subforum) => {
     return (
       <SubforumDiv key={subforum.title}>
         <DivBox>
-          <SubforumBtn onClick={navigateToSubforum}>
+          <SubforumBtn
+            coin={subforum.title}
+            onClick={(e) => {
+              e.preventDefault();
+              console.log(subforum.title);
+              navigate(`/forum/${subforum.title}`);
+            }}
+          >
             {subforum.title}
           </SubforumBtn>
           <br />
