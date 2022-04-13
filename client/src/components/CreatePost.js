@@ -44,7 +44,7 @@ function CreatePost({ subforum, user }) {
 
   async function handleCreatePost(e) {
     e.preventDefault();
-    const response = await fetch("/comments", {
+    const response = await fetch("/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

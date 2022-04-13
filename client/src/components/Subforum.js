@@ -31,8 +31,6 @@ const CreatePostLink = styled.span`
 function Subforum({ coin, user }) {
   const [subforum, setSubforum] = useState([]);
 
-  //   console.log(subforum);
-
   let params = useParams();
 
   useEffect(() => {
@@ -96,7 +94,14 @@ function Subforum({ coin, user }) {
   const renderPostsTable = subforum?.posts?.map((post) => {
     return (
       <tr key={post.id}>
-        <td>{post.title}</td>
+        <td
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(`/posts/:${post?.id}`);
+          }}
+        >
+          {post.title}
+        </td>
         <td>{post.comments.length}</td>
         <td>{post.user.username}</td>
         <td>{parsedDate(post.user.updated_at)}</td>
@@ -143,7 +148,10 @@ function Subforum({ coin, user }) {
       <h1>{params.coin} Forum</h1>
       {renderPostsTable?.length > 0 ? (
         <>
-          <Link to="/create-post" element={<CreatePost subforum={subforum} />}>
+          <Link
+            to={"/create-post"}
+            element={<CreatePost subforum={subforum} />}
+          >
             <button>Create Post</button>
           </Link>
           <Table>
@@ -165,10 +173,7 @@ function Subforum({ coin, user }) {
           </CreatePostLink>
         </StartForum>
       ) : (
-        <Link
-          to="/create-post"
-          element={<CreatePost subforum={subforum} user={user} />}
-        >
+        <Link to={<CreatePost subforum={subforum} />}>
           <button>Create Post</button>
         </Link>
       )}

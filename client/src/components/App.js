@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import Forum from "./Forum";
 import Subforum from "./Subforum";
 import CreatePost from "./CreatePost";
+import Post from "./Post";
 
 function App() {
   const [user, setUser] = useState("");
@@ -32,6 +33,8 @@ function App() {
     });
   }, []);
 
+  const ct = { user };
+
   return (
     <div>
       <GlobalStyle />
@@ -48,6 +51,7 @@ function App() {
           <Route path="/:id" element={<CoinData />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
           <Route path="/create-post" element={<CreatePost user={user} />} />
+          <Route path="/posts/:id" element={<Post />} />
         </Routes>
       </MainContainer>
       <Footer />
