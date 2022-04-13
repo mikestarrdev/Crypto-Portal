@@ -1,5 +1,5 @@
 class ForumsController < ApplicationController
-    before_action :authorized
+    # before_action :authorized
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
@@ -17,6 +17,11 @@ class ForumsController < ApplicationController
     def create
         forum = Forum.create!(forum_params)
         render json: forum, status: :created
+    end
+
+    def forum_title
+        forum = Forum.find_by(title: params[:title])
+        render json: forum
     end
 
     private

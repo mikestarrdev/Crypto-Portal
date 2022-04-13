@@ -52,7 +52,7 @@ function CoinData({ coin }) {
       });
   }, [coin]);
 
-  function displayDate(oldDate) {
+  function parseDate(oldDate) {
     const date = new Date(oldDate);
     const year = date.getFullYear();
     let month = date.getMonth();
@@ -156,7 +156,7 @@ function CoinData({ coin }) {
           <tr>
             <td>
               ATH: ${fullCoinData?.market_data?.ath.usd?.toLocaleString()} (
-              {displayDate(
+              {parseDate(
                 fullCoinData?.market_data?.ath_date?.usd?.toLocaleString()
               )}
               )

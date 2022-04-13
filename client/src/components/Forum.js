@@ -20,7 +20,7 @@ const SubforumDiv = styled.div`
 const DivBox = styled.div`
   /* display: flex; */
   /* border: solid gray 1px; */
-  float: right;
+  /* float: right; */
 `;
 
 const SubforumBtn = styled.button`

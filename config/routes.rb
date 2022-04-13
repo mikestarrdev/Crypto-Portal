@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/auth", to: "users#auth" 
   delete "/logout", to: "sessions#destroy"
+  get "/forum/:title", to: "forums#forum_title"
+
 end
  
