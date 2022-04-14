@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h4 {
-        margin: 2rem;
+     margin-top: 1rem;
     }
 
     button {

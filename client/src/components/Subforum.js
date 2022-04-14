@@ -97,7 +97,7 @@ function Subforum({ coin, user }) {
         <td
           onClick={(e) => {
             e.preventDefault();
-            navigate(`/posts/:${post?.id}`);
+            navigate(`/posts/${post.id}`);
           }}
         >
           {post.title}
@@ -156,12 +156,14 @@ function Subforum({ coin, user }) {
           </Link>
           <Table>
             <thead>
-              <th>Topic</th>
-              <th>Comments</th>
-              <th>Posted by</th>
-              <th>Latest Post Date</th>
+              <tr>
+                <th>Topic</th>
+                <th>Comments</th>
+                <th>Posted by</th>
+                <th>Latest Post Date</th>
+              </tr>
             </thead>
-            {renderPostsTable}
+            <tbody>{renderPostsTable}</tbody>
           </Table>
         </>
       ) : null}

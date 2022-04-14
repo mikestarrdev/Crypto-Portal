@@ -99,8 +99,10 @@ function Forum({ user }) {
       <h1>Forums:</h1>
       <Table>
         <thead>
-          <th>Forum Title</th>
-          <th>Posts</th>
+          <tr>
+            <th>Forum Title</th>
+            <th>Posts</th>
+          </tr>
         </thead>
         <tbody>{renderSubforums}</tbody>
       </Table>

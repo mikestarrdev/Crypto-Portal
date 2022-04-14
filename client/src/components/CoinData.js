@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Subforum from "./Subforum";
+import Chart from "./Chart";
 
 const CoinDataStyles = styled.div`
   margin: auto;
@@ -133,7 +133,7 @@ function CoinData() {
         </span>
       </h3>
       <br />
-      <h4>Rank: {fullCoinData?.market_data?.market_cap_rank}</h4>
+      <p>Rank: {fullCoinData?.market_data?.market_cap_rank}</p>
       <br />
       <p>
         Website:{" "}
@@ -147,6 +147,8 @@ function CoinData() {
           </a>
         </Website>
       </p>
+
+      <Chart coin={fullCoinData.id} />
 
       <Table>
         <tbody>
