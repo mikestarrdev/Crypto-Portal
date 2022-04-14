@@ -20,7 +20,6 @@ function Forum({ user }) {
     fetch("/forums")
       .then((r) => r.json())
       .then((subforums) => {
-        console.log(subforums);
         setSubforums(subforums);
       });
   }, []);
@@ -83,9 +82,9 @@ function Forum({ user }) {
         <td
           onClick={(e) => {
             e.preventDefault();
-            console.log(subforum.title);
             navigate(`/forum/${subforum.title}`);
           }}
+          style={{ color: "blue", cursor: "pointer" }}
         >
           {subforum.title}
         </td>

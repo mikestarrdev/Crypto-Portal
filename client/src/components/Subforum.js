@@ -7,6 +7,11 @@ const SubforumContainer = styled.div`
   background: white;
 `;
 
+const Headline = styled.h3`
+  text-align: left;
+  margin: 1rem;
+`;
+
 const Table = styled.table`
   text-align: left;
   width: 95%;
@@ -99,6 +104,7 @@ function Subforum({ coin, user }) {
             e.preventDefault();
             navigate(`/posts/${post.id}`);
           }}
+          style={{ color: "blue", cursor: "pointer" }}
         >
           {post.title}
         </td>
@@ -145,7 +151,8 @@ function Subforum({ coin, user }) {
 
   return (
     <SubforumContainer>
-      <h1>{params.coin} Forum</h1>
+      <Headline>{params.coin} Forum</Headline>
+
       {renderPostsTable?.length > 0 ? (
         <>
           <Link

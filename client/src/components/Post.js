@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const CommentContainer = styled.div`
   margin: 1rem;
-  border: solid black 1px;
+  border: solid #ededed 1px;
+  border-radius: 5px;
 `;
 
-const Headline = styled.h2`
+const OP = styled.div`
+  background-color: darkgray;
+  color: white;
+  width: auo;
+  padding: 0.5rem 1rem;
+`;
+
+const NavSpan = styled.span`
+  font-size: small;
+  color: blue;
+  cursor: pointer;
+`;
+
+const ForumNav = styled.div`
+  margin: 0.5rem;
+  padding: 0.5rem;
+`;
+
+const Headline = styled.h3`
   text-align: left;
+  margin: 0.5rem 1rem 1rem 1rem;
 `;
 
 const UserDiv = styled.div`
-  /* border: solid black 1px; */
-  margin: 0.5rem;
-  padding: 0.5rem;
+  background: whitesmoke;
+  /* margin: 0.5rem; */
+  padding: 0.5rem 1rem;
+  font-size: smaller;
 `;
 
 const Img = styled.img`
@@ -24,14 +45,14 @@ const Img = styled.img`
   width: 15px;
   float: left;
   overflow: hidden;
+  margin-right: 0.5rem;
 `;
 
 const Linebreak = styled.hr`
-  margin: 0.5rem 1rem;
+  margin: 1rem 1rem 0.5rem 1rem;
 `;
 
 const Comment = styled.div`
-  /* border: solid black 1px; */
   margin: 0.5rem;
   padding: 0.5rem;
 `;
@@ -49,6 +70,8 @@ function Post({ user }) {
         setPost(post);
       });
   }, []);
+
+  let navigate = useNavigate();
 
   function parsedDate(date) {
     let pdate = new Date(date);
@@ -100,8 +123,6 @@ function Post({ user }) {
     }`;
   }
 
-  console.log(post);
-
   const renderComments = post?.comments?.map((comment) => {
     return (
       <CommentContainer key={comment.id}>
@@ -117,9 +138,33 @@ function Post({ user }) {
     );
   });
 
+  function navBackToForum(e) {
+    e.preventDefault();
+    navigate(`/forum/${post.forum.title}`);
+  }
+
   return (
     <div>
-      <Headline>{post?.title}</Headline>
+      <CommentContainer>
+        <ForumNav>
+          Forum:{" "}
+          <NavSpan onClick={navBackToForum}>
+            {post.forum?.title.toUpperCase()}
+          </NavSpan>
+        </ForumNav>
+        <Headline>Topic: {post?.title}</Headline>
+      </CommentContainer>
+      <CommentContainer>
+        <OP>Original Post</OP>
+        <UserDiv>
+          <Img src={post.user?.avatar_url} alt={post.user?.username} />
+          <p>
+            {post.user?.username} | Posted: {parsedDate(post?.created_at)}
+          </p>
+        </UserDiv>
+        <Linebreak />
+        <Comment>{post.body}</Comment>
+      </CommentContainer>
       {renderComments}
     </div>
   );

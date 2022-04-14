@@ -7,10 +7,8 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-family: 'Ubuntu Mono', monospace;
-        /* font-family: Arial, Helvetica, sans-serif; */
-        font-size: large;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         box-sizing: border-box;
-        /* filter: blur(8px); */
         
     }
     header {
