@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Comment from "./Comment";
 
 const CommentContainer = styled.div`
   margin: 1rem;
@@ -52,11 +53,7 @@ const Img = styled.img`
   margin-right: 0.5rem;
 `;
 
-const Linebreak = styled.hr`
-  margin: 1rem 1rem 0.5rem 1rem;
-`;
-
-const Comment = styled.div`
+const Content = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
 `;
@@ -65,7 +62,6 @@ function Post({ user }) {
   const [post, setPost] = useState([]);
 
   let params = useParams();
-  console.log(params);
 
   useEffect(() => {
     fetch(`/posts/${params.id}`)
@@ -129,16 +125,15 @@ function Post({ user }) {
 
   const renderComments = post?.comments?.map((comment) => {
     return (
-      <CommentContainer key={comment.id}>
-        <UserDiv>
-          {/* <Img src={comment.user.avatar_url} alt={comment.user.username} /> */}
-          <p>
-            {comment.user.username} | Posted: {parsedDate(comment.created_at)}
-          </p>
-        </UserDiv>
-        <Linebreak />
-        <Comment>{comment.content}</Comment>
-      </CommentContainer>
+      <Comment
+        key={comment.id}
+        user={user}
+        postUserID={comment.user.id}
+        commentID={comment.id}
+        username={comment.user.username}
+        dateUpdated={comment.created_at}
+        comment={comment.content}
+      />
     );
   });
 
@@ -169,13 +164,11 @@ function Post({ user }) {
       <CommentContainer>
         <OP>Original Post</OP>
         <UserDiv>
-          {/* <Img src={post.user?.avatar_url} alt={post.user?.username} /> */}
           <p>
-            {post.user?.username} | Posted: {parsedDate(post?.created_at)}
+            User: {post.user?.username} | Posted: {parsedDate(post?.created_at)}
           </p>
         </UserDiv>
-        <Linebreak />
-        <Comment>{post.body}</Comment>
+        <Content>{post.body}</Content>
       </CommentContainer>
       {renderComments}
       <Button onClick={handleCreateComment}>Leave Comment</Button>

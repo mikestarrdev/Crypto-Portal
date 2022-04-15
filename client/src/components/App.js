@@ -13,6 +13,8 @@ import Subforum from "./Subforum";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 import CreateComment from "./CreateComment";
+import EditComment from "./EditComment";
+import NoRoute from "./NoRoute";
 
 function App() {
   const [user, setUser] = useState("");
@@ -42,7 +44,8 @@ function App() {
       <Header user={user} setUser={setUser} />
       <MainContainer>
         <Routes>
-          <Route path="/" element={<CoinTracker user={user} />} />
+          <Route exact path="/" element={<CoinTracker user={user} />} />
+          <Route path="*" element={<NoRoute />} />
           <Route path="/forum" element={<Forum user={user} />} />
           <Route path="/signup" element={<Signup />} />
           <Route
@@ -59,6 +62,10 @@ function App() {
           <Route
             path="/create-comment/:title/:id"
             element={<CreateComment user={user} />}
+          />
+          <Route
+            path="/edit-comment/:comment/:post/:id"
+            element={<EditComment user={user} />}
           />
         </Routes>
       </MainContainer>

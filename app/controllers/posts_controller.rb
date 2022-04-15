@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    # before_action :authorized
+    before_action :authorized
     
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
