@@ -41,7 +41,7 @@ const ButtonCreate = styled.input`
   transform: translateY(2px);
 `;
 
-const CancelPost = styled.button`
+const CancelComment = styled.button`
   /* float: left; */
   background: white;
   border: solid lightgray 1px;
@@ -60,26 +60,28 @@ function EditComment({ user, comment }) {
   let params = useParams();
   let navigate = useNavigate();
 
+  console.log(params);
+
   async function handleEditComment(e) {
     e.preventDefault();
-    const response = await fetch(`/comments/${params.id}`, {
+    const response = await fetch(`/comments/${params.commentID}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         content,
-        user_id: user.id,
-        post_id: parseInt(params.id),
+        comment_id: parseInt(params.commentID),
       }),
     });
     const comment = await response.json();
     if (response.ok) {
-      console.log("Comment created:", comment);
+      console.log("Comment updated:", comment);
       setContent(comment);
-      navigate(`/posts/${params.id}`);
+      //   navigate(`/comments/${params.commentID}`);
+      navigate(`/comments/${params.commentID}`);
     } else {
-      console.log("post failed");
+      console.log("Comment failed");
     }
   }
 
@@ -103,7 +105,7 @@ function EditComment({ user, comment }) {
           </label>
           <ButtonCreate type="submit" value="Edit Comment" />
         </form>
-        <CancelPost onClick={navBackToPost}>Cancel</CancelPost>
+        <CancelComment onClick={navBackToPost}>Cancel</CancelComment>
       </Div>
     </>
   );

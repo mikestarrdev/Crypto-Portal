@@ -169,7 +169,7 @@ function Subforum({ coin, user }) {
     e.preventDefault();
     navigate(`/create-post/${subforum.title}/${subforum.id}`);
   }
-  console.log(coin?.id);
+
   return (
     <SubforumContainer>
       <CommentContainer>

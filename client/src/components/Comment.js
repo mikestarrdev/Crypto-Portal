@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import EditComment from "./EditComment";
+// import EditComment from "./EditComment";
 
 const CommentContainer = styled.div`
   margin: 1rem;
@@ -35,6 +35,7 @@ const Delete = styled.span`
 
 function Comment({
   user,
+  postID,
   postUserID,
   commentID,
   username,
@@ -61,10 +62,12 @@ function Comment({
     }
   }
 
-  function handleEditComment(e) {
-    e.preventDefault();
-    navigate(`/edit-comment/${comment}/${user}/${commentID}`);
-  }
+  // console.log(comment, commentID);
+
+  // function handleEditComment(e) {
+  //   e.preventDefault();
+  //   navigate(`/edit-comment/${comment}/${commentID}/${postID}`);
+  // }
 
   function parsedDate(date) {
     let pdate = new Date(date);
@@ -118,12 +121,12 @@ function Comment({
 
   return (
     <CommentContainer>
-      <UserDiv {...user} {...postUserID} {...commentID}>
+      <UserDiv {...user} {...postUserID} {...commentID} {...postID}>
         <p>
           User: {username} | Posted: {parsedDate(dateUpdated)} |{" "}
           {postUserID === user.id ? (
             <>
-              <Delete onClick={handleEditComment}>EDIT </Delete> |{" "}
+              {/* <Delete onClick={handleEditComment}>EDIT </Delete> |{" "} */}
               <Delete onClick={handleDeleteComment}>DELETE </Delete>
             </>
           ) : null}

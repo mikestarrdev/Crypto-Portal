@@ -16,6 +16,12 @@ const OP = styled.div`
   padding: 0.5rem 1rem;
 `;
 
+const Delete = styled.span`
+  font-size: small;
+  color: gray;
+  cursor: pointer;
+`;
+
 const Button = styled.button`
   margin: 0rem 1rem;
 `;
@@ -60,6 +66,7 @@ const Content = styled.div`
 
 function Post({ user }) {
   const [post, setPost] = useState([]);
+  console.log(post.forum?.id);
 
   let params = useParams();
 
@@ -127,6 +134,7 @@ function Post({ user }) {
     return (
       <Comment
         key={comment.id}
+        postID={post.id}
         user={user}
         postUserID={comment.user.id}
         commentID={comment.id}
@@ -147,6 +155,21 @@ function Post({ user }) {
     navigate(`/create-comment/${post.title}/${post.id}`);
   }
 
+  function handleDeletePost(e) {
+    e.preventDefault();
+    let confirmation = prompt(`Type "DELETE" to permanently remove your post`);
+
+    if (
+      confirmation.toLowerCase() === `"delete"` ||
+      confirmation.toLowerCase() === `delete`
+    ) {
+      fetch(`/posts/${post.id}`, {
+        method: "DELETE",
+      });
+      navigate(`/forum/${post.forum?.title}`);
+    }
+  }
+
   return (
     <div>
       <CommentContainer>
@@ -165,7 +188,13 @@ function Post({ user }) {
         <OP>Original Post</OP>
         <UserDiv>
           <p>
-            User: {post.user?.username} | Posted: {parsedDate(post?.created_at)}
+            User: {post.user?.username} | Posted: {parsedDate(post?.created_at)}{" "}
+            |{" "}
+            {post.comments?.length === 0 && post.user?.id === user?.id ? (
+              <>
+                <Delete onClick={handleDeletePost}>DELETE </Delete>
+              </>
+            ) : null}
           </p>
         </UserDiv>
         <Content>{post.body}</Content>
