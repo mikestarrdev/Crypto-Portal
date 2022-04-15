@@ -12,6 +12,7 @@ import Forum from "./Forum";
 import Subforum from "./Subforum";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
+import CreateComment from "./CreateComment";
 
 function App() {
   const [user, setUser] = useState("");
@@ -33,7 +34,7 @@ function App() {
     });
   }, []);
 
-  const ct = { user };
+  // const ct = { user };
 
   return (
     <div>
@@ -50,8 +51,15 @@ function App() {
           />
           <Route path="/:id" element={<CoinData />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
-          <Route path="/create-post/:title/:id" element={<CreatePost user={user} />} />
+          <Route
+            path="/create-post/:title/:id"
+            element={<CreatePost user={user} />}
+          />
           <Route path="/posts/:id" element={<Post user={user} />} />
+          <Route
+            path="/create-comment/:title/:id"
+            element={<CreateComment user={user} />}
+          />
         </Routes>
       </MainContainer>
       <Footer />

@@ -15,6 +15,10 @@ const OP = styled.div`
   padding: 0.5rem 1rem;
 `;
 
+const Button = styled.button`
+  margin: 0rem 1rem;
+`;
+
 const NavSpan = styled.span`
   font-size: small;
   color: blue;
@@ -61,12 +65,12 @@ function Post({ user }) {
   const [post, setPost] = useState([]);
 
   let params = useParams();
+  console.log(params);
 
   useEffect(() => {
     fetch(`/posts/${params.id}`)
       .then((r) => r.json())
       .then((post) => {
-        // console.log(post);
         setPost(post);
       });
   }, []);
@@ -143,6 +147,11 @@ function Post({ user }) {
     navigate(`/forum/${post.forum.title}`);
   }
 
+  function handleCreateComment(e) {
+    e.preventDefault();
+    navigate(`/create-comment/${post.title}/${post.id}`);
+  }
+
   return (
     <div>
       <CommentContainer>
@@ -154,6 +163,9 @@ function Post({ user }) {
         </ForumNav>
         <Headline>Topic: {post?.title}</Headline>
       </CommentContainer>
+      {post.comments?.length > 5 ? (
+        <Button onClick={handleCreateComment}>Leave Comment</Button>
+      ) : null}
       <CommentContainer>
         <OP>Original Post</OP>
         <UserDiv>
@@ -166,6 +178,7 @@ function Post({ user }) {
         <Comment>{post.body}</Comment>
       </CommentContainer>
       {renderComments}
+      <Button onClick={handleCreateComment}>Leave Comment</Button>
     </div>
   );
 }

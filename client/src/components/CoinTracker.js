@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
 
 const Container = styled.div`
-  margin: auto;
+  margin: 1rem;
 `;
 
 function CoinTracker({ user }) {

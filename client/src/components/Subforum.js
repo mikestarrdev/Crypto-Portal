@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import CreatePost from "./CreatePost";
 
 const SubforumContainer = styled.div`
   background: white;
@@ -61,7 +60,7 @@ function Subforum({ coin, user }) {
       .then((data) => {
         setSubforum(data);
       });
-  }, [coin]);
+  }, [params.coin]);
 
   function parsedDate(date) {
     let pdate = new Date(date);
@@ -152,7 +151,7 @@ function Subforum({ coin, user }) {
   async function createFirstPost(e) {
     e.preventDefault();
     const response = await fetch(`/forum/${params.coin}`);
-    const forum = await response.json();
+    // const forum = await response.json();
     if (!response.ok) {
       console.log("forum desn't exist");
       createForumAndPost();
@@ -195,17 +194,17 @@ function Subforum({ coin, user }) {
           </Table>
         </>
       ) : null}
-      {
-        !renderPostsTable ? (
-          <StartForum>
-            This forum has no posts yet!{" "}
-            <CreatePostLink onClick={createFirstPost}>
-              Create the first post!
-            </CreatePostLink>
-          </StartForum>
-        ) : null
-        // <button>Create Post</button>
-      }
+      {!renderPostsTable ? (
+        <StartForum>
+          This forum has no posts yet!{" "}
+          <CreatePostLink onClick={createFirstPost}>
+            Create the first post!
+          </CreatePostLink>
+        </StartForum>
+      ) : (
+        // null
+        <button onClick={navToCreatePost}>Create Post</button>
+      )}
     </SubforumContainer>
   );
 }
