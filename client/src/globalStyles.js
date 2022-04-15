@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
     table {
         text-align: center;
-        margin-top: 1.5em;
+        margin-top: 1rem;
         border-collapse: collapse;
     }
 
@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h4 {
-     margin: 0.5rem 0 0 0;
+     margin: 2rem 0 0 0;
      text-align: center;
     }
 
