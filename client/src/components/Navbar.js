@@ -23,22 +23,23 @@ const Nav = styled.nav`
 `;
 
 const NavBox = styled.div`
+  display: flex;
+  flex-direction: row;
   width: auto;
-  padding: 1em;
+  padding: 0.5rem 1rem;
   justify-content: center;
+  align-items: center;
 `;
 
-// const NavBoxSearch = styled.div`
-//   /* flex-grow: 4; */
-//   justify-content: end;
-// `;
+const Span = styled.span`
+  font-size: smaller;
+  font-weight: bold;
+  text-decoration: underline;
+`;
 
 function Navbar({ user, setUser, onLogout }) {
   return (
     <Nav>
-      {/* <NavLink to="/">
-        <h1>Crypto Portal</h1>
-      </NavLink> */}
       <NavBox>
         <NavLink to="/">Home</NavLink>
       </NavBox>
@@ -54,20 +55,20 @@ function Navbar({ user, setUser, onLogout }) {
           Forums
         </NavLink>
       </NavBox>
-      <NavBox>
-        {user ? (
+      {user ? (
+        <NavBox>
+          <Span>You're logged in, {user?.username}!</Span>
           <Logout setUser={setUser} />
-        ) : (
-          <NavLink to="/login" element={<Login setUser={setUser} />}>
-            Login
-          </NavLink>
-        )}
-      </NavBox>
+        </NavBox>
+      ) : (
+        <NavLink to="/login" element={<Login setUser={setUser} />}>
+          Login
+        </NavLink>
+      )}
       <NavBox>{!user ? <NavLink to="/signup">Signup</NavLink> : null}</NavBox>
       {/* <NavBoxSearch>
         <Search />
       </NavBoxSearch> */}
-      {user ? <NavBox>You're logged in, {user.username}!</NavBox> : null}
     </Nav>
   );
 }

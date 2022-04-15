@@ -5,6 +5,7 @@ import CoinTrackerRow from "./CoinTrackerRow";
 
 const Container = styled.div`
   margin: 1rem;
+  overflow: scroll;
 `;
 
 function CoinTracker({ user }) {
@@ -26,24 +27,26 @@ function CoinTracker({ user }) {
   });
 
   return (
-    <Container>
+    <>
       <h4>Marketcap and Price Data</h4>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Rank</th>
-            <th>Coin</th>
-            <th>Price</th>
-            <th>High 24h</th>
-            <th>Low 24h</th>
-            <th>Price Change 24h</th>
-            <th>Market Cap</th>
-          </tr>
-        </thead>
-        <tbody>{coinTable}</tbody>
-      </table>
-    </Container>
+      <Container>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Rank</th>
+              <th>Coin</th>
+              <th>Price</th>
+              <th>High 24h</th>
+              <th>Low 24h</th>
+              <th>Price Change 24h</th>
+              <th>Market Cap</th>
+            </tr>
+          </thead>
+          <tbody>{coinTable}</tbody>
+        </table>
+      </Container>
+    </>
   );
 }
 
