@@ -6,6 +6,7 @@ import Logout from "./Logout";
 import Search from "./Search";
 import Forum from "./Forum";
 import Favorites from "./Favorites";
+import LoginRequired from "./LoginRequired";
 
 const Nav = styled.nav`
   display: flex;
@@ -14,6 +15,7 @@ const Nav = styled.nav`
   justify-content: left;
   width: auto;
   background-color: whitesmoke;
+  padding: 0 0 1rem 0;
 
   & a:active {
     text-decoration: underline;
@@ -47,13 +49,32 @@ function Navbar({ user, setUser, onLogout }) {
           <NavLink to="/favorites" element={<Favorites user={user} />}>
             Favorites
           </NavLink>
-        ) : null}
+        ) : (
+          <NavLink to="/login-required" element={<LoginRequired />}>
+            Favorites
+          </NavLink>
+        )}
       </NavBox>
       <NavBox>
-        <NavLink to="/forum" element={<Forum user={user} />}>
-          Forums
-        </NavLink>
+        {user ? (
+          <>
+            <NavBox>
+              <NavLink to="/forum" element={<Forum user={user} />}>
+                Forums
+              </NavLink>
+            </NavBox>
+          </>
+        ) : (
+          <NavLink to="/login-required" element={<LoginRequired />}>
+            Forum
+          </NavLink>
+        )}
       </NavBox>
+      {/*
+        <NavLink to="/forum" element={<Forum user={user} />}>
+          // Forums //{" "}
+        </NavLink>
+      </NavBox> */}
       {user ? (
         <>
           <NavBox>
@@ -64,9 +85,13 @@ function Navbar({ user, setUser, onLogout }) {
           </NavBox>
         </>
       ) : (
-        <NavLink to="/login" element={<Login setUser={setUser} />}>
-          Login
-        </NavLink>
+        <>
+          <NavBox>
+            <NavLink to="/login" element={<Login setUser={setUser} />}>
+              Login
+            </NavLink>
+          </NavBox>
+        </>
       )}
       <NavBox>{!user ? <NavLink to="/signup">Signup</NavLink> : null}</NavBox>
       {/* <NavBoxSearch>
