@@ -5,6 +5,7 @@ import CoinTrackerRow from "./CoinTrackerRow";
 
 const Container = styled.div`
   margin: 1rem;
+  border: solid lightgray 1px;
   overflow: scroll;
 `;
 

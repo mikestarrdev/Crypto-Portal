@@ -5,7 +5,8 @@ import styled from "styled-components";
 
 const CoinDataStyles = styled.div`
   margin: auto;
-  padding: 1rem;
+  width: 95%;
+  padding: 0 1rem;
   margin-top: 3rem;
   /* border-top: 1px solid red; */
   text-align: left;
@@ -16,13 +17,11 @@ const Headline = styled.h1`
   align-items: center;
   text-align: justify;
   margin: 0;
-  margin-top: 0.5em;
   margin-bottom: 0.5em;
 `;
 
 const Table = styled.table`
   text-align: left;
-  border-top: none;
 `;
 
 const FirstRow = styled.td`
@@ -34,20 +33,22 @@ const Image = styled.img`
   margin-right: 0.25em;
 `;
 
-const Website = styled.a`
-  background: lightyellow;
-  padding: 0.25em;
-  text-decoration: none;
+const Button = styled.button`
+  background-color: whitesmoke;
+  color: black;
+  border: solid lightgray 1px;
+  margin: 0;
+  padding: 0.5em;
 `;
 
-const ForumNavigation = styled.h2`
-  border: solid black 1px;
-  width: 50%;
-  margin: 1em auto 1em auto;
+const ForumNavigation = styled.h3`
+  color: blue;
   background: lightyellow;
+  border: solid lightgray 1px;
+  border-radius: 5px;
+  width: fit-content;
   padding: 1rem;
-  text-decoration: underline;
-  /* text-align: left; */
+  text-align: left;
   cursor: pointer;
 `;
 
@@ -132,7 +133,7 @@ function CoinData() {
           {fullCoinData?.market_data?.price_change_percentage_24h?.toFixed(1) >
           0
             ? "📈"
-            : "📉"}
+            : "📉"}{" "}
           {fullCoinData?.market_data?.price_change_percentage_24h?.toFixed(1)}%
         </span>
       </h3>
@@ -141,17 +142,24 @@ function CoinData() {
       <br />
       <p>
         Website:{" "}
-        <Website>
-          <a
-            href={fullCoinData.links?.homepage[0]}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {fullCoinData.links?.homepage[0]}
-          </a>
-        </Website>
+        <a
+          href={fullCoinData.links?.homepage[0]}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {fullCoinData.links?.homepage[0]}
+        </a>
       </p>
-
+      <br />
+      <Button>
+        <a
+          href={fullCoinData.links?.repos_url?.github[0]}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="../github-logo.png" style={{ width: "15px" }} /> GitHub
+        </a>
+      </Button>
       <Table>
         <tbody>
           <tr>

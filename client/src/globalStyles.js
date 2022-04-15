@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
     table {
         text-align: center;
-        margin-top: 1rem;
+        /* margin-top: 0.5rem; */
         border-collapse: collapse;
     }
 
@@ -33,10 +33,11 @@ const GlobalStyle = createGlobalStyle`
     thead {
         background: whitesmoke;
         color: black
+        
     }
 
     h1 {
-        text-align: center;
+        text-align: left;
         margin: 1rem;
     }
 
@@ -47,8 +48,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h4 {
-     margin: 2rem 0 0 0;
-     text-align: center;
+        margin: 1rem 1rem 0rem 1rem;
+     text-align: left;
     }
 
     button {

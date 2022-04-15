@@ -10,9 +10,8 @@ import Favorites from "./Favorites";
 const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-flow: row;
+  justify-content: left;
   width: auto;
   background-color: whitesmoke;
 
@@ -24,10 +23,9 @@ const Nav = styled.nav`
 
 const NavBox = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: wrap;
   width: auto;
   padding: 0.5rem 1rem;
-  justify-content: center;
   align-items: center;
 `;
 
@@ -35,6 +33,7 @@ const Span = styled.span`
   font-size: smaller;
   font-weight: bold;
   text-decoration: underline;
+  text-align: center;
 `;
 
 function Navbar({ user, setUser, onLogout }) {
@@ -56,10 +55,14 @@ function Navbar({ user, setUser, onLogout }) {
         </NavLink>
       </NavBox>
       {user ? (
-        <NavBox>
-          <Span>You're logged in, {user?.username}!</Span>
-          <Logout setUser={setUser} />
-        </NavBox>
+        <>
+          <NavBox>
+            <Span>You're logged in, {user?.username}!</Span>
+          </NavBox>
+          <NavBox>
+            <Logout setUser={setUser} />
+          </NavBox>
+        </>
       ) : (
         <NavLink to="/login" element={<Login setUser={setUser} />}>
           Login
