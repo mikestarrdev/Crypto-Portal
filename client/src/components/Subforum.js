@@ -7,6 +7,23 @@ const SubforumContainer = styled.div`
   background: white;
 `;
 
+const CommentContainer = styled.div`
+  margin: 1rem;
+  border: solid #ededed 1px;
+  border-radius: 5px;
+`;
+
+const NavSpan = styled.span`
+  font-size: small;
+  color: blue;
+  cursor: pointer;
+`;
+
+const ForumNav = styled.div`
+  margin: 0.5rem;
+  padding: 0.5rem;
+`;
+
 const Headline = styled.h3`
   text-align: left;
   margin: 1rem;
@@ -144,23 +161,27 @@ function Subforum({ coin, user }) {
 
   let navigate = useNavigate();
 
-  //   function handleCreatePost(e) {
-  //     e.preventDefault();
-  //     navigate(<CreatePost />);
-  //   }
+  function navBackToForum(e) {
+    e.preventDefault();
+    navigate("/forum");
+  }
 
+  function navToCreatePost(e) {
+    e.preventDefault();
+    navigate(`/create-post/${subforum.title}/${subforum.id}`);
+  }
+  console.log(coin?.id);
   return (
     <SubforumContainer>
-      <Headline>{params.coin} Forum</Headline>
-
+      <CommentContainer>
+        <ForumNav>
+          <NavSpan onClick={navBackToForum}>ALL FORUMS</NavSpan>
+        </ForumNav>
+        <Headline>{params.coin} Forum</Headline>
+      </CommentContainer>
       {renderPostsTable?.length > 0 ? (
         <>
-          <Link
-            to={"/create-post"}
-            element={<CreatePost subforum={subforum} />}
-          >
-            <button>Create Post</button>
-          </Link>
+          <button onClick={navToCreatePost}>Create Post</button>
           <Table>
             <thead>
               <tr>
@@ -174,18 +195,17 @@ function Subforum({ coin, user }) {
           </Table>
         </>
       ) : null}
-      {!renderPostsTable ? (
-        <StartForum>
-          This forum has no posts yet!{" "}
-          <CreatePostLink onClick={createFirstPost}>
-            Create the first post!
-          </CreatePostLink>
-        </StartForum>
-      ) : (
-        <Link to={<CreatePost subforum={subforum} />}>
-          <button>Create Post</button>
-        </Link>
-      )}
+      {
+        !renderPostsTable ? (
+          <StartForum>
+            This forum has no posts yet!{" "}
+            <CreatePostLink onClick={createFirstPost}>
+              Create the first post!
+            </CreatePostLink>
+          </StartForum>
+        ) : null
+        // <button>Create Post</button>
+      }
     </SubforumContainer>
   );
 }

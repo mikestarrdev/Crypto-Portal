@@ -50,7 +50,7 @@ function App() {
           />
           <Route path="/:id" element={<CoinData />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
-          <Route path="/create-post" element={<CreatePost user={user} />} />
+          <Route path="/create-post/:title/:id" element={<CreatePost user={user} />} />
           <Route path="/posts/:id" element={<Post user={user} />} />
         </Routes>
       </MainContainer>

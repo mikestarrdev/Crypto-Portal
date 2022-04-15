@@ -127,7 +127,7 @@ function Post({ user }) {
     return (
       <CommentContainer key={comment.id}>
         <UserDiv>
-          <Img src={comment.user.avatar_url} alt={comment.user.username} />
+          {/* <Img src={comment.user.avatar_url} alt={comment.user.username} /> */}
           <p>
             {comment.user.username} | Posted: {parsedDate(comment.created_at)}
           </p>
@@ -157,7 +157,7 @@ function Post({ user }) {
       <CommentContainer>
         <OP>Original Post</OP>
         <UserDiv>
-          <Img src={post.user?.avatar_url} alt={post.user?.username} />
+          {/* <Img src={post.user?.avatar_url} alt={post.user?.username} /> */}
           <p>
             {post.user?.username} | Posted: {parsedDate(post?.created_at)}
           </p>
