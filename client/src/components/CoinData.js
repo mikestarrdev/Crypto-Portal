@@ -25,6 +25,10 @@ const Table = styled.table`
   border-top: none;
 `;
 
+const FirstRow = styled.td`
+  border-top: none;
+`;
+
 const Image = styled.img`
   align-items: center;
   margin-right: 0.25em;
@@ -148,19 +152,17 @@ function CoinData() {
         </Website>
       </p>
 
-      {/* <Chart coin={fullCoinData.id} /> */}
-
       <Table>
         <tbody>
           <tr>
-            <td>
+            <FirstRow>
               24h High: $
               {fullCoinData?.market_data?.high_24h.usd?.toLocaleString()}
-            </td>
-            <td>
+            </FirstRow>
+            <FirstRow>
               24h Low: $
               {fullCoinData?.market_data?.low_24h.usd?.toLocaleString()}
-            </td>
+            </FirstRow>
           </tr>
           <tr>
             <td>
@@ -220,7 +222,6 @@ function CoinData() {
         </tbody>
       </Table>
       <br />
-      <hr />
       <ForumNavigation onClick={handleNavToSubforum}>
         Visit {fullCoinData?.name} Forum
       </ForumNavigation>

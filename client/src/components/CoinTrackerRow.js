@@ -25,7 +25,7 @@ function CoinTrackerRow({ coin, user }) {
   // check if token is in User favorites
   function searchFavorites() {
     const findToken = user?.favorites?.find(
-      (favorite) => favorite.token === coin.symbol
+      (favorite) => favorite.token === coin.id
     );
     setTokenID(findToken);
   }
@@ -36,7 +36,7 @@ function CoinTrackerRow({ coin, user }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: user.id, token: coin.symbol }),
+      body: JSON.stringify({ user_id: user.id, token: coin.id }),
     })
       .then((r) => r.json())
       .then((favorite) => {

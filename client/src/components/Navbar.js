@@ -5,6 +5,7 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Search from "./Search";
 import Forum from "./Forum";
+import Favorites from "./Favorites";
 
 const Nav = styled.nav`
   display: flex;
@@ -40,6 +41,13 @@ function Navbar({ user, setUser, onLogout }) {
       </NavLink> */}
       <NavBox>
         <NavLink to="/">Home</NavLink>
+      </NavBox>
+      <NavBox>
+        {user ? (
+          <NavLink to="/favorites" element={<Favorites user={user} />}>
+            Favorites
+          </NavLink>
+        ) : null}
       </NavBox>
       <NavBox>
         <NavLink to="/forum" element={<Forum user={user} />}>

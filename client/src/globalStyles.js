@@ -18,9 +18,11 @@ const GlobalStyle = createGlobalStyle`
 
     table {
         text-align: center;
-        margin-top: 1em;
+        margin-top: 1.5em;
         border-collapse: collapse;
     }
+
+    
     td, th {
         display: table-cell;
         vertical-align: inherit;
@@ -45,7 +47,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h4 {
-     margin-top: 1rem;
+     margin: 0.5rem 0 0 0;
+     text-align: center;
     }
 
     button {

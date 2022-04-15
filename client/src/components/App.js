@@ -15,6 +15,7 @@ import Post from "./Post";
 import CreateComment from "./CreateComment";
 import EditComment from "./EditComment";
 import NoRoute from "./NoRoute";
+import Favorites from "./Favorites";
 
 function App() {
   const [user, setUser] = useState("");
@@ -63,6 +64,7 @@ function App() {
             path="/create-comment/:title/:id"
             element={<CreateComment user={user} />}
           />
+          <Route path="/favorites" element={<Favorites user={user} />} />
           {/* <Route
             path="/edit-comment/:comment/:commentID/:postID"
             element={<EditComment user={user} />}

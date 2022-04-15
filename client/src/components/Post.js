@@ -66,7 +66,6 @@ const Content = styled.div`
 
 function Post({ user }) {
   const [post, setPost] = useState([]);
-  console.log(post.forum?.id);
 
   let params = useParams();
 
