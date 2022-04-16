@@ -111,7 +111,12 @@ function Login({ setUser, user }) {
         <ErrorMessage>{Object.values(errors)}</ErrorMessage>
       ) : null}
       <p>
-        {`Don't have an account?`} {<Link to="/signup">Signup!</Link>}{" "}
+        {`Don't have an account?`}{" "}
+        {
+          <Link to="/signup">
+            <span style={{ color: "blue" }}>Signup!</span>
+          </Link>
+        }{" "}
       </p>
     </LoginStyles>
   );

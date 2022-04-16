@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     button {
-        border: 0;
+        /* border: 0;
         border-radius: 0.25rem;
         background: orange;
         color: white;
@@ -63,6 +63,30 @@ const GlobalStyle = createGlobalStyle`
         white-space: nowrap;
         text-decoration: none;
         padding: 0.25rem 0.5rem;
+        margin: 0.25rem 1rem;
+        cursor: pointer; */
+        background: orange;
+        color: white;
+        border: solid orange 1px;
+        font-family: Noto Sans,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: unset;
+        line-height: 17px;
+        text-transform: unset;
+        min-height: 32px;
+        min-width: 32px;
+        padding: 4px 16px;
+        align-items: center;
+        border-radius: 9999px;
+        box-sizing: border-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        width: auto;
         margin: 0.25rem 1rem;
         cursor: pointer;
     }

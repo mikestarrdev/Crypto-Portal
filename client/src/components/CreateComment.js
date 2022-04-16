@@ -26,17 +26,28 @@ const Input = styled.input`
 
 const ButtonCreate = styled.input`
   float: left;
-  border: 0;
-  border-radius: 0.25rem;
   background: orange;
   color: white;
-  font-family: -system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
+  border: solid orange 1px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
   width: auto;
+  margin: 0.5rem 1rem;
   cursor: pointer;
   transform: translateY(2px);
 `;

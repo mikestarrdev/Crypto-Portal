@@ -37,8 +37,8 @@ const Button = styled.button`
   background-color: whitesmoke;
   color: black;
   border: solid lightgray 1px;
-  margin: 0;
-  padding: 0.5em;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
 `;
 
 const ForumNavigation = styled.h3`
@@ -141,14 +141,15 @@ function CoinData() {
       <p>Rank: {fullCoinData?.market_data?.market_cap_rank}</p>
       <br />
       <p>
-        Website:{" "}
-        <a
-          href={fullCoinData.links?.homepage[0]}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {fullCoinData.links?.homepage[0]}
-        </a>
+        <Button>
+          <a
+            href={fullCoinData.links?.homepage[0]}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {fullCoinData.links?.homepage[0]}
+          </a>
+        </Button>
       </p>
       <br />
       <Button>

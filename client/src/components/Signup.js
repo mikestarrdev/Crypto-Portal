@@ -176,7 +176,12 @@ function Signup() {
       )}
       <br />
       <p>
-        {`Have an account already?`} {<Link to="/login">Login!</Link>}{" "}
+        {`Have an account already?`}{" "}
+        {
+          <Link to="/login">
+            <span style={{ color: "blue" }}>Login!</span>
+          </Link>
+        }{" "}
       </p>
     </SignupPage>
   );

@@ -20,7 +20,7 @@ function Footer() {
         target="_blank"
         rel="noreferrer"
       >
-        PersonNamedMike | GitHub
+        Github - PersonNamedMike
       </a>
     </FooterStyle>
   );

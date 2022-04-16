@@ -7,7 +7,7 @@ const ForumContainer = styled.div`
 `;
 
 const Table = styled.table`
-  text-align: justify;
+  text-align: left;
   width: 95%;
   margin: 1rem;
   border: solid lightgray 1px;
