@@ -53,21 +53,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     button {
-        /* border: 0;
-        border-radius: 0.25rem;
-        background: orange;
+        background: #0079d3;
         color: white;
-        font-family: -system-ui, sans-serif;
-        font-size: 1rem;
-        line-height: 1.2;
-        white-space: nowrap;
-        text-decoration: none;
-        padding: 0.25rem 0.5rem;
-        margin: 0.25rem 1rem;
-        cursor: pointer; */
-        background: orange;
-        color: white;
-        border: solid orange 1px;
+        border: none;
         font-family: Noto Sans,Arial,sans-serif;
         font-size: 14px;
         font-weight: 700;
@@ -97,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
 
     a:link {
         text-decoration: none;
-        color: inherit;
+        color: #0079d3;;
     }
 
     a:visited {

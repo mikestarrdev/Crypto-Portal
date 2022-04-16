@@ -22,13 +22,13 @@ const Input = styled.input`
   text-align: left;
   width: 95%;
   padding: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const ButtonCreate = styled.input`
   float: left;
-  background: orange;
+  background: #0079d3;
   color: white;
-  border: solid orange 1px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: unset;
@@ -52,16 +52,12 @@ const ButtonCreate = styled.input`
 `;
 
 const CancelPost = styled.button`
-  /* float: left; */
+  float: left;
   background: white;
-  border: solid lightgray 1px;
   color: black;
-  font-family: -system-ui, sans-serif;
-  font-size: 0.75rem;
-  cursor: pointer;
+  border: black solid 1px;
   transform: translateY(2px);
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0 0;
 `;
 
 function CreatePost({ user }) {
@@ -88,7 +84,6 @@ function CreatePost({ user }) {
     });
     const post = await response.json();
     if (response.ok) {
-      console.log("post created:", post);
       setPost(post);
       navigate(`/posts/${post.id}`);
     } else {

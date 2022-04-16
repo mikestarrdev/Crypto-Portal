@@ -63,7 +63,6 @@ function CoinData() {
     )
       .then((r) => r.json())
       .then((fullCoinData) => {
-        // console.log(fullCoinData);
         setFullCoinData(fullCoinData);
       });
   }, [coin]);
@@ -109,6 +108,9 @@ function CoinData() {
         break;
       case 12:
         month = "Dec";
+        break;
+      default:
+        month = "";
         break;
     }
     return `${month} ${day}, ${year}`;
@@ -158,7 +160,12 @@ function CoinData() {
           target="_blank"
           rel="noreferrer"
         >
-          <img src="../github-logo.png" style={{ width: "15px" }} /> GitHub
+          <img
+            src="../github-logo.png"
+            style={{ width: "15px" }}
+            alt="Github"
+          />{" "}
+          GitHub
         </a>
       </Button>
       <Table>
