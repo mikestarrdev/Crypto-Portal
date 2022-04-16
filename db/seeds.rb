@@ -14,38 +14,28 @@ Forum.create(title: "Dogecoin")
 Forum.create(title: "Solana")
 Forum.create(title: "Terra-Luna")
 
-puts "seeding User... 🕺🏻"
+puts "seeding User..."
 20.times do
     User.create(
         username: Faker::Twitter.screen_name,
         password: "password",
         email: Faker::Internet.email,
-        avatar_url: Faker::Avatar.image(size: "50x50", format: "jpg"),
         btc_address: Faker::Blockchain::Bitcoin.address,
         eth_address: Faker::Blockchain::Ethereum.address
     )
 end
 
-puts "seeding posts... ✍🏻"
-30.times do
-    Post.create(
-        title: Faker::Quote.robin,
-        body: Faker::Quote.matz,
-        user: User.all.sample,
-        forum: Forum.all.sample
-    )
-end
+puts "seeding posts..."
+Post.create(
+    title: "BTC vs ETH?"
+    body: "Which are you more bullish on? I think BTC is the king"
+    user: User.all.sample,
+    forum: Forum.all.sample
+)
 
-puts "seeding comments... 💬"
-20.times do
-    Comment.create(
-        content: Faker::Quote.singular_siegler,
-        user: User.all.sample,
-        post: Post.all.sample
-    )
-end
-
-puts "seeding reputation... 👍🏻"
-20.times do
-    Reputation.create(user: User.all.sample)
-end
+puts "seeding comments..."
+Comment.create(
+    content: "BTC $100k",
+    user: User.all.sample,
+    post: Post.all.sample
+)

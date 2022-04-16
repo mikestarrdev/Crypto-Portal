@@ -12,7 +12,7 @@ const Div = styled.div`
 
 const ForumTitle = styled.div`
   font-size: small;
-  color: blue;
+  color: #2e5077;
   cursor: pointer;
   margin-bottom: 1rem;
 `;
@@ -27,7 +27,7 @@ const Input = styled.input`
 
 const ButtonCreate = styled.input`
   float: left;
-  background: #0079d3;
+  background: #2e5077;
   color: white;
   font-size: 14px;
   font-weight: 700;
@@ -54,7 +54,7 @@ const ButtonCreate = styled.input`
 const CancelPost = styled.button`
   float: left;
   background: white;
-  color: black;
+  color: #2e5077;
   border: black solid 1px;
   transform: translateY(2px);
   margin: 0.5rem 0 0;

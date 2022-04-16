@@ -15,10 +15,12 @@ const Nav = styled.nav`
   justify-content: left;
   width: auto;
   background-color: whitesmoke;
-  padding: 0 0 1rem 0;
+  padding: 0.25rem 0rem;
+  margin-top: 1.5rem;
 
   & a:active {
     text-decoration: underline;
+    color: #2e5077;
     /* padding: 1em; */
   }
 `;
@@ -70,11 +72,6 @@ function Navbar({ user, setUser, onLogout }) {
           </NavLink>
         )}
       </NavBox>
-      {/*
-        <NavLink to="/forum" element={<Forum user={user} />}>
-          // Forums //{" "}
-        </NavLink>
-      </NavBox> */}
       {user ? (
         <>
           <NavBox>

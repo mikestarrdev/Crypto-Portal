@@ -13,8 +13,10 @@ const GlobalStyle = createGlobalStyle`
     }
     header {
         background: whitesmoke;
+        background-image: linear-gradient( #FFA630, #D7E8BA);
         padding-top: 0.5rem;
     }
+    
 
     table {
         text-align: center;
@@ -53,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     button {
-        background: #0079d3;
+        background: #2E5077;
         color: white;
         border: none;
         font-family: Noto Sans,Arial,sans-serif;

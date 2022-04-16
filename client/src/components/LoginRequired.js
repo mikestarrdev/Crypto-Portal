@@ -12,7 +12,7 @@ const Div = styled.div`
 
 const Span = styled.span`
   text-decoration: underline;
-  color: blue;
+  color: #2e5077;
 
   &:hover {
     cursor: pointer;
@@ -37,13 +37,19 @@ function LoginRequired() {
     navigate("/signup");
   }
 
+  function handleNavBack(e) {
+    e.preventDefault();
+    navigate(-1);
+  }
+
   return (
     <Div>
       <h2>You must be logged into view that page!</h2>
       <div>
         <p>
           <Span onClick={handleLogin}>Login</Span> |{" "}
-          <Span onClick={handleSignup}>Signup</Span>
+          <Span onClick={handleSignup}>Signup</Span> |{" "}
+          <Span onClick={handleNavBack}>Go back</Span>
         </p>
       </div>
       {/* <Button onClick={goBack}>Go back!</Button> */}

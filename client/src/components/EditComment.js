@@ -12,7 +12,7 @@ const Div = styled.div`
 
 const ForumTitle = styled.div`
   font-size: small;
-  color: blue;
+  color: #2e5077;
   cursor: pointer;
   margin-bottom: 1rem;
 `;
@@ -45,7 +45,7 @@ const CancelComment = styled.button`
   /* float: left; */
   background: white;
   border: solid lightgray 1px;
-  color: black;
+  color: #2e5077;
   font-family: -system-ui, sans-serif;
   font-size: 0.75rem;
   cursor: pointer;

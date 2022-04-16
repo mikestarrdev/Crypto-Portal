@@ -14,7 +14,7 @@ const CommentContainer = styled.div`
 
 const NavSpan = styled.span`
   font-size: small;
-  color: blue;
+  color: #2e5077;
   cursor: pointer;
 `;
 
@@ -44,7 +44,7 @@ const StartForum = styled.div`
 
 const CreatePostLink = styled.span`
   text-decoration: underline;
-  color: blue;
+  color: #2e5077;
   cursor: pointer;
   font-weight: bolder;
 `;
@@ -120,7 +120,7 @@ function Subforum({ coin, user }) {
             e.preventDefault();
             navigate(`/posts/${post.id}`);
           }}
-          style={{ color: "blue", cursor: "pointer" }}
+          style={{ color: "#2E5077", cursor: "pointer" }}
         >
           {post.title}
         </td>

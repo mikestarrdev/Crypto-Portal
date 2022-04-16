@@ -42,7 +42,7 @@ const Button = styled.button`
 `;
 
 const ForumNavigation = styled.h3`
-  color: blue;
+  color: #2e5077;
   background: lightyellow;
   border: solid lightgray 1px;
   border-radius: 5px;
@@ -52,8 +52,10 @@ const ForumNavigation = styled.h3`
   cursor: pointer;
 `;
 
-function CoinData() {
+function CoinData({ user }) {
   const [fullCoinData, setFullCoinData] = useState({});
+
+  // console.log(sessions.useParams);
 
   let coin = useParams();
 
@@ -123,6 +125,11 @@ function CoinData() {
     navigate(`/forum/${fullCoinData.name}`);
   }
 
+  function handleLoginRequired(e) {
+    e.preventDefault();
+    navigate("/login-required");
+  }
+
   return (
     <CoinDataStyles>
       <Headline>
@@ -153,7 +160,7 @@ function CoinData() {
           </a>
         </Button>
       </p>
-      <br />
+
       <Button>
         <a
           href={fullCoinData.links?.repos_url?.github[0]}
@@ -238,10 +245,15 @@ function CoinData() {
         </tbody>
       </Table>
       <br />
-      <ForumNavigation onClick={handleNavToSubforum}>
-        Visit {fullCoinData?.name} Forum
-      </ForumNavigation>
-      {/* <Subforum coin={fullCoinData?.name} /> */}
+      {user ? (
+        <ForumNavigation onClick={handleNavToSubforum}>
+          Visit {fullCoinData?.name} Forum
+        </ForumNavigation>
+      ) : (
+        <ForumNavigation onClick={handleLoginRequired}>
+          Visit {fullCoinData?.name} Forum
+        </ForumNavigation>
+      )}
     </CoinDataStyles>
   );
 }

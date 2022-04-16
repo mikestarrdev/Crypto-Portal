@@ -17,29 +17,30 @@ const SignupPage = styled.div`
 `;
 
 const SignupForm = styled.form`
-  /* grid-column-start: 2;
-  grid-column-end: 5; */
   margin: auto;
 `;
 
 const Button = styled.input`
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  margin: auto;
-  border: 0;
-  border-radius: 0.25rem;
-  background: orange;
+  background: #2e5077;
   color: white;
-  font-family: -system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  width: auto;
-
+  border: none;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  -ms-flex-pack: center;
+  position: relative;
   cursor: pointer;
+  width: fit-content;
+  margin: auto;
 `;
 const UL = styled.ul`
   width: 80%;
@@ -63,7 +64,6 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [confirmPassword, setConfirmPassword] = useState("");
-  const [avatarURL, setAvatarURL] = useState("");
   const [btcAddress, setBtcAddress] = useState("");
   const [ethAddress, setEthAddress] = useState("");
 
@@ -80,7 +80,6 @@ function Signup() {
         username,
         password,
         email,
-        avatar_url: avatarURL,
         btc_address: btcAddress,
         eth_address: ethAddress,
       }),
@@ -133,17 +132,6 @@ function Signup() {
         </label>
         <br />
         <label>
-          Upload avatar:
-          <br />
-          <input
-            type="text"
-            defaultValue={avatarURL}
-            onChange={(e) => setAvatarURL(e.target.value)}
-            placeholder="enter URL here..."
-          />
-        </label>
-        <br />
-        <label>
           Enter BTC address:
           <br />
           <input
@@ -179,7 +167,7 @@ function Signup() {
         {`Have an account already?`}{" "}
         {
           <Link to="/login">
-            <span style={{ color: "blue" }}>Login!</span>
+            <span style={{ color: "#2E5077" }}>Login!</span>
           </Link>
         }{" "}
       </p>

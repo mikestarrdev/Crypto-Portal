@@ -55,7 +55,7 @@ function App() {
             path="/login"
             element={<Login user={user} setUser={setUser} />}
           />
-          <Route path="/:id" element={<CoinData />} />
+          <Route path="/:id" element={<CoinData user={user} />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
           <Route
             path="/create-post/:title/:id"

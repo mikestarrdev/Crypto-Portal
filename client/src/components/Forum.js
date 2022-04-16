@@ -84,7 +84,7 @@ function Forum({ user }) {
             e.preventDefault();
             navigate(`/forum/${subforum.title}`);
           }}
-          style={{ color: "blue", cursor: "pointer" }}
+          style={{ color: "#2E5077", cursor: "pointer" }}
         >
           {subforum.title}
         </td>

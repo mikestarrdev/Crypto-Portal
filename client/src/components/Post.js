@@ -28,7 +28,7 @@ const Button = styled.button`
 
 const NavSpan = styled.span`
   font-size: small;
-  color: blue;
+  color: #2e5077;
   cursor: pointer;
 `;
 

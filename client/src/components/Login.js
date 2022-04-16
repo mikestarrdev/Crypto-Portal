@@ -17,24 +17,31 @@ const LoginStyles = styled.div`
 
 const Form = styled.form`
   text-align: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Button = styled.input`
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  margin: auto;
-  border: 0;
-  border-radius: 0.25rem;
-  background: orange;
+  background: #2e5077;
   color: white;
-  font-family: -system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  width: auto;
+  border: none;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  -ms-flex-pack: center;
+  position: relative;
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
 `;
 
 const ErrorMessage = styled.p`
@@ -114,7 +121,7 @@ function Login({ setUser, user }) {
         {`Don't have an account?`}{" "}
         {
           <Link to="/signup">
-            <span style={{ color: "blue" }}>Signup!</span>
+            <span style={{ color: "#2E5077" }}>Signup!</span>
           </Link>
         }{" "}
       </p>
