@@ -44,7 +44,7 @@ function Navbar({ user, setUser, onLogout }) {
       <NavBox>
         <NavLink to="/">Home</NavLink>
       </NavBox>
-      <NavBox>
+      {/* <NavBox>
         {user ? (
           <NavLink to="/favorites" element={<Favorites user={user} />}>
             Favorites
@@ -54,7 +54,7 @@ function Navbar({ user, setUser, onLogout }) {
             Favorites
           </NavLink>
         )}
-      </NavBox>
+      </NavBox> */}
       <NavBox>
         {user ? (
           <>
