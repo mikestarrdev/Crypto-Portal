@@ -22,9 +22,10 @@ const Headline = styled.h1`
 
 const Table = styled.table`
   text-align: left;
+  /* border: 1px solid lightgray; */
 `;
 
-const FirstRow = styled.td`
+const CellNoBorder = styled.td`
   border-top: none;
 `;
 
@@ -52,6 +53,10 @@ const ForumNavigation = styled.h3`
   cursor: pointer;
 `;
 
+const DateSpan = styled.span`
+  font-size: x-small;
+`;
+
 function CoinData({ user }) {
   const [fullCoinData, setFullCoinData] = useState({});
 
@@ -73,49 +78,53 @@ function CoinData({ user }) {
     const date = new Date(oldDate);
     const year = date.getFullYear();
     let month = date.getMonth();
-    const day = date.getDay();
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
     switch (month) {
-      case 1:
+      case 0:
         month = "Jan";
         break;
-      case 2:
+      case 1:
         month = "Feb";
         break;
-      case 3:
+      case 2:
         month = "Mar";
         break;
-      case 4:
+      case 3:
         month = "Apr";
         break;
-      case 5:
+      case 4:
         month = "May";
         break;
-      case 6:
+      case 5:
         month = "Jun";
         break;
-      case 7:
+      case 6:
         month = "Jul";
         break;
-      case 8:
+      case 7:
         month = "Aug";
         break;
-      case 9:
+      case 8:
         month = "Sept";
         break;
-      case 10:
+      case 9:
         month = "Oct";
         break;
-      case 11:
+      case 10:
         month = "Nov";
         break;
-      case 12:
+      case 11:
         month = "Dec";
         break;
       default:
         month = "";
         break;
     }
-    return `${month} ${day}, ${year}`;
+    return `${month} ${day}, ${year}, ${hour}:${minute} ${
+      hour < 12 ? "AM" : "PM"
+    }`;
   }
 
   let navigate = useNavigate();
@@ -178,14 +187,14 @@ function CoinData({ user }) {
       <Table>
         <tbody>
           <tr>
-            <FirstRow>
+            <CellNoBorder>
               24h High: $
               {fullCoinData?.market_data?.high_24h.usd?.toLocaleString()}
-            </FirstRow>
-            <FirstRow>
+            </CellNoBorder>
+            <CellNoBorder>
               24h Low: $
               {fullCoinData?.market_data?.low_24h.usd?.toLocaleString()}
-            </FirstRow>
+            </CellNoBorder>
           </tr>
           <tr>
             <td>
@@ -200,11 +209,15 @@ function CoinData({ user }) {
           </tr>
           <tr>
             <td>
-              ATH: ${fullCoinData?.market_data?.ath.usd?.toLocaleString()} (
-              {parseDate(
-                fullCoinData?.market_data?.ath_date?.usd?.toLocaleString()
-              )}
-              )
+              ATH: ${fullCoinData?.market_data?.ath.usd?.toLocaleString()}
+              <br />{" "}
+              <DateSpan>
+                (
+                {parseDate(
+                  fullCoinData?.market_data?.ath_date?.usd?.toLocaleString()
+                )}
+                )
+              </DateSpan>
             </td>
             <td>
               ATH % change:{" "}
@@ -243,6 +256,17 @@ function CoinData({ user }) {
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <CellNoBorder>
+              <DateSpan
+                style={{ "font-style": "italic", "font-size": "small" }}
+              >
+                Last Updated: {parseDate(fullCoinData?.last_updated)}
+              </DateSpan>
+            </CellNoBorder>
+          </tr>
+        </tfoot>
       </Table>
       <br />
       {user ? (

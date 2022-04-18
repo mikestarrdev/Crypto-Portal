@@ -5,31 +5,38 @@ import CoinTrackerRow from "./CoinTrackerRow";
 
 const Container = styled.div`
   margin: 1rem;
-  /* border: solid lightgray 1px; */
   overflow: scroll;
 `;
 
-function CoinTracker({ user }) {
-  const [coinData, setCoinData] = useState([]);
+const SearchBar = styled.input`
+  border-radius: 5px;
+  margin-left: 1em;
+  width: fit-content;
+`;
 
-  useEffect(() => {
-    fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-    )
-      .then((r) => r.json())
-      .then((coinData) => {
-        // console.log(coinData);
-        setCoinData(coinData);
-      });
-  }, []);
+function CoinTracker({ user, coinData }) {
+  const [search, setSearch] = useState("");
 
-  const coinTable = coinData.map((coin) => {
+  const searchResults = coinData.filter(
+    (coin) =>
+      coin.symbol?.includes(search.toLowerCase()) ||
+      coin.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const coinTable = searchResults?.map((coin) => {
     return <CoinTrackerRow coin={coin} user={user} key={uuidv4()} />;
   });
 
   return (
     <>
-      <h4>Marketcap and Price Data</h4>
+      <form>
+        <SearchBar
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          value={search}
+          placeholder="🔎  Search Top 100..."
+        />
+      </form>
       <Container>
         <table>
           <thead>

@@ -57,7 +57,7 @@ function CoinTrackerRow({ coin, user }) {
 
   function renderCoinDataPage(e) {
     e.preventDefault();
-    navigate(`/${coin.id}`);
+    navigate(`/coin/${coin.id}`);
   }
 
   return (

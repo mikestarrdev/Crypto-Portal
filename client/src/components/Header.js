@@ -7,13 +7,14 @@ const Subhead = styled.span`
   font-family: "Ubuntu Mono", monospace;
   font-size: medium;
   font-weight: normal;
-  background: #2e5077;
-  color: whitesmoke;
+  background: #d7e8ba;
+  /* background-image: linear-gradient(#ffa630, #d7e8ba); */
+  color: black;
   padding: 0rem 0.2rem;
   border-radius: 3px;
 `;
 
-function Header({ user, setUser }) {
+function Header({ user, setUser, coinData }) {
   return (
     <header>
       <Link to="/">

@@ -29,7 +29,8 @@ const GlobalStyle = createGlobalStyle`
         display: table-cell;
         vertical-align: inherit;
         padding: 1rem;
-        border-top: 1px solid black;
+        border-top: 1px solid lightgray;
+        text-align: justify;
     }
 
     thead {
@@ -41,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         text-align: left;
         margin: 1rem;
+        
     }
 
     h2 {
@@ -87,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
 
     a:link {
         text-decoration: none;
-        color: #0079d3;;
+        color: #0079d3;
     }
 
     a:visited {

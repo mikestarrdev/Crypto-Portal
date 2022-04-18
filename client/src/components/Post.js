@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Comment from "./Comment";
+import CreateComment from "./CreateComment";
 
 const CommentContainer = styled.div`
   margin: 1rem;
@@ -82,45 +83,45 @@ function Post({ user }) {
   function parsedDate(date) {
     let pdate = new Date(date);
     let month = pdate.getMonth();
-    let day = pdate.getDay();
+    let day = pdate.getDate();
     let year = pdate.getFullYear();
     let hours = pdate.getHours();
     let minutes = pdate.getMinutes();
     switch (month) {
-      case 1:
+      case 0:
         month = "Jan";
         break;
-      case 2:
+      case 1:
         month = "Feb";
         break;
-      case 3:
+      case 2:
         month = "Mar";
         break;
-      case 4:
+      case 3:
         month = "Apr";
         break;
-      case 5:
+      case 4:
         month = "May";
         break;
-      case 6:
+      case 5:
         month = "Jun";
         break;
-      case 7:
+      case 6:
         month = "Jul";
         break;
-      case 8:
+      case 7:
         month = "Aug";
         break;
-      case 9:
+      case 8:
         month = "Sept";
         break;
-      case 10:
+      case 9:
         month = "Oct";
         break;
-      case 11:
+      case 10:
         month = "Nov";
         break;
-      case 12:
+      case 11:
         month = "Dec";
         break;
     }
@@ -149,10 +150,10 @@ function Post({ user }) {
     navigate(`/forum/${post.forum.title}`);
   }
 
-  function handleCreateComment(e) {
-    e.preventDefault();
-    navigate(`/create-comment/${post.title}/${post.id}`);
-  }
+  // function handleCreateComment(e) {
+  //   e.preventDefault();
+  //   navigate(`/create-comment/${post.title}/${post.id}`);
+  // }
 
   function handleDeletePost(e) {
     e.preventDefault();
@@ -181,7 +182,11 @@ function Post({ user }) {
         <Headline>Topic: {post?.title}</Headline>
       </CommentContainer>
       {post.comments?.length > 5 ? (
-        <Button onClick={handleCreateComment}>Leave Comment</Button>
+        <>
+          <Button>
+            <Link to={`/create-comment/${post.id}`}>Leave Comment</Link>
+          </Button>
+        </>
       ) : null}
       <CommentContainer>
         <OP>Original Post</OP>
@@ -199,7 +204,12 @@ function Post({ user }) {
         <Content>{post.body}</Content>
       </CommentContainer>
       {renderComments}
-      <Button onClick={handleCreateComment}>Leave Comment</Button>
+
+      <Button>
+        <Link to={`/create-comment/${post.id}/${post.title}`}>
+          Leave Comment
+        </Link>
+      </Button>
     </div>
   );
 }

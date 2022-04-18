@@ -61,7 +61,7 @@ const CancelPost = styled.button`
   margin: 0.5rem 0 0;
 `;
 
-function CreateComment({ user }) {
+function CreateComment({ user, postID, postTitle }) {
   const [content, setContent] = useState("");
 
   let params = useParams();
@@ -101,8 +101,7 @@ function CreateComment({ user }) {
     <>
       <Div>
         <ForumTitle onClick={navBackToPost}>
-          <span style={{ color: "black" }}>POST:</span>{" "}
-          {params.title?.toUpperCase()}
+          <span style={{ color: "black" }}>POST:</span> {params.title}
         </ForumTitle>
         <form onSubmit={handleCreateComment}>
           <label>

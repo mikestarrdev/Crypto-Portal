@@ -20,6 +20,7 @@ import LoginRequired from "./LoginRequired";
 
 function App() {
   const [user, setUser] = useState("");
+  const [coinData, setCoinData] = useState([]);
 
   <GlobalStyle />;
 
@@ -38,15 +39,29 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    )
+      .then((r) => r.json())
+      .then((coinData) => {
+        // console.log(coinData);
+        setCoinData(coinData);
+      });
+  }, []);
+
   // const ct = { user };
 
   return (
     <div>
       <GlobalStyle />
-      <Header user={user} setUser={setUser} />
+      <Header user={user} setUser={setUser} coinData={coinData} />
       <MainContainer>
         <Routes>
-          <Route exact path="/" element={<CoinTracker user={user} />} />
+          <Route
+            path="/"
+            element={<CoinTracker user={user} coinData={coinData} />}
+          />
           <Route path="*" element={<NoRoute />} />
           <Route path="/forum" element={<Forum user={user} />} />
           <Route path="/login-required" element={<LoginRequired />} />
@@ -55,16 +70,16 @@ function App() {
             path="/login"
             element={<Login user={user} setUser={setUser} />}
           />
-          <Route path="/:id" element={<CoinData user={user} />} />
+          <Route path="/coin/:id" element={<CoinData user={user} />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
           <Route
             path="/create-post/:title/:id"
             element={<CreatePost user={user} />}
           />
-          <Route path="/posts/:id" element={<Post user={user} />} />
+          <Route path="/posts/:id/" element={<Post user={user} />} />
           <Route
-            path="/create-comment/:title/:id"
-            element={<CreateComment user={user} />}
+            path="/create-comment/:id/:title"
+            element={<CreateComment postTitle user={user} />}
           />
           <Route path="/favorites" element={<Favorites user={user} />} />
           {/* <Route

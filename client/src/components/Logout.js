@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Span = styled.span`
-  color: #2e5077;
+  color: gray;
+  cursor: pointer;
 `;
 
 function Logout({ setUser }) {

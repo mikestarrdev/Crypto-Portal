@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
-import Search from "./Search";
 import Forum from "./Forum";
 import Favorites from "./Favorites";
 import LoginRequired from "./LoginRequired";
@@ -34,17 +33,29 @@ const NavBox = styled.div`
 `;
 
 const Span = styled.span`
-  font-size: smaller;
-  font-weight: bold;
-  text-decoration: underline;
+  font-size: normal;
+  /* font-weight: bold; */
   text-align: center;
 `;
 
 function Navbar({ user, setUser, onLogout }) {
+  // NavLink styles
+  let activeStyle = {
+    textDecoration: "underline",
+    fontWeight: "bold",
+  };
+
+  let activeClassName = "underline";
+
   return (
     <Nav>
       <NavBox>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          Home
+        </NavLink>
       </NavBox>
       {/* <NavBox>
         {user ? (
@@ -61,7 +72,11 @@ function Navbar({ user, setUser, onLogout }) {
         {user ? (
           <>
             <NavBox>
-              <NavLink to="/forum" element={<Forum user={user} />}>
+              <NavLink
+                to="/forum"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                element={<Forum user={user} />}
+              >
                 Forums
               </NavLink>
             </NavBox>
@@ -84,16 +99,26 @@ function Navbar({ user, setUser, onLogout }) {
       ) : (
         <>
           <NavBox>
-            <NavLink to="/login" element={<Login setUser={setUser} />}>
+            <NavLink
+              to="/login"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              element={<Login setUser={setUser} />}
+            >
               Login
             </NavLink>
           </NavBox>
         </>
       )}
-      <NavBox>{!user ? <NavLink to="/signup">Signup</NavLink> : null}</NavBox>
-      {/* <NavBoxSearch>
-        <Search />
-      </NavBoxSearch> */}
+      <NavBox>
+        {!user ? (
+          <NavLink
+            to="/signup"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Signup
+          </NavLink>
+        ) : null}
+      </NavBox>
     </Nav>
   );
 }

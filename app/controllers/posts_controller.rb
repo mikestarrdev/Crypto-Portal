@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
 
     def index
-        posts = Post.all.order("updated_at")
+        posts = Post.all.order("created_at")
         render json: posts
     end
 
