@@ -15,7 +15,7 @@ const StyledCells = styled.td`
   }
 `;
 
-function CoinTrackerRow({ coin, user }) {
+function CoinTrackerRow({ coin, user, setUser }) {
   const [tokenID, setTokenID] = useState(null);
 
   let navigate = useNavigate();
@@ -40,7 +40,10 @@ function CoinTrackerRow({ coin, user }) {
     })
       .then((r) => r.json())
       .then((favorite) => {
-        console.log(favorite);
+        // console.log(favorite);
+        let favorites = [...user.favorites, favorite];
+        user.favorites = favorites;
+        setUser(user);
         setTokenID((favorite) => setTokenID);
       });
   }

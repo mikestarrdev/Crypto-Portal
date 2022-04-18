@@ -19,11 +19,6 @@ const Span = styled.span`
   }
 `;
 
-const Button = styled.button`
-  display: flex;
-  margin: 2rem auto;
-`;
-
 function LoginRequired() {
   let navigate = useNavigate();
 

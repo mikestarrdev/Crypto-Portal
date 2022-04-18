@@ -34,18 +34,14 @@ const NavBox = styled.div`
 
 const Span = styled.span`
   font-size: normal;
-  /* font-weight: bold; */
   text-align: center;
 `;
 
 function Navbar({ user, setUser, onLogout }) {
   // NavLink styles
   let activeStyle = {
-    textDecoration: "underline",
     fontWeight: "bold",
   };
-
-  let activeClassName = "underline";
 
   return (
     <Nav>
@@ -59,7 +55,11 @@ function Navbar({ user, setUser, onLogout }) {
       </NavBox>
       {/* <NavBox>
         {user ? (
-          <NavLink to="/favorites" element={<Favorites user={user} />}>
+          <NavLink
+            to="/favorites"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            element={<Favorites user={user} />}
+          >
             Favorites
           </NavLink>
         ) : (
@@ -90,7 +90,7 @@ function Navbar({ user, setUser, onLogout }) {
       {user ? (
         <>
           <NavBox>
-            <Span>You're logged in, {user?.username}!</Span>
+            <Span>Welcome, {user?.username}!</Span>
           </NavBox>
           <NavBox>
             <Logout setUser={setUser} />

@@ -58,7 +58,7 @@ const ListItem = styled.li`
   /* border-radius: 5px; */
 `;
 
-function Signup() {
+function Signup({ setUser }) {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -87,7 +87,8 @@ function Signup() {
     const user = await response.json();
     if (response.ok) {
       console.log("User created:", user);
-      navigate("/login");
+      setUser(user);
+      navigate("/");
     } else {
       setErrors(user.errors);
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
@@ -14,7 +14,7 @@ const SearchBar = styled.input`
   width: fit-content;
 `;
 
-function CoinTracker({ user, coinData }) {
+function CoinTracker({ user, setUser, coinData }) {
   const [search, setSearch] = useState("");
 
   const searchResults = coinData.filter(
@@ -24,7 +24,14 @@ function CoinTracker({ user, coinData }) {
   );
 
   const coinTable = searchResults?.map((coin) => {
-    return <CoinTrackerRow coin={coin} user={user} key={uuidv4()} />;
+    return (
+      <CoinTrackerRow
+        coin={coin}
+        user={user}
+        setUser={setUser}
+        key={uuidv4()}
+      />
+    );
   });
 
   return (

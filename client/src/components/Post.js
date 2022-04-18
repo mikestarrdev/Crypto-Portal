@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Comment from "./Comment";
-import CreateComment from "./CreateComment";
 
 const CommentContainer = styled.div`
   margin: 1rem;
@@ -55,16 +54,6 @@ const UserDiv = styled.div`
   font-size: smaller;
 `;
 
-const Img = styled.img`
-  display: flex;
-  border-radius: 50px;
-  border: solid lightgray 1px;
-  width: 15px;
-  float: left;
-  overflow: hidden;
-  margin-right: 0.5rem;
-`;
-
 const Content = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
@@ -81,7 +70,7 @@ function Post({ user }) {
       .then((post) => {
         setPost(post);
       });
-  }, []);
+  }, [params.id]);
 
   let navigate = useNavigate();
 

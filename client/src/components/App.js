@@ -10,24 +10,21 @@ import Login from "./Login";
 import Footer from "./Footer";
 import Forum from "./Forum";
 import Subforum from "./Subforum";
+// import Favorites from "./Favorites";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 import CreateComment from "./CreateComment";
-import EditComment from "./EditComment";
-import Favorites from "./Favorites";
+// import EditComment from "./EditComment";
 import NoRoute from "./NoRoute";
 import LoginRequired from "./LoginRequired";
+
+const MainContainer = styled.div`
+  display: grid;
+`;
 
 function App() {
   const [user, setUser] = useState("");
   const [coinData, setCoinData] = useState([]);
-
-  <GlobalStyle />;
-
-  const MainContainer = styled.div`
-    display: grid;
-    /* grid-template-columns: 60% 40%; */
-  `;
 
   useEffect(() => {
     fetch("/auth").then((res) => {
@@ -60,18 +57,24 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<CoinTracker user={user} coinData={coinData} />}
+            element={
+              <CoinTracker user={user} setUser={setUser} coinData={coinData} />
+            }
           />
           <Route path="*" element={<NoRoute />} />
           <Route path="/forum" element={<Forum user={user} />} />
           <Route path="/login-required" element={<LoginRequired />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route
             path="/login"
             element={<Login user={user} setUser={setUser} />}
           />
           <Route path="/coin/:id" element={<CoinData user={user} />} />
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
+          {/* <Route
+            path="/favorites"
+            element={<Favorites user={user} setUser={setUser} />}
+          /> */}
           <Route
             path="/create-post/:title/:id"
             element={<CreatePost user={user} />}
@@ -81,7 +84,6 @@ function App() {
             path="/create-comment/:id/:title"
             element={<CreateComment postTitle user={user} />}
           />
-          <Route path="/favorites" element={<Favorites user={user} />} />
           {/* <Route
             path="/edit-comment/:comment/:commentID/:postID"
             element={<EditComment user={user} />}

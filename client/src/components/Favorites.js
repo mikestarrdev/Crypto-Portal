@@ -9,7 +9,7 @@ const Container = styled.div`
 
 function Favorites({ user }) {
   const [favorites, setFavorites] = useState([]);
-
+  console.log(favorites);
   const tokenList = user.favorites?.map((token) => token?.token);
 
   console.log(tokenList);
