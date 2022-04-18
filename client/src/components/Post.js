@@ -25,6 +25,11 @@ const Delete = styled.span`
 
 const Button = styled.button`
   margin: 0rem 1rem;
+
+  a:link {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const NavSpan = styled.span`
@@ -125,9 +130,9 @@ function Post({ user }) {
         month = "Dec";
         break;
     }
-    return `${month}-${day}-${year}, ${hours}:${minutes} ${
-      hours < 12 ? "AM" : "PM"
-    }`;
+    return `${month}-${day}-${year}, ${
+      hours > 12 ? hours - 12 : hours
+    }:${minutes} ${hours < 12 ? "am" : "pm"}`;
   }
 
   const renderComments = post?.comments?.map((comment) => {

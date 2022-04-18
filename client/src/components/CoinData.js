@@ -74,13 +74,13 @@ function CoinData({ user }) {
       });
   }, [coin]);
 
-  function parseDate(oldDate) {
-    const date = new Date(oldDate);
-    const year = date.getFullYear();
-    let month = date.getMonth();
-    const day = date.getDate();
-    const hour = date.getHours();
-    const minute = date.getMinutes();
+  function parsedDate(date) {
+    let pdate = new Date(date);
+    let month = pdate.getMonth();
+    let day = pdate.getDate();
+    let year = pdate.getFullYear();
+    let hours = pdate.getHours();
+    let minutes = pdate.getMinutes();
     switch (month) {
       case 0:
         month = "Jan";
@@ -118,13 +118,10 @@ function CoinData({ user }) {
       case 11:
         month = "Dec";
         break;
-      default:
-        month = "";
-        break;
     }
-    return `${month} ${day}, ${year}, ${hour}:${minute} ${
-      hour < 12 ? "AM" : "PM"
-    }`;
+    return `${month}-${day}-${year}, ${
+      hours > 12 ? hours - 12 : hours
+    }:${minutes} ${hours < 12 ? "am" : "pm"}`;
   }
 
   let navigate = useNavigate();
@@ -213,7 +210,7 @@ function CoinData({ user }) {
               <br />{" "}
               <DateSpan>
                 (
-                {parseDate(
+                {parsedDate(
                   fullCoinData?.market_data?.ath_date?.usd?.toLocaleString()
                 )}
                 )
@@ -262,7 +259,7 @@ function CoinData({ user }) {
               <DateSpan
                 style={{ "font-style": "italic", "font-size": "small" }}
               >
-                Last Updated: {parseDate(fullCoinData?.last_updated)}
+                Last Updated: {parsedDate(fullCoinData?.last_updated)}
               </DateSpan>
             </CellNoBorder>
           </tr>

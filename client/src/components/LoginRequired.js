@@ -44,7 +44,7 @@ function LoginRequired() {
 
   return (
     <Div>
-      <h2>You must be logged into view that page!</h2>
+      <h2>You must be logged into use that feature!</h2>
       <div>
         <p>
           <Span onClick={handleLogin}>Login</Span> |{" "}
@@ -52,7 +52,6 @@ function LoginRequired() {
           <Span onClick={handleNavBack}>Go back</Span>
         </p>
       </div>
-      {/* <Button onClick={goBack}>Go back!</Button> */}
     </Div>
   );
 }

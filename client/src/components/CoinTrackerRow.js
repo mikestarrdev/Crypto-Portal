@@ -41,7 +41,7 @@ function CoinTrackerRow({ coin, user }) {
       .then((r) => r.json())
       .then((favorite) => {
         console.log(favorite);
-        setTokenID(favorite);
+        setTokenID((favorite) => setTokenID);
       });
   }
 
@@ -60,12 +60,26 @@ function CoinTrackerRow({ coin, user }) {
     navigate(`/coin/${coin.id}`);
   }
 
+  function handleLoginRequired(e) {
+    e.preventDefault();
+    navigate("/login-required");
+  }
+
   return (
     <>
       <TableRow coin={coin}>
-        <td onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}>
-          {!tokenID ? "☆" : "⭐️"}
-        </td>
+        {user ? (
+          <td
+            onClick={!tokenID ? handleCreateFavorite : handleDeleteFavorite}
+            style={{ cursor: "pointer" }}
+          >
+            {!tokenID ? "☆" : "⭐️"}
+          </td>
+        ) : (
+          <td onClick={handleLoginRequired} style={{ cursor: "pointer" }}>
+            ☆
+          </td>
+        )}
         <td>{coin.market_cap_rank}</td>
         <StyledCells onClick={renderCoinDataPage}>
           <img src={coin.image} alt={coin.symbol + " logo"} width="20em" />{" "}

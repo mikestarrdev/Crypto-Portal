@@ -77,20 +77,22 @@ function Forum({ user }) {
   }
 
   const renderSubforums = subforums.map((subforum) => {
-    return (
-      <tr key={subforum.title}>
-        <td
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(`/forum/${subforum.title}`);
-          }}
-          style={{ color: "#2E5077", cursor: "pointer" }}
-        >
-          {subforum.title}
-        </td>
-        <td>{subforum.posts.length}</td>
-      </tr>
-    );
+    if (subforum.posts.length > 0) {
+      return (
+        <tr key={subforum.title}>
+          <td
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(`/forum/${subforum.title}`);
+            }}
+            style={{ color: "#2E5077", cursor: "pointer" }}
+          >
+            {subforum.title}
+          </td>
+          <td>{subforum.posts.length}</td>
+        </tr>
+      );
+    }
   });
 
   return (

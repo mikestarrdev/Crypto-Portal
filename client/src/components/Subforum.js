@@ -107,9 +107,9 @@ function Subforum({ coin, user }) {
         month = "Dec";
         break;
     }
-    return `${month}-${day}-${year}, ${hours}:${minutes} ${
-      hours < 12 ? "AM" : "PM"
-    }`;
+    return `${month}-${day}-${year}, ${
+      hours > 12 ? hours - 12 : hours
+    }:${minutes} ${hours < 12 ? "am" : "pm"}`;
   }
 
   const renderPostsTable = subforum?.posts?.map((post) => {
@@ -126,7 +126,11 @@ function Subforum({ coin, user }) {
         </td>
         <td>{post.comments.length}</td>
         <td>{post.user.username}</td>
-        <td>{parsedDate(post.user.updated_at)}</td>
+        <td>
+          {post.comments.length > 0
+            ? parsedDate(post.comments[post.comments.length - 1]?.created_at)
+            : parsedDate(post.created_at)}
+        </td>
       </tr>
     );
   });
