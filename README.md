@@ -1,17 +1,52 @@
 # Crypto Portal
 
-# ----
+# Project description:
 
-# User Stories:
+- This was the final project during my time as a software engineering bootcamp student Flatiron. The requirements were to create a fullstack app using the following technologies: Ruby on Rails, JavaScript, React, CSS, HTML. It was a solo project, so I decided on the idea because of my enthusiasm for cryptocurrency, and a desire to gain more experience building React frontends
 
-# A user can create an account and securely login
-# A user can create a profile (about me section, avatar URL, Ethereum address)
-# A user can view other User’s profiles
-# Users can create posts to their profile (and shill their favorite projects)
-# Users can privately message other users on the site
-# A user can add tokens to his favotires
+# features:
 
-# ----
+- View price, marketcap data, and charts for the top cryptocurrencies
+- Users can signup and create an account. After logging into his or her account, a user can access the forum
+- Forum: users can create new forums for cryptocurrencies which don't yet have a forum
+- Users can create posts, delete posts, create comments and delete comments
+
+# Technologies used:
+
+- Frontend is built with React, JavaScript, CSS and HTML
+- React libraries used: React Router, Styled Components, Rechartjs
+- Backend is built using Ruby on Rails, and Postgres as a database
+- Active Record is used to manage the database
+- 3rd party API calls are made to CoinGecko
+
+# Challenges faced:
+
+- Setting up dynamic React Router routes to allow for navigation around the Forum, and CoinData components
+- Making an API call to CoinGecko, then dynamically passing in that data to RechartJS and rendering charts correctly
+- Managing React state correctly so that everything renders correctly
+
+# How to install and run the project
+
+- Fork and clone this repo
+- To setup the backend, run the following commands:
+  $ bundle install
+  $ rails db:create && db:migrate
+  $ rails db:seed
+
+To startup the Rails server:
+$ rails s
+
+- To setup the frontend, run the following commands:
+  $ npm i && npm start --prefix client
+
+# How to use the project
+
+- Go to the signup page and create an account
+- Currently there's no way to change your password from the UI, so save your password if you decide to deploy this project on your own
+- Once logged in, browse the forums, and look through price and marketcap data for various cryptocurrencies
+- Feel free to make adjustments to the CoinGecko API call in the App component. Currently 250 coins are displayed, but this number can be less, if you prefer
+
+# Lisence
 
 Copyright © 2022 personnamedmike
 
