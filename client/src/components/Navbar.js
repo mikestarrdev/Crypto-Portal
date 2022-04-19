@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
 import Forum from "./Forum";
-import Favorites from "./Favorites";
 import LoginRequired from "./LoginRequired";
 
 const Nav = styled.nav`
@@ -53,21 +52,7 @@ function Navbar({ user, setUser, onLogout }) {
           Top 250
         </NavLink>
       </NavBox>
-      {/* <NavBox>
-        {user ? (
-          <NavLink
-            to="/favorites"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            element={<Favorites user={user} />}
-          >
-            Favorites
-          </NavLink>
-        ) : (
-          <NavLink to="/login-required" element={<LoginRequired />}>
-            Favorites
-          </NavLink>
-        )}
-      </NavBox> */}
+
       <NavBox>
         {user ? (
           <>

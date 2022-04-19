@@ -166,7 +166,7 @@ function Chart({ coin }) {
         <br />
 
         <LineChart
-          width={600}
+          width={650}
           height={450}
           data={priceChart}
           margin={{
