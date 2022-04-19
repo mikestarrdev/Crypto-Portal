@@ -49,7 +49,7 @@ function Navbar({ user, setUser, onLogout }) {
           to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          Top 250
+          Price Data
         </NavLink>
       </NavBox>
 

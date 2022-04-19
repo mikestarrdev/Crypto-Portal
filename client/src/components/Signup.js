@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const SignupPage = styled.div`
   /* display: grid; */
   /* grid-template-columns: 5; */
-  border: solid 1px gray;
+  border: solid 1px lightgray;
   margin: auto;
   margin-top: 3rem;
   padding: 1em;
@@ -132,7 +132,7 @@ function Signup({ setUser }) {
           />
         </label>
         <br />
-        <label>
+        {/* <label>
           Enter BTC address:
           <br />
           <input
@@ -152,7 +152,7 @@ function Signup({ setUser }) {
             placeholder="ETH address..."
             onChange={(e) => setEthAddress(e.target.value)}
           />
-        </label>
+        </label> */}
         <br />
         <Button type="submit" value="Signup" />
       </SignupForm>

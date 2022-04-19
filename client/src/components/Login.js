@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const LoginStyles = styled.div`
   display: grid;
   grid-template-columns: 5;
-  border: solid 1px gray;
+  border: solid 1px lightgray;
   margin: auto;
   margin-top: 3rem;
   padding: 1em;

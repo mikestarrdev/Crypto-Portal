@@ -4,7 +4,7 @@ import styled from "styled-components";
 // import EditComment from "./EditComment";
 
 const CommentContainer = styled.div`
-  margin: 1rem;
+  margin: 1.5rem 1rem;
   border: solid #ededed 1px;
   border-radius: 5px;
 `;
