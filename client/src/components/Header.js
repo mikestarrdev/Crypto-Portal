@@ -19,7 +19,7 @@ function Header({ user, setUser, coinData }) {
     <header>
       <Link to="/">
         <h1>
-          Crypto Portal <Subhead>Marketcap, Prices, Forums</Subhead>
+          Crypto Portal <Subhead>Prices, Charts, Forums</Subhead>
         </h1>
       </Link>
       <Navbar user={user} setUser={setUser} />

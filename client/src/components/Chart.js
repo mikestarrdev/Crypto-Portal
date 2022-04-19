@@ -7,46 +7,76 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 
 const ChartContainer = styled.div`
   margin: 1rem;
   padding: 1rem;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
 `;
 
 const Dropdown = styled.select`
   padding: 0.35em;
   border-radius: 5px;
   background: whitesmoke;
-  color: #0079d3;
+  color: black;
+  margin: 0.5rem 1rem;
 `;
 
 const Title = styled.h3`
-  text-align: center;
+  text-align: left;
   margin: 1rem;
 `;
 
 function Chart({ coin }) {
   const [data, setData] = useState([]);
   const [days, setDays] = useState("7");
-  const [interval, setInterval] = useState("daily");
   const [priceChart, setPriceChart] = useState([]);
+  // const [priceMax, setPriceMax] = useState();
+  // const [priceMin, setPriceMin] = useState();
+
+  let interval;
+  {
+    days === "1" ? (interval = "hourly") : (interval = "daily");
+  }
 
   function renderPriceChart(data) {
     let prices = data.prices?.map((price) => {
       if (interval === "daily") {
         return { date: parsedDate(price[0]), price: price[1]?.toFixed(2) };
-        // return setPriceChart([...priceChart, daily]);
       } else if (interval === "hourly") {
         return { date: parsedHour(price[0]), price: price[1] };
-        // return setPriceChart(...priceChart, hourly);
       }
     });
     setPriceChart(prices);
   }
+
+  // function findMin(dataSet) {
+  //   let min = null;
+  //   let prices = data.prices?.map((price) => {
+  //     if (min === null) {
+  //       min = parseInt(price[1].toFixed(2));
+  //     } else if (min > parseInt(price[1])) {
+  //       min = parseInt(price[1].toFixed(2));
+  //     }
+  //   });
+  //   // setPriceMin(min);
+  //   return min;
+  // }
+
+  // function findMax(dataSet) {
+  //   let max = null;
+  //   let prices = data.prices?.map((price) => {
+  //     if (max === null) {
+  //       max = parseInt(price[1].toFixed(2));
+  //     } else if (parseInt(price[1] > max)) {
+  //       max = parseInt(price[1].toFixed(2));
+  //     }
+  //   });
+  //   // setPriceMax(max);
+  //   return max;
+  // }
 
   useEffect(() => {
     fetch(
@@ -56,60 +86,21 @@ function Chart({ coin }) {
       .then((data) => {
         // console.log(data);
         setData(data);
+        // setPriceMin(findMin(data));
+        // setPriceMax(findMax(data));
         renderPriceChart(data);
       });
   }, [coin, days, interval]);
 
-  // let chartData = [
-  //   {
-  //     date: parsedDate(1649808000000),
-  //     price: 3038.2,
-  //   },
-  //   {
-  //     date: parsedDate(1649894400000),
-  //     price: 3121.4,
-  //   },
-  //   {
-  //     date: parsedDate(1649980800000),
-  //     price: 3023.4,
-  //   },
-  //   {
-  //     date: parsedDate(1650067200000),
-  //     price: 3045.42,
-
-  //   },
-  //   {
-  //     date: parsedDate(1650153600000),
-  //     price: 3066.35,
-  //   },
-  //   {
-  //     date: parsedDate(1650240000000),
-  //     price: 2995.72,
-  //   },
-  //   {
-  //     date: parsedDate(1650326400000),
-  //     price: 3061.89,
-  //   },
-  //   {
-  //     date: parsedDate(1650381271000),
-  //     price: 3125.06,
-  //   },
-  // ];
-
-  // console.log(data);
-
   const Form = (
     <form>
       <Dropdown value={days} onChange={(e) => setDays(e.target.value)}>
-        <option value="24 hour">24 hour</option>
+        <option value="1">24 hour</option>
         <option value="7">7 day</option>
+        <option value="14">14 day</option>
         <option value="30">30 day</option>
         <option value="90">90 day</option>
-        {/* <option value="1 year">1 year</option> */}
-      </Dropdown>{" "}
-      <Dropdown value={interval} onChange={(e) => setInterval(e.target.value)}>
-        <option value="daily">daily</option>
-        <option value="hourly">hourly</option>
+        <option value="180">180 day</option>
       </Dropdown>
     </form>
   );
@@ -167,15 +158,9 @@ function Chart({ coin }) {
 
   return (
     <>
-      <ChartContainer
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <ChartContainer>
         <Title>
-          {coin?.name} Prices - {days}
+          {coin?.name} prices - {days} day
         </Title>
         {Form}
         <br />
@@ -195,7 +180,6 @@ function Chart({ coin }) {
           <XAxis dataKey="date" />
           <YAxis domain={["auto", "auto"]} />
           <Tooltip />
-          <Legend />
           <Line
             type="monotone"
             dataKey="price"
@@ -205,7 +189,6 @@ function Chart({ coin }) {
           />
           {/* <Line type="monotone" dataKey="price" stroke="#0079d3" /> */}
         </LineChart>
-        <hr />
       </ChartContainer>
     </>
   );

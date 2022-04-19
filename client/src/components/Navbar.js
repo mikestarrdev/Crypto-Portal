@@ -50,7 +50,7 @@ function Navbar({ user, setUser, onLogout }) {
           to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          Home
+          Top 250
         </NavLink>
       </NavBox>
       {/* <NavBox>
