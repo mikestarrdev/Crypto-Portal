@@ -31,11 +31,22 @@ const Title = styled.h3`
 
 function Chart({ coin }) {
   const [data, setData] = useState([]);
-  const [days, setDays] = useState("7 day");
+  const [days, setDays] = useState("7");
   const [interval, setInterval] = useState("daily");
-  // const [chartData, setChartData] = useState([]);
+  const [priceChart, setPriceChart] = useState([]);
 
-  // console.log(coin);
+  function renderPriceChart(data) {
+    let prices = data.prices?.map((price) => {
+      if (interval === "daily") {
+        return { date: parsedDate(price[0]), price: price[1]?.toFixed(2) };
+        // return setPriceChart([...priceChart, daily]);
+      } else if (interval === "hourly") {
+        return { date: parsedHour(price[0]), price: price[1] };
+        // return setPriceChart(...priceChart, hourly);
+      }
+    });
+    setPriceChart(prices);
+  }
 
   useEffect(() => {
     fetch(
@@ -45,62 +56,56 @@ function Chart({ coin }) {
       .then((data) => {
         // console.log(data);
         setData(data);
+        renderPriceChart(data);
       });
   }, [coin, days, interval]);
 
-  let chartData = [
-    {
-      date: parsedDate(1649808000000),
-      price: 3038.2,
-      mktCap: 764314681923.3135,
-    },
-    {
-      date: parsedDate(1649894400000),
-      price: 3121.4,
-      mktCap: 783560801481.9719,
-    },
-    {
-      date: parsedDate(1649980800000),
-      price: 3023.4,
-      mktCap: 759703443634.6515,
-    },
-    {
-      date: parsedDate(1650067200000),
-      price: 3045.42,
-      mktCap: 771666602547.5923,
-    },
-    {
-      date: parsedDate(1650153600000),
-      price: 3066.35,
-      mktCap: 770439827829.2395,
-    },
-    {
-      date: parsedDate(1650240000000),
-      price: 2995.72,
-      mktCap: 755627152747.4514,
-    },
-    {
-      date: parsedDate(1650326400000),
-      price: 3061.89,
-      mktCap: 776463403746.4385,
-    },
-    {
-      date: parsedDate(1650381271000),
-      price: 3125.06,
-      mktCap: 785765080047.437,
-    },
-  ];
+  // let chartData = [
+  //   {
+  //     date: parsedDate(1649808000000),
+  //     price: 3038.2,
+  //   },
+  //   {
+  //     date: parsedDate(1649894400000),
+  //     price: 3121.4,
+  //   },
+  //   {
+  //     date: parsedDate(1649980800000),
+  //     price: 3023.4,
+  //   },
+  //   {
+  //     date: parsedDate(1650067200000),
+  //     price: 3045.42,
 
-  console.log(data);
+  //   },
+  //   {
+  //     date: parsedDate(1650153600000),
+  //     price: 3066.35,
+  //   },
+  //   {
+  //     date: parsedDate(1650240000000),
+  //     price: 2995.72,
+  //   },
+  //   {
+  //     date: parsedDate(1650326400000),
+  //     price: 3061.89,
+  //   },
+  //   {
+  //     date: parsedDate(1650381271000),
+  //     price: 3125.06,
+  //   },
+  // ];
+
+  // console.log(data);
 
   const Form = (
     <form>
       <Dropdown value={days} onChange={(e) => setDays(e.target.value)}>
         <option value="24 hour">24 hour</option>
-        <option value="7 day">7 day</option>
-        <option value="30 day">30 day</option>
-        <option value="90 day">90 day</option>
-        <option value="1 year">1 year</option>
+        <option value="7">7 day</option>
+        <option value="30">30 day</option>
+        <option value="90">90 day</option>
+        {/* <option value="1 year">1 year</option> */}
       </Dropdown>{" "}
       <Dropdown value={interval} onChange={(e) => setInterval(e.target.value)}>
         <option value="daily">daily</option>
@@ -154,6 +159,12 @@ function Chart({ coin }) {
     return `${month} ${day}`;
   }
 
+  function parsedHour(date) {
+    let pdate = new Date(date);
+    let hour = pdate.getHours();
+    return hour;
+  }
+
   return (
     <>
       <ChartContainer
@@ -172,7 +183,7 @@ function Chart({ coin }) {
         <LineChart
           width={600}
           height={450}
-          data={chartData}
+          data={priceChart}
           margin={{
             top: 5,
             right: 30,
@@ -190,6 +201,7 @@ function Chart({ coin }) {
             dataKey="price"
             stroke="#0079d3"
             activeDot={{ r: 8 }}
+            fill="#D7E8BA"
           />
           {/* <Line type="monotone" dataKey="price" stroke="#0079d3" /> */}
         </LineChart>
