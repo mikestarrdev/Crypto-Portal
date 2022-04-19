@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-// import Chart from "./Chart";
+import Chart from "./Chart";
 
 const CoinDataStyles = styled.div`
   margin: auto;
@@ -265,6 +265,8 @@ function CoinData({ user }) {
           </tr>
         </tfoot>
       </Table>
+      <br />
+      <Chart coin={fullCoinData} />
       <br />
       {user ? (
         <ForumNavigation onClick={handleNavToSubforum}>
