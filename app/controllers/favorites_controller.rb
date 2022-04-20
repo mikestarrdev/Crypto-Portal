@@ -4,11 +4,6 @@ class FavoritesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
 
-
-    def show
-        render json: favorite, status: :ok
-    end
-
     def create
         favorite = Favorite.create!(favorite_params)
         render json: favorite, status: :created

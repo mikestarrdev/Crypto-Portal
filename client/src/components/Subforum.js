@@ -36,7 +36,7 @@ const Table = styled.table`
 `;
 
 const StartForum = styled.div`
-  border: solid black 1px;
+  border: solid whitesmoke 1px;
   margin: 1rem;
   padding: 2rem;
   text-align: center;

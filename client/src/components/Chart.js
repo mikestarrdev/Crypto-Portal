@@ -22,6 +22,8 @@ const Dropdown = styled.select`
   background: whitesmoke;
   color: black;
   margin: 0.5rem 1rem;
+  border: solid 1px lightgray;
+  cursor: pointer;
 `;
 
 const Title = styled.h3`
@@ -101,6 +103,7 @@ function Chart({ coin }) {
         <option value="30">30 day</option>
         <option value="90">90 day</option>
         <option value="180">180 day</option>
+        <option value="365">1 year</option>
       </Dropdown>
     </form>
   );

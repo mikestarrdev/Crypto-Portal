@@ -5,6 +5,7 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Forum from "./Forum";
 import LoginRequired from "./LoginRequired";
+import Favorites from "./Favorites";
 
 const Nav = styled.nav`
   display: flex;
@@ -49,10 +50,28 @@ function Navbar({ user, setUser, onLogout }) {
           to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          Price Data
+          Market Data
         </NavLink>
       </NavBox>
-
+      {/* <NavBox>
+        {user ? (
+          <>
+            <NavBox>
+              <NavLink
+                to="/favorites"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                element={<Favorites user={user} setUser={setUser} />}
+              >
+                Favorites
+              </NavLink>
+            </NavBox>
+          </>
+        ) : (
+          <NavLink to="/login-required" element={<LoginRequired />}>
+            Favorites
+          </NavLink>
+        )}
+      </NavBox> */}
       <NavBox>
         {user ? (
           <>

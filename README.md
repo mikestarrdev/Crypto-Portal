@@ -24,6 +24,7 @@
 - Setting up dynamic React Router routes to allow for navigation around the Forum, and CoinData components
 - Making an API call to CoinGecko, then dynamically passing in that data to RechartJS and rendering charts correctly
 - Managing React state correctly so that everything renders correctly
+- The biggest challenge by far was deciding on which features I wanted to include in the project
 
 # How to install and run the project
 

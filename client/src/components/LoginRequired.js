@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Div = styled.div`
   margin: 1rem;
-  border: solid lightgray 1px;
+  border: solid whitesmoke 1px;
   border-radius: 5px;
   text-align: center;
   padding-bottom: 2rem;

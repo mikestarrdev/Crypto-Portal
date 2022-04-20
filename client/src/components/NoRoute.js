@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Div = styled.div`
   margin: 1rem;
+  text-align: center;
 `;
 
 const Button = styled.button`
@@ -21,7 +22,7 @@ function NoRoute() {
 
   return (
     <Div>
-      <h1>Whoops! Looks like this path doesn't exist!</h1>
+      <h1>Whoops! This page doesn't exist!</h1>
       <Button onClick={goBack}>Go back!</Button>
     </Div>
   );

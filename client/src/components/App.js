@@ -10,11 +10,10 @@ import Login from "./Login";
 import Footer from "./Footer";
 import Forum from "./Forum";
 import Subforum from "./Subforum";
-// import Favorites from "./Favorites";
+import Favorites from "./Favorites";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 import CreateComment from "./CreateComment";
-// import EditComment from "./EditComment";
 import NoRoute from "./NoRoute";
 import LoginRequired from "./LoginRequired";
 
@@ -73,7 +72,9 @@ function App() {
           <Route path="/forum/:coin" element={<Subforum user={user} />} />
           {/* <Route
             path="/favorites"
-            element={<Favorites user={user} setUser={setUser} />}
+            element={
+              <Favorites user={user} setUser={setUser} coinData={coinData} />
+            }
           /> */}
           <Route
             path="/create-post/:title/:id"
@@ -84,10 +85,6 @@ function App() {
             path="/create-comment/:id/:title"
             element={<CreateComment postTitle user={user} />}
           />
-          {/* <Route
-            path="/edit-comment/:comment/:commentID/:postID"
-            element={<EditComment user={user} />}
-          /> */}
         </Routes>
       </MainContainer>
       <Footer />

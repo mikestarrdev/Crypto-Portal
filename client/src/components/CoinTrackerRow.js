@@ -20,7 +20,7 @@ function CoinTrackerRow({ coin, user, setUser }) {
 
   let navigate = useNavigate();
 
-  useEffect(searchFavorites, [user?.favorites]);
+  useEffect(searchFavorites, [user.favorites?.length]);
 
   // check if token is in User favorites
   function searchFavorites() {
@@ -51,12 +51,9 @@ function CoinTrackerRow({ coin, user, setUser }) {
   function handleDeleteFavorite() {
     fetch(`/favorites/${tokenID.id}`, {
       method: "DELETE",
-    }).then((r) => {
-      setTokenID(false);
     });
+    setTokenID(false);
   }
-
-  // console.log(tokenID);
 
   function renderCoinDataPage(e) {
     e.preventDefault();
