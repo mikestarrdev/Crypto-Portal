@@ -5,9 +5,9 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Forum from "./Forum";
 import LoginRequired from "./LoginRequired";
-import Favorites from "./Favorites";
 
 const Nav = styled.nav`
+  /* font-family: major-mono; */
   display: flex;
   flex-wrap: wrap;
   flex-flow: row;
@@ -20,7 +20,6 @@ const Nav = styled.nav`
   & a:active {
     text-decoration: underline;
     color: #2e5077;
-    /* padding: 1em; */
   }
 `;
 
@@ -38,7 +37,6 @@ const Span = styled.span`
 `;
 
 function Navbar({ user, setUser, onLogout }) {
-  // NavLink styles
   let activeStyle = {
     fontWeight: "bold",
   };
@@ -53,25 +51,6 @@ function Navbar({ user, setUser, onLogout }) {
           Market Data
         </NavLink>
       </NavBox>
-      {/* <NavBox>
-        {user ? (
-          <>
-            <NavBox>
-              <NavLink
-                to="/favorites"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                element={<Favorites user={user} setUser={setUser} />}
-              >
-                Favorites
-              </NavLink>
-            </NavBox>
-          </>
-        ) : (
-          <NavLink to="/login-required" element={<LoginRequired />}>
-            Favorites
-          </NavLink>
-        )}
-      </NavBox> */}
       <NavBox>
         {user ? (
           <>

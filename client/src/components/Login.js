@@ -78,7 +78,7 @@ function Login({ setUser, user }) {
     });
     const user = await response.json();
     if (response.ok) {
-      console.log("Logged in:", user);
+      // console.log("Logged in:", user);
       setUser(user);
       navigate("/");
     } else {

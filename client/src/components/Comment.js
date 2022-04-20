@@ -132,7 +132,6 @@ function Comment({
           ) : null}
         </p>
       </UserDiv>
-
       <Content>{comment}</Content>
     </CommentContainer>
   );

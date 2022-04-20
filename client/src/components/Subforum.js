@@ -32,7 +32,7 @@ const Table = styled.table`
   text-align: left;
   width: 95%;
   margin: 1rem;
-  border: solid 1px lightgray;
+  border: solid 1px whitesmoke;
 `;
 
 const StartForum = styled.div`

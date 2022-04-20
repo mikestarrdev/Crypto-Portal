@@ -10,7 +10,7 @@ import Login from "./Login";
 import Footer from "./Footer";
 import Forum from "./Forum";
 import Subforum from "./Subforum";
-import Favorites from "./Favorites";
+// import Favorites from "./Favorites";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 import CreateComment from "./CreateComment";

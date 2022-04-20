@@ -17,8 +17,8 @@ const ChartContainer = styled.div`
 `;
 
 const Dropdown = styled.select`
-  padding: 0.35em;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   background: whitesmoke;
   color: black;
   margin: 0.5rem 1rem;
@@ -54,42 +54,13 @@ function Chart({ coin }) {
     setPriceChart(prices);
   }
 
-  // function findMin(dataSet) {
-  //   let min = null;
-  //   let prices = data.prices?.map((price) => {
-  //     if (min === null) {
-  //       min = parseInt(price[1].toFixed(2));
-  //     } else if (min > parseInt(price[1])) {
-  //       min = parseInt(price[1].toFixed(2));
-  //     }
-  //   });
-  //   // setPriceMin(min);
-  //   return min;
-  // }
-
-  // function findMax(dataSet) {
-  //   let max = null;
-  //   let prices = data.prices?.map((price) => {
-  //     if (max === null) {
-  //       max = parseInt(price[1].toFixed(2));
-  //     } else if (parseInt(price[1] > max)) {
-  //       max = parseInt(price[1].toFixed(2));
-  //     }
-  //   });
-  //   // setPriceMax(max);
-  //   return max;
-  // }
-
   useEffect(() => {
     fetch(
       `https://api.coingecko.com/api/v3/coins/${coin?.id}/market_chart?vs_currency=usd&days=${days}&interval=${interval}`
     )
       .then((r) => r.json())
       .then((data) => {
-        // console.log(data);
         setData(data);
-        // setPriceMin(findMin(data));
-        // setPriceMax(findMax(data));
         renderPriceChart(data);
       });
   }, [coin, days, interval]);

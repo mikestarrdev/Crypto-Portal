@@ -187,7 +187,6 @@ function Post({ user }) {
         <UserDiv>
           <p>
             User: {post.user?.username} | Posted: {parsedDate(post?.created_at)}{" "}
-            |{" "}
             {post.comments?.length === 0 && post.user?.id === user?.id ? (
               <>
                 <Delete onClick={handleDeletePost}>DELETE </Delete>
@@ -196,6 +195,22 @@ function Post({ user }) {
           </p>
         </UserDiv>
         <Content>{post.body}</Content>
+        {/* <UserDiv>
+          <p>
+            {post.user?.btc_address ? (
+              <>
+                <strong>BTC:</strong> {post.user.btc_address}
+              </>
+            ) : null}
+            
+            <br />
+            {post.user?.eth_address ? (
+              <>
+                <strong>ETH:</strong> {post.user.eth_address}
+              </>
+            ) : null}
+          </p>
+        </UserDiv> */}
       </CommentContainer>
       {renderComments}
 

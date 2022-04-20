@@ -5,7 +5,9 @@ import CoinTrackerRow from "./CoinTrackerRow";
 
 const Container = styled.div`
   margin: 1rem;
+  width: 100%;
   overflow: scroll;
+  border: solid whitesmoke 1px;
 `;
 
 const SearchBar = styled.input`

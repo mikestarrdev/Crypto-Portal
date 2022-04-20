@@ -118,6 +118,8 @@ function CoinData({ user }) {
       case 11:
         month = "Dec";
         break;
+      default:
+        break;
     }
     return `${month}-${day}-${year}, ${
       hours > 12 ? hours - 12 : hours
@@ -256,9 +258,7 @@ function CoinData({ user }) {
         <tfoot>
           <tr>
             <CellNoBorder>
-              <DateSpan
-                style={{ "font-style": "italic", "font-size": "small" }}
-              >
+              <DateSpan style={{ fontStyle: "italic", fontSize: "small" }}>
                 Last Updated: {parsedDate(fullCoinData?.last_updated)}
               </DateSpan>
             </CellNoBorder>

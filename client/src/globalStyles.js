@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
         /* margin-top: 0.5rem; */
         border-collapse: collapse;
+        
     }
 
     
@@ -29,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
         display: table-cell;
         vertical-align: inherit;
         padding: 1rem;
-        border-top: 1px solid lightgray;
+        border-top: 1px solid whitesmoke;
         text-align: justify;
     }
 

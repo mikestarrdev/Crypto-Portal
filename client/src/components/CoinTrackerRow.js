@@ -20,7 +20,7 @@ function CoinTrackerRow({ coin, user, setUser }) {
 
   let navigate = useNavigate();
 
-  useEffect(searchFavorites, [user.favorites?.length]);
+  useEffect(searchFavorites, [user?.favorites, coin.id]);
 
   // check if token is in User favorites
   function searchFavorites() {

@@ -5,10 +5,11 @@ import Navbar from "./Navbar";
 
 const Subhead = styled.span`
   font-family: "Ubuntu Mono", monospace;
+  /* font-family: "Major Mono" */
   font-size: medium;
   font-weight: normal;
   background: #d7e8ba;
-  /* background-image: linear-gradient(#ffa630, #d7e8ba); */
+
   color: black;
   padding: 0rem 0.2rem;
   border-radius: 3px;

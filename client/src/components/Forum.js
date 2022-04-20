@@ -10,7 +10,7 @@ const Table = styled.table`
   text-align: left;
   width: 95%;
   margin: 1rem;
-  border: solid lightgray 1px;
+  border: solid whitesmoke 1px;
 `;
 
 function Forum({ user }) {
