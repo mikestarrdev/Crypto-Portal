@@ -2,7 +2,9 @@
 
 # Project description:
 
-- This was the final project during my time as a software engineering bootcamp student Flatiron. The requirements were to create a fullstack app using the following technologies: Ruby on Rails, JavaScript, React, CSS, HTML. It was a solo project, so I decided on the idea because of my enthusiasm for cryptocurrency, and a desire to gain more experience building React frontends
+This was the final project during my time as a software engineering bootcamp student Flatiron. The requirements were to create a fullstack app using the following technologies: Ruby on Rails, JavaScript, React, CSS, HTML. It was a solo project, so I decided on the idea because of my enthusiasm for cryptocurrency, and a desire to gain more experience building React frontends.
+
+The Flatiron Software Engineering program was a 15 week program. This project was a culmination of ~10 months of coding experience. 15 weeks in the bootcamp, and the rest self-taught.
 
 # features:
 
