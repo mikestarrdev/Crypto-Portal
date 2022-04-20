@@ -42,7 +42,7 @@ const ForumNav = styled.div`
   padding: 0.5rem;
 `;
 
-const Headline = styled.h3`
+const Headline = styled.h2`
   text-align: left;
   margin: 0.5rem 1rem 1rem 1rem;
 `;
@@ -195,22 +195,6 @@ function Post({ user }) {
           </p>
         </UserDiv>
         <Content>{post.body}</Content>
-        {/* <UserDiv>
-          <p>
-            {post.user?.btc_address ? (
-              <>
-                <strong>BTC:</strong> {post.user.btc_address}
-              </>
-            ) : null}
-            
-            <br />
-            {post.user?.eth_address ? (
-              <>
-                <strong>ETH:</strong> {post.user.eth_address}
-              </>
-            ) : null}
-          </p>
-        </UserDiv> */}
       </CommentContainer>
       {renderComments}
 

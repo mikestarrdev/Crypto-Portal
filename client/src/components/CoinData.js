@@ -18,6 +18,7 @@ const Headline = styled.h1`
   text-align: justify;
   margin: 0;
   margin-bottom: 0.5em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 const Table = styled.table`

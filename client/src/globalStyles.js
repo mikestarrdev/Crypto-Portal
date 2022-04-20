@@ -6,7 +6,6 @@ const GlobalStyle = createGlobalStyle`
         padding: 0px;
     }
     body {
-        font-family: 'Ubuntu Mono', monospace;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         box-sizing: border-box;
         
@@ -15,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
         background: whitesmoke;
         background-image: linear-gradient( #FFA630, #D7E8BA);
         padding-top: 0.5rem;
+        /* font-family: 'Ubuntu Mono', monospace; */
+        
     }
     
 
@@ -41,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
+        font-family: 'Major Mono Display', monospace;
         text-align: left;
         margin: 1rem;
         
@@ -50,11 +52,12 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
         margin: 1.5rem;
         font-weight: bold;
+        font-family: 'Ubuntu Mono', monospace;
     }
 
     h4 {
         margin: 1rem 1rem 0rem 1rem;
-     text-align: left;
+        text-align: left;
     }
 
     button {
@@ -108,6 +111,18 @@ const GlobalStyle = createGlobalStyle`
         margin-top: 0.5rem;
         width: 60%;
         /* background: whitesmoke; */
+    }
+
+    footer {
+        font-family: 'Ubuntu Mono', monospace;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background: whitesmoke;
+        margin: auto;
+        margin-top: 5rem;
+        padding: 5rem;
+        border-top: 1px solid lightgray;
     }
 `;
 

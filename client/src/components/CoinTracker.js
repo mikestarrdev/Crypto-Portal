@@ -43,7 +43,7 @@ function CoinTracker({ user, setUser, coinData }) {
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           value={search}
-          placeholder="🔎  Search Top 100..."
+          placeholder="🔎  Search..."
         />
       </form>
       <Container>

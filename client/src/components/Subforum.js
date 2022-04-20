@@ -23,9 +23,10 @@ const ForumNav = styled.div`
   padding: 0.5rem;
 `;
 
-const Headline = styled.h3`
+const Headline = styled.h1`
   text-align: left;
   margin: 1rem;
+  font-family: "Ubuntu Mono", monospace;
 `;
 
 const Table = styled.table`

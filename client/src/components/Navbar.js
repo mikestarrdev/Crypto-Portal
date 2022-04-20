@@ -7,7 +7,7 @@ import Forum from "./Forum";
 import LoginRequired from "./LoginRequired";
 
 const Nav = styled.nav`
-  /* font-family: major-mono; */
+  /* font-family: monospace */
   display: flex;
   flex-wrap: wrap;
   flex-flow: row;
