@@ -16,15 +16,9 @@ const UserDiv = styled.div`
   font-size: smaller;
 `;
 
-const Linebreak = styled.hr``;
-
 const Content = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
-`;
-
-const P = styled.p`
-  margin: 1rem;
 `;
 
 const Delete = styled.span`
@@ -113,6 +107,8 @@ function Comment({
       case 11:
         month = "Dec";
         break;
+      default:
+        month = "";
     }
     return `${month}-${day}-${year}, ${hours}:${minutes} ${
       hours < 12 ? "AM" : "PM"

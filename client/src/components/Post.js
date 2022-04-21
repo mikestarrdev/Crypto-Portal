@@ -118,6 +118,8 @@ function Post({ user }) {
       case 11:
         month = "Dec";
         break;
+      default:
+        month = "";
     }
     return `${month}-${day}-${year}, ${
       hours > 12 ? hours - 12 : hours

@@ -32,15 +32,16 @@ const Title = styled.h3`
 `;
 
 function Chart({ coin }) {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [days, setDays] = useState("7");
   const [priceChart, setPriceChart] = useState([]);
-  // const [priceMax, setPriceMax] = useState();
-  // const [priceMin, setPriceMin] = useState();
 
   let interval;
-  {
-    days === "1" ? (interval = "hourly") : (interval = "daily");
+
+  if (days === "1") {
+    interval = "hourly";
+  } else {
+    interval = "daily";
   }
 
   function renderPriceChart(data) {
@@ -60,7 +61,7 @@ function Chart({ coin }) {
     )
       .then((r) => r.json())
       .then((data) => {
-        setData(data);
+        // setData(data);
         renderPriceChart(data);
       });
   }, [coin, days, interval]);
