@@ -7,7 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-} from "recharts";
+} from "rechartjs";
 
 const ChartContainer = styled.div`
   margin: 1rem;
