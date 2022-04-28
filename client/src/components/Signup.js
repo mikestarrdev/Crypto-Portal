@@ -78,9 +78,7 @@ function Signup({ setUser }) {
       body: JSON.stringify({
         username,
         password,
-        email,
-        btc_address: btcAddress,
-        eth_address: ethAddress,
+        email
       }),
     });
     const user = await response.json();

@@ -7,14 +7,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-} from "recharts";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
 } from "rechartjs";
 
 const ChartContainer = styled.div`
