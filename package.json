@@ -1,17 +1,35 @@
 {
-    "name": "crypto-portal",
-    "description": "Build scripts for Heroku",
-    "engines": {
-        "node": "16.x"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "clean": "rm -rf public",
-        "build": "npm install --prefix client && npm run build --prefix client",
-        "deploy": "cp -a client/build/. public/",
-        "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
-    },
-    "dependencies": {
-        "recharts": "^2.1.9"
-    }
+  "name": "crypto-portal",
+  "description": "Build scripts for Heroku",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "clean": "rm -rf public",
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "recharts": "^2.1.9"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/personnamedmike/Crypto_Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/personnamedmike/Crypto_Dashboard/issues"
+  },
+  "homepage": "https://github.com/personnamedmike/Crypto_Dashboard#readme"
 }
