@@ -19,7 +19,7 @@ const HeaderComponent = styled.header`
 
 const H1 = styled.h1`
   display: flex;
-  padding: 0 0.5rem;
+  padding-right: 0.5rem;
 `;
 
 const Subhead = styled.span`

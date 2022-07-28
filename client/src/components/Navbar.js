@@ -7,15 +7,12 @@ import Forum from "./Forum";
 import LoginRequired from "./LoginRequired";
 
 const Nav = styled.nav`
-  /* font-family: monospace */
   display: flex;
   flex-wrap: wrap;
-  flex-flow: row;
   justify-content: left;
   width: auto;
   background-color: whitesmoke;
-  padding: 0.25rem 0rem;
-  margin-top: 1.5rem;
+  padding: 0.75rem 0.5rem;
 
   & a:active {
     text-decoration: underline;

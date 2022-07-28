@@ -7,10 +7,9 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        box-sizing: border-box;
         display: flex;
         justify-content: start;
-        text-size-adjust: none;
+        
     }    
     
     td, th {
@@ -88,9 +87,7 @@ const GlobalStyle = createGlobalStyle`
         margin-top: 0.5rem;
         width: 60%;
         /* background: whitesmoke; */
-    }
-
-    
+    } 
 `;
 
 export default GlobalStyle;
