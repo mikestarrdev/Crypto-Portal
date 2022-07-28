@@ -4,16 +4,22 @@ import { v4 as uuidv4 } from "uuid";
 import CoinTrackerRow from "./CoinTrackerRow";
 
 const Container = styled.div`
-  margin: 1rem;
-  width: 100%;
-  overflow: scroll;
+  margin: 1rem 0;
   border: solid whitesmoke 1px;
+  width: 100%;
+  /* overflow-x: scroll; */
 `;
 
 const SearchBar = styled.input`
   border-radius: 5px;
   margin-left: 1em;
   width: fit-content;
+`;
+
+const Table = styled.table`
+  /* table-layout: auto; */
+  /* width: 100%; */
+  /* overflow: scroll; */
 `;
 
 function CoinTracker({ user, setUser, coinData }) {
@@ -47,7 +53,7 @@ function CoinTracker({ user, setUser, coinData }) {
         />
       </form>
       <Container>
-        <table>
+        <Table>
           <thead>
             <tr>
               <th></th>
@@ -61,7 +67,7 @@ function CoinTracker({ user, setUser, coinData }) {
             </tr>
           </thead>
           <tbody>{coinTable}</tbody>
-        </table>
+        </Table>
       </Container>
     </>
   );

@@ -8,24 +8,10 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         box-sizing: border-box;
-        
-    }
-    header {
-        background: whitesmoke;
-        background-image: linear-gradient( #FFA630, #D7E8BA);
-        padding-top: 0.5rem;
-        /* font-family: 'Ubuntu Mono', monospace; */
-        
-    }
-    
-
-    table {
-        text-align: center;
-        /* margin-top: 0.5rem; */
-        border-collapse: collapse;
-        
-    }
-
+        display: flex;
+        justify-content: start;
+        text-size-adjust: none;
+    }    
     
     td, th {
         display: table-cell;
@@ -35,24 +21,15 @@ const GlobalStyle = createGlobalStyle`
         text-align: justify;
     }
 
-    thead {
-        background: whitesmoke;
-        color: black
-        
-    }
-
     h1 {
-        font-family: 'Major Mono Display', monospace;
         text-align: left;
         margin: 1rem;
-        
     }
 
     h2 {
         text-align: center;
         margin: 1.5rem;
         font-weight: bold;
-        font-family: 'Ubuntu Mono', monospace;
     }
 
     h4 {
@@ -113,17 +90,7 @@ const GlobalStyle = createGlobalStyle`
         /* background: whitesmoke; */
     }
 
-    footer {
-        font-family: 'Ubuntu Mono', monospace;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        background: whitesmoke;
-        margin: auto;
-        margin-top: 5rem;
-        padding: 5rem;
-        border-top: 1px solid lightgray;
-    }
+    
 `;
 
 export default GlobalStyle;

@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyle from "../globalStyles";
 import Header from "./Header";
+import Navbar from "./Navbar";
 import CoinTracker from "./CoinTracker";
 import CoinData from "./CoinData";
 import Signup from "./Signup";
@@ -16,10 +17,6 @@ import Post from "./Post";
 import CreateComment from "./CreateComment";
 import NoRoute from "./NoRoute";
 import LoginRequired from "./LoginRequired";
-
-const MainContainer = styled.div`
-  display: grid;
-`;
 
 function App() {
   const [user, setUser] = useState("");
@@ -46,49 +43,46 @@ function App() {
       });
   }, []);
 
-  // const ct = { user };
-
   return (
-    <div>
+    <>
       <GlobalStyle />
-      <Header user={user} setUser={setUser} coinData={coinData} />
-      <MainContainer>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <CoinTracker user={user} setUser={setUser} coinData={coinData} />
-            }
-          />
-          <Route path="*" element={<NoRoute />} />
-          <Route path="/forum" element={<Forum user={user} />} />
-          <Route path="/login-required" element={<LoginRequired />} />
-          <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route
-            path="/login"
-            element={<Login user={user} setUser={setUser} />}
-          />
-          <Route path="/coin/:id" element={<CoinData user={user} />} />
-          <Route path="/forum/:coin" element={<Subforum user={user} />} />
-          {/* <Route
+      <Header />
+      <Navbar user={user} setUser={setUser} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <CoinTracker user={user} setUser={setUser} coinData={coinData} />
+          }
+        />
+        <Route path="*" element={<NoRoute />} />
+        <Route path="/forum" element={<Forum user={user} />} />
+        <Route path="/login-required" element={<LoginRequired />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route
+          path="/login"
+          element={<Login user={user} setUser={setUser} />}
+        />
+        <Route path="/coin/:id" element={<CoinData user={user} />} />
+        <Route path="/forum/:coin" element={<Subforum user={user} />} />
+        {/* <Route
             path="/favorites"
             element={
               <Favorites user={user} setUser={setUser} coinData={coinData} />
             }
           /> */}
-          <Route
-            path="/create-post/:title/:id"
-            element={<CreatePost user={user} />}
-          />
-          <Route path="/posts/:id/" element={<Post user={user} />} />
-          <Route
-            path="/create-comment/:id/:title"
-            element={<CreateComment postTitle user={user} />}
-          />
-        </Routes>
-      </MainContainer>
+        <Route
+          path="/create-post/:title/:id"
+          element={<CreatePost user={user} />}
+        />
+        <Route path="/posts/:id/" element={<Post user={user} />} />
+        <Route
+          path="/create-comment/:id/:title"
+          element={<CreateComment postTitle user={user} />}
+        />
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
