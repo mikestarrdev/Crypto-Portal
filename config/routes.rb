@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/auth", to: "users#auth" 
   delete "/logout", to: "sessions#destroy"
   get "/forum/:title", to: "forums#forum_title"
+  
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
 end
  

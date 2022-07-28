@@ -64,7 +64,7 @@ function Chart({ coin }) {
         // setData(data);
         renderPriceChart(data);
       });
-  }, [coin, days, interval]);
+  }, [coin, days, interval, renderPriceChart]);
 
   const Form = (
     <form>

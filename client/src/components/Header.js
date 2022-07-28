@@ -1,27 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Navbar from "./Navbar";
+
+const HeaderComponent = styled.header`
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  width: auto;
+  background: whitesmoke;
+  background-image: linear-gradient(#ffa630, #d7e8ba);
+  padding: 0.5rem;
+
+  @media only screen and (max-width: 766px) {
+    flex-direction: column;
+    justify-content: left;
+  }
+`;
+
+const H1 = styled.h1`
+  display: flex;
+  padding: 0 0.5rem;
+`;
 
 const Subhead = styled.span`
-  font-family: "Major Mono Display", monospace;
-  font-size: medium;
-  background: #d7e8ba;
+  align-items: end;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: medium;
   color: black;
-  padding: 0rem 0.2rem;
+  margin: 1rem;
+  padding-bottom: 0.25rem;
   border-radius: 3px;
 `;
 
-function Header({ user, setUser, coinData }) {
+function Header() {
   return (
-    <header>
+    <HeaderComponent>
       <Link to="/">
-        <h1>
-          Crypto Portal <Subhead>Prices, Charts, Forums</Subhead>
-        </h1>
+        <H1>Crypto Portal</H1>
       </Link>
-      <Navbar user={user} setUser={setUser} />
-    </header>
+      <Subhead>Prices, Charts, Forums</Subhead>
+    </HeaderComponent>
   );
 }
 

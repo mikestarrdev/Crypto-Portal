@@ -64,8 +64,7 @@ function Signup({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [confirmPassword, setConfirmPassword] = useState("");
-  const [btcAddress, setBtcAddress] = useState("");
-  const [ethAddress, setEthAddress] = useState("");
+ 
 
   const navigate = useNavigate();
 
@@ -79,9 +78,7 @@ function Signup({ setUser }) {
       body: JSON.stringify({
         username,
         password,
-        email,
-        btc_address: btcAddress,
-        eth_address: ethAddress,
+        email
       }),
     });
     const user = await response.json();
@@ -132,27 +129,6 @@ function Signup({ setUser }) {
           />
         </label>
         <br />
-        {/* <label>
-          Enter BTC address:
-          <br />
-          <input
-            type="text"
-            defaultValue={btcAddress}
-            placeholder="BTC address..."
-            onChange={(e) => setBtcAddress(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Enter ETH address:
-          <br />
-          <input
-            type="text"
-            defaultValue={ethAddress}
-            placeholder="ETH address..."
-            onChange={(e) => setEthAddress(e.target.value)}
-          />
-        </label> */}
         <br />
         <Button type="submit" value="Signup" />
       </SignupForm>
