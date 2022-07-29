@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "express": "^4.18.0",
-    "recharts": "^2.1.9"
+    "recharts": "^2.1.9",
+    "serve": "^14.0.1"
   },
   "version": "1.0.0",
   "main": "index.js",
