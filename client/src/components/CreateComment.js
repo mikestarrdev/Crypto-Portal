@@ -69,17 +69,20 @@ function CreateComment({ user, postID, postTitle }) {
 
   async function handleCreateComment(e) {
     e.preventDefault();
-    const response = await fetch("/comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        content,
-        user_id: user.id,
-        post_id: parseInt(params.id),
-      }),
-    });
+    const response = await fetch(
+      "https://cryptoportal.herokuapp.com/comments",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content,
+          user_id: user.id,
+          post_id: parseInt(params.id),
+        }),
+      }
+    );
     const comment = await response.json();
     if (response.ok) {
       console.log("Comment created:", comment);

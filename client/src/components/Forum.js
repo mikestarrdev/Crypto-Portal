@@ -17,7 +17,7 @@ function Forum({ user }) {
   const [subforums, setSubforums] = useState([]);
 
   useEffect(() => {
-    fetch("/forums")
+    fetch("https://cryptoportal.herokuapp.com/forums")
       .then((r) => r.json())
       .then((subforums) => {
         setSubforums(subforums);

@@ -65,7 +65,7 @@ function Post({ user }) {
   let params = useParams();
 
   useEffect(() => {
-    fetch(`/posts/${params.id}`)
+    fetch(`https://cryptoportal.herokuapp.com/posts/${params.id}`)
       .then((r) => r.json())
       .then((post) => {
         setPost(post);
@@ -159,7 +159,7 @@ function Post({ user }) {
       confirmation.toLowerCase() === `"delete"` ||
       confirmation.toLowerCase() === `delete`
     ) {
-      fetch(`/posts/${post.id}`, {
+      fetch(`https://cryptoportal.herokuapp.com/posts/${post.id}`, {
         method: "DELETE",
       });
       navigate(`/forum/${post.forum?.title}`);

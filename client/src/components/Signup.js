@@ -64,13 +64,12 @@ function Signup({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [confirmPassword, setConfirmPassword] = useState("");
- 
 
   const navigate = useNavigate();
 
   async function handleSignup(e) {
     e.preventDefault();
-    const response = await fetch("/users", {
+    const response = await fetch("https://cryptoportal.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +77,7 @@ function Signup({ setUser }) {
       body: JSON.stringify({
         username,
         password,
-        email
+        email,
       }),
     });
     const user = await response.json();

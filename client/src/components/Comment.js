@@ -49,7 +49,7 @@ function Comment({
       confirmation.toLowerCase() === `"delete"` ||
       confirmation.toLowerCase() === `delete`
     ) {
-      fetch(`/comments/${commentID}`, {
+      fetch(`https://cryptoportal.herokuapp.com/comments/${commentID}`, {
         method: "DELETE",
       });
       navigate(0);

@@ -56,7 +56,7 @@ function Subforum({ coin, user }) {
   let params = useParams();
 
   useEffect(() => {
-    fetch(`/forum/${params.coin}`)
+    fetch(`https://cryptoportal.herokuapp.com/forum/${params.coin}`)
       .then((r) => r.json())
       .then((data) => {
         setSubforum(data);
@@ -139,7 +139,7 @@ function Subforum({ coin, user }) {
   });
 
   async function createForumAndPost() {
-    const response = await fetch("/forums", {
+    const response = await fetch("https://cryptoportal.herokuapp.com/forums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +157,9 @@ function Subforum({ coin, user }) {
 
   async function createFirstPost(e) {
     e.preventDefault();
-    const response = await fetch(`/forum/${params.coin}`);
+    const response = await fetch(
+      `https://cryptoportal.herokuapp.com/forum/${params.coin}`
+    );
     // const forum = await response.json();
     if (!response.ok) {
       console.log("forum desn't exist");

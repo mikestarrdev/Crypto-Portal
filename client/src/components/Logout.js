@@ -12,7 +12,7 @@ function Logout({ setUser }) {
 
   function handleLogout(e) {
     e.preventDefault();
-    fetch("/logout", {
+    fetch("https://cryptoportal.herokuapp.com/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

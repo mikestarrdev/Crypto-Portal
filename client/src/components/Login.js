@@ -69,7 +69,7 @@ function Login({ setUser, user }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("/login", {
+    const response = await fetch("https://cryptoportal.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -64,16 +64,19 @@ function EditComment({ user, comment }) {
 
   async function handleEditComment(e) {
     e.preventDefault();
-    const response = await fetch(`/comments/${params.commentID}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        content,
-        comment_id: parseInt(params.commentID),
-      }),
-    });
+    const response = await fetch(
+      `https://cryptoportal.herokuapp.com/comments/${params.commentID}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content,
+          comment_id: parseInt(params.commentID),
+        }),
+      }
+    );
     const comment = await response.json();
     if (response.ok) {
       console.log("Comment updated:", comment);

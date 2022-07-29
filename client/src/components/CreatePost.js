@@ -70,7 +70,7 @@ function CreatePost({ user }) {
 
   async function handleCreatePost(e) {
     e.preventDefault();
-    const response = await fetch("/posts", {
+    const response = await fetch("https://cryptoportal.herokuapp.com/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
